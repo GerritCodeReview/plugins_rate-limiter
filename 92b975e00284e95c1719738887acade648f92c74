@@ -1,0 +1,658 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2ef5c982_bb9d4c67",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-22T21:00:43Z",
+      "side": 1,
+      "message": "introduced",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 9
+      },
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a021a288_c8af2f41",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-22T21:00:43Z",
+      "side": 1,
+      "message": "limits",
+      "range": {
+        "startLine": 17,
+        "startChar": 48,
+        "endLine": 17,
+        "endChar": 53
+      },
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fcded856_917737e8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-22T21:00:43Z",
+      "side": 1,
+      "message": "supports",
+      "range": {
+        "startLine": 21,
+        "startChar": 23,
+        "endLine": 21,
+        "endChar": 30
+      },
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "500db7c2_600c78ee",
+        "filename": "src/main/resources/Documentation/cmd-list.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-22T21:00:43Z",
+      "side": 1,
+      "message": "\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 16
+      },
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "440aa657_f384533a",
+        "filename": "src/main/resources/Documentation/cmd-list.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-22T21:00:43Z",
+      "side": 1,
+      "message": "Would insert a blank line above NAME.",
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93fb9c36_f82aa672",
+        "filename": "src/main/resources/Documentation/cmd-list.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-22T21:00:43Z",
+      "side": 1,
+      "message": "Add a blank line?",
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc73d799_97f17c66",
+        "filename": "src/main/resources/Documentation/cmd-list.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-22T21:00:43Z",
+      "side": 1,
+      "message": "[just-one-space-instead-of-many?]ssh",
+      "range": {
+        "startLine": 8,
+        "startChar": 1,
+        "endLine": 8,
+        "endChar": 9
+      },
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bef59c97_a4085a7d",
+        "filename": "src/main/resources/Documentation/cmd-list.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-22T21:00:43Z",
+      "side": 1,
+      "message": "Remove? -Along with resulting extra blank line.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 7
+      },
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68a110e3_7080a2a6",
+        "filename": "src/main/resources/Documentation/cmd-list.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-22T21:00:43Z",
+      "side": 1,
+      "message": "Would remove extra blank line.",
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e170720_7e0e37b5",
+        "filename": "src/main/resources/Documentation/cmd-list.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-22T21:00:43Z",
+      "side": 1,
+      "message": "Also for all above prompt lines, would use just one space between \u003e and the actual characters, rather than 5.",
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "812cb1ad_43d8a1dd",
+        "filename": "src/main/resources/Documentation/cmd-replenish.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-22T21:00:43Z",
+      "side": 1,
+      "message": "User",
+      "range": {
+        "startLine": 26,
+        "startChar": 2,
+        "endLine": 26,
+        "endChar": 6
+      },
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "971492e7_e452f300",
+        "filename": "src/main/resources/Documentation/cmd-replenish.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-22T21:00:43Z",
+      "side": 1,
+      "message": "-------",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 9
+      },
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8fc66831_b01274c1",
+        "filename": "src/main/resources/Documentation/cmd-replenish.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-22T21:00:43Z",
+      "side": 1,
+      "message": "Review comments for the other .md file would also apply here in this file.",
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd8ff041_5c0896a3",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-22T21:00:43Z",
+      "side": 1,
+      "message": "type.",
+      "range": {
+        "startLine": 9,
+        "startChar": 49,
+        "endLine": 9,
+        "endChar": 54
+      },
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c7c5215_a80c5814",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-22T21:00:43Z",
+      "side": 1,
+      "message": "Premature line wrap?",
+      "range": {
+        "startLine": 8,
+        "startChar": 31,
+        "endLine": 9,
+        "endChar": 6
+      },
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90ec032e_bde10ff6",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-22T21:00:43Z",
+      "side": 1,
+      "message": "logged-in users, rate limits",
+      "range": {
+        "startLine": 24,
+        "startChar": 4,
+        "endLine": 24,
+        "endChar": 31
+      },
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "856734a6_e6920b29",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-22T21:00:43Z",
+      "side": 1,
+      "message": "users, rate",
+      "range": {
+        "startLine": 25,
+        "startChar": 10,
+        "endLine": 25,
+        "endChar": 20
+      },
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a778bbd8_b25bc524",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-22T21:00:43Z",
+      "side": 1,
+      "message": "(e.g.,\na proxy), then they",
+      "range": {
+        "startLine": 26,
+        "startChar": 67,
+        "endLine": 27,
+        "endChar": 13
+      },
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9beae4e7_dea7ce44",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-22T21:00:43Z",
+      "side": 1,
+      "message": "`rate-limiter.config`,",
+      "range": {
+        "startLine": 29,
+        "startChar": 54,
+        "endLine": 29,
+        "endChar": 75
+      },
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99652d64_59560690",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-22T21:00:43Z",
+      "side": 1,
+      "message": "limit that applies is",
+      "range": {
+        "startLine": 30,
+        "startChar": 4,
+        "endLine": 30,
+        "endChar": 25
+      },
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "906c56da_a2a23cc8",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-22T21:00:43Z",
+      "side": 1,
+      "message": "logged-\nin",
+      "range": {
+        "startLine": 35,
+        "startChar": 70,
+        "endLine": 36,
+        "endChar": 2
+      },
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b80459fb_7f4b992b",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-22T21:00:43Z",
+      "side": 1,
+      "message": "second, \"soft\"",
+      "range": {
+        "startLine": 38,
+        "startChar": 2,
+        "endLine": 38,
+        "endChar": 15
+      },
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c2ffbca_a2c650dd",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-22T21:00:43Z",
+      "side": 1,
+      "message": "ends",
+      "range": {
+        "startLine": 41,
+        "startChar": 4,
+        "endLine": 41,
+        "endChar": 10
+      },
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1d6e6ab_2f90dfa8",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-22T21:00:43Z",
+      "side": 1,
+      "message": "invalid, a",
+      "range": {
+        "startLine": 86,
+        "startChar": 39,
+        "endLine": 86,
+        "endChar": 48
+      },
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e215b58b_1bf64ba8",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-22T21:00:43Z",
+      "side": 1,
+      "message": "Configures a rate limit of maximum 30 fetch requests per",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 54
+      },
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7e4f398_9603e1e2",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-22T21:00:43Z",
+      "side": 1,
+      "message": "setting the\n`configuration.uploadpackLimitExceededMsg` parameter in",
+      "range": {
+        "startLine": 99,
+        "startChar": 53,
+        "endLine": 100,
+        "endChar": 45
+      },
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b90eabd_8ab25975",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-22T21:00:43Z",
+      "side": 1,
+      "message": "The `${rateLimit}` token",
+      "range": {
+        "startLine": 101,
+        "startChar": 6,
+        "endLine": 101,
+        "endChar": 26
+      },
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5a0be6e_d295bfdc",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-22T21:00:43Z",
+      "side": 1,
+      "message": "by the effective",
+      "range": {
+        "startLine": 102,
+        "startChar": 17,
+        "endLine": 102,
+        "endChar": 29
+      },
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aba8e285_00e7bfab",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-22T21:00:43Z",
+      "side": 1,
+      "message": "Also, maybe the line wrap above is somewhat premature.",
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa05e1a3_60ff7c7a",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-08-22T21:00:43Z",
+      "side": 1,
+      "message": "`.",
+      "range": {
+        "startLine": 104,
+        "startChar": 68,
+        "endLine": 104,
+        "endChar": 69
+      },
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
