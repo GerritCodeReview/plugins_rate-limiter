@@ -71,6 +71,46 @@
     },
     {
       "key": {
+        "uuid": "a768c510_ccbab66d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2018-08-23T09:13:51Z",
+      "side": 1,
+      "message": "For my understanding: why was a support for hourly rate limits considered to be the most important?",
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c5a0843_fa06fc09",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2018-08-23T09:13:51Z",
+      "side": 1,
+      "message": "space between",
+      "range": {
+        "startLine": 30,
+        "startChar": 2,
+        "endLine": 30,
+        "endChar": 4
+      },
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d0a0458b_6df4df96",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/Configuration.java",
         "patchSetId": 3
@@ -105,6 +145,52 @@
       "writtenOn": "2018-08-23T09:04:24Z",
       "side": 1,
       "message": "configuring a limit for a not existing group hits an exception\npreventing that the rate-limiter plugin is loaded\n\nWARN  com.google.gerrit.server.plugins.PluginLoader : Cannot load plugin rate-limiter\ncom.google.inject.CreationException: Unable to create injector, see the following errors:\n\n1) Invalid configuration, group not found: buildserver\n  at com.googlesource.gerrit.plugins.ratelimiter.Configuration.\u003cinit\u003e(Configuration.java:48)\n  at com.googlesource.gerrit.plugins.ratelimiter.Module.configure(Module.java:42)\n  while locating com.googlesource.gerrit.plugins.ratelimiter.Configuration\n\n1 error\n\tat com.google.inject.internal.Errors.throwCreationExceptionIfErrorsExist(Errors.java:543)\n\tat com.google.inject.internal.InternalInjectorCreator.injectDynamically(InternalInjectorCreator.java:186)\n\tat com.google.inject.internal.InternalInjectorCreator.build(InternalInjectorCreator.java:109)\n\tat com.google.inject.internal.InjectorImpl.createChildInjector(InjectorImpl.java:237)\n\tat com.google.inject.internal.InjectorImpl.createChildInjector(InjectorImpl.java:242)\n\tat com.google.gerrit.server.plugins.ServerPlugin.startPlugin(ServerPlugin.java:208)\n\tat com.google.gerrit.server.plugins.ServerPlugin.start(ServerPlugin.java:190)\n\tat com.google.gerrit.server.plugins.PluginLoader.runPlugin(PluginLoader.java:522)\n\tat com.google.gerrit.server.plugins.PluginLoader.rescan(PluginLoader.java:451)\n\tat com.google.gerrit.server.plugins.PluginLoader.start(PluginLoader.java:358)\n\tat com.google.gerrit.lifecycle.LifecycleManager.start(LifecycleManager.java:92)\n\tat com.google.gerrit.pgm.Daemon.start(Daemon.java:324)\n\tat com.google.gerrit.pgm.Daemon.run(Daemon.java:233)\n\tat com.google.gerrit.pgm.util.AbstractProgram.main(AbstractProgram.java:61)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat com.google.gerrit.launcher.GerritLauncher.invokeProgram(GerritLauncher.java:204)\n\tat com.google.gerrit.launcher.GerritLauncher.mainImpl(GerritLauncher.java:108)\n\tat com.google.gerrit.launcher.GerritLauncher.main(GerritLauncher.java:63)\n\tat Main.main(Main.java:24)\n\nI think this shouldn\u0027t prevent that the plugin is loaded. Instead just the warning should be logged.\n\nWhat happens if a limit is defined for an existing group and then this group is deleted without\ndeleting this limit ?",
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48ae8c60_829637b7",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/HourlyRateLimiter.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2018-08-23T09:13:51Z",
+      "side": 1,
+      "message": "Looks like HourlyRateLimiter class was implemented before the RateLimiter interface which it implements :-)",
+      "range": {
+        "startLine": 1,
+        "startChar": 17,
+        "endLine": 1,
+        "endChar": 21
+      },
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2925023_b858a1f7",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/HourlyRateLimiter.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2018-08-23T09:13:51Z",
+      "side": 1,
+      "message": "Factory is normally declared before constructor.",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 3
+      },
       "revId": "92b975e00284e95c1719738887acade648f92c74",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
@@ -179,6 +265,69 @@
     },
     {
       "key": {
+        "uuid": "e8a48b98_5533ca08",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/WarningHourlyRateLimiter.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2018-08-23T09:13:51Z",
+      "side": 1,
+      "message": "wouldn\u0027t this rather belong to the RateLimiterStatsLog class?",
+      "range": {
+        "startLine": 31,
+        "startChar": 29,
+        "endLine": 31,
+        "endChar": 41
+      },
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f1b9f50_da1b3e62",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/WarningHourlyRateLimiter.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2018-08-23T09:13:51Z",
+      "side": 1,
+      "message": "This is not thread safe. Two concurrent threads may both get false result here and then\nboth acquire a permit in the line 66 and thus increase the number of used permits by 2 without\nproducing a warning. Example:\n\n  permitsPerHour: 100\n  warnLimit: 50\n  availablePermits: 51\n\nNow, threads T1 and T2 both reach line 60 at the same time, the condition is false for both\nT1 and T2. Both T1 and T2 proceed to line 66 and both acquire a permit. The state afterwards is:\n\n  permitsPerHour: 100\n  warnLimit: 50\n  availablePermits: 49\n\nand no warning was produced and will not be produced.",
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2fa66a81_9fbfbba1",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/WarningHourlyRateLimiter.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2018-08-23T09:13:51Z",
+      "side": 1,
+      "message": "This might be easier to read if there would be a usedPermits() method.",
+      "range": {
+        "startLine": 60,
+        "startChar": 8,
+        "endLine": 60,
+        "endChar": 45
+      },
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "055f2e70_6c09f2d6",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/WarningHourlyRateLimiter.java",
         "patchSetId": 3
@@ -196,6 +345,23 @@
         "endLine": 62,
         "endChar": 58
       },
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aaabcc4b_34575191",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/WarningHourlyRateLimiter.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2018-08-23T09:13:51Z",
+      "side": 1,
+      "message": "This is only true after a permit is actually acquired (line 66).",
       "revId": "92b975e00284e95c1719738887acade648f92c74",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
@@ -241,6 +407,52 @@
         "startChar": 22,
         "endLine": 5,
         "endChar": 30
+      },
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b8a2b4a_4fa17d1b",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2018-08-23T09:13:51Z",
+      "side": 1,
+      "message": "@PLUGIN@",
+      "range": {
+        "startLine": 75,
+        "startChar": 21,
+        "endLine": 75,
+        "endChar": 33
+      },
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73e207c0_3f26269b",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2018-08-23T09:13:51Z",
+      "side": 1,
+      "message": "The target name in the BUILD file is \"rate_limiter_tests\", so this instruction has\na typo (slash instead of underscore).\n\nChange here to @PLUGIN@ and also change the target name in the BUILD file to use \"-\"",
+      "range": {
+        "startLine": 75,
+        "startChar": 34,
+        "endLine": 75,
+        "endChar": 46
       },
       "revId": "92b975e00284e95c1719738887acade648f92c74",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
@@ -711,6 +923,29 @@
         "startChar": 4,
         "endLine": 41,
         "endChar": 10
+      },
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "09e7e601_58311d89",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2018-08-23T09:13:51Z",
+      "side": 1,
+      "message": "For better readability and clearer naming structure:\n\n  uploadpackperhour_warn",
+      "range": {
+        "startLine": 47,
+        "startChar": 4,
+        "endLine": 47,
+        "endChar": 25
       },
       "revId": "92b975e00284e95c1719738887acade648f92c74",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
