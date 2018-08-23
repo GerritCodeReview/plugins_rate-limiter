@@ -71,6 +71,183 @@
     },
     {
       "key": {
+        "uuid": "d0a0458b_6df4df96",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/Configuration.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2018-08-23T09:04:24Z",
+      "side": 1,
+      "message": "this is specific for limiting fetch requests, so it should have a more specific name",
+      "range": {
+        "startLine": 38,
+        "startChar": 30,
+        "endLine": 38,
+        "endChar": 61
+      },
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35fc6554_cfc5c64b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/Configuration.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2018-08-23T09:04:24Z",
+      "side": 1,
+      "message": "configuring a limit for a not existing group hits an exception\npreventing that the rate-limiter plugin is loaded\n\nWARN  com.google.gerrit.server.plugins.PluginLoader : Cannot load plugin rate-limiter\ncom.google.inject.CreationException: Unable to create injector, see the following errors:\n\n1) Invalid configuration, group not found: buildserver\n  at com.googlesource.gerrit.plugins.ratelimiter.Configuration.\u003cinit\u003e(Configuration.java:48)\n  at com.googlesource.gerrit.plugins.ratelimiter.Module.configure(Module.java:42)\n  while locating com.googlesource.gerrit.plugins.ratelimiter.Configuration\n\n1 error\n\tat com.google.inject.internal.Errors.throwCreationExceptionIfErrorsExist(Errors.java:543)\n\tat com.google.inject.internal.InternalInjectorCreator.injectDynamically(InternalInjectorCreator.java:186)\n\tat com.google.inject.internal.InternalInjectorCreator.build(InternalInjectorCreator.java:109)\n\tat com.google.inject.internal.InjectorImpl.createChildInjector(InjectorImpl.java:237)\n\tat com.google.inject.internal.InjectorImpl.createChildInjector(InjectorImpl.java:242)\n\tat com.google.gerrit.server.plugins.ServerPlugin.startPlugin(ServerPlugin.java:208)\n\tat com.google.gerrit.server.plugins.ServerPlugin.start(ServerPlugin.java:190)\n\tat com.google.gerrit.server.plugins.PluginLoader.runPlugin(PluginLoader.java:522)\n\tat com.google.gerrit.server.plugins.PluginLoader.rescan(PluginLoader.java:451)\n\tat com.google.gerrit.server.plugins.PluginLoader.start(PluginLoader.java:358)\n\tat com.google.gerrit.lifecycle.LifecycleManager.start(LifecycleManager.java:92)\n\tat com.google.gerrit.pgm.Daemon.start(Daemon.java:324)\n\tat com.google.gerrit.pgm.Daemon.run(Daemon.java:233)\n\tat com.google.gerrit.pgm.util.AbstractProgram.main(AbstractProgram.java:61)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat com.google.gerrit.launcher.GerritLauncher.invokeProgram(GerritLauncher.java:204)\n\tat com.google.gerrit.launcher.GerritLauncher.mainImpl(GerritLauncher.java:108)\n\tat com.google.gerrit.launcher.GerritLauncher.main(GerritLauncher.java:63)\n\tat Main.main(Main.java:24)\n\nI think this shouldn\u0027t prevent that the plugin is loaded. Instead just the warning should be logged.\n\nWhat happens if a limit is defined for an existing group and then this group is deleted without\ndeleting this limit ?",
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "292809ef_600111e4",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/RateLimit.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2018-08-23T09:04:24Z",
+      "side": 1,
+      "message": "can we, instead of hard coding the time interval the rate is limiting, make it configurable by adding another parameter:\n\nRateLimit(RateLimitType, int requestLimit, Duration limitInterval)",
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52cb25ad_c149cdcb",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/RateLimitException.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2018-08-23T09:04:24Z",
+      "side": 1,
+      "message": "maybe it makes sense to add the RateLimiter to the exception so that its configuration can be accessed from the code which might want to handle a RateLimitException. This would require to declare the RateLimiter methods public which might be interesting for the code trying to handle a RateLimitException",
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0da1247_8d61e5ea",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/RateLimitType.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2018-08-23T09:04:24Z",
+      "side": 1,
+      "message": "I think this should be just UPLOAD_PACK and we add an interval parameter to the RateLimit itself, default for the latter could be 1 hour",
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6247ec09_7aa85139",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/ReplenishCommand.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2018-08-23T09:04:24Z",
+      "side": 1,
+      "message": "nice :-)\n\nWe will also need a REST API for the ssh commands introduced here since we can\u0027t use ssh in the cloud. We can add this in another change.",
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "055f2e70_6c09f2d6",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/WarningHourlyRateLimiter.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2018-08-23T09:04:24Z",
+      "side": 1,
+      "message": "this is the actual rate limit type, so better use the text defined by the type enum and use it to format this message",
+      "range": {
+        "startLine": 62,
+        "startChar": 47,
+        "endLine": 62,
+        "endChar": 58
+      },
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4c23cfd_c1304a3b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/WarningHourlyRateLimiter.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2018-08-23T09:04:24Z",
+      "side": 1,
+      "message": "don\u0027t hard code the rate limit type in this message",
+      "range": {
+        "startLine": 69,
+        "startChar": 59,
+        "endLine": 69,
+        "endChar": 70
+      },
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad32f064_0588e741",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2018-08-23T09:04:24Z",
+      "side": 1,
+      "message": "fetch requests per hour",
+      "range": {
+        "startLine": 5,
+        "startChar": 22,
+        "endLine": 5,
+        "endChar": 30
+      },
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "500db7c2_600c78ee",
         "filename": "src/main/resources/Documentation/cmd-list.md",
         "patchSetId": 3
@@ -191,6 +368,29 @@
     },
     {
       "key": {
+        "uuid": "3bc2b7aa_26d73455",
+        "filename": "src/main/resources/Documentation/cmd-list.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2018-08-23T09:04:24Z",
+      "side": 1,
+      "message": "why this format which is hard to read ? I think 59:30 min would be easier to read",
+      "range": {
+        "startLine": 35,
+        "startChar": 65,
+        "endLine": 35,
+        "endChar": 73
+      },
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8e170720_7e0e37b5",
         "filename": "src/main/resources/Documentation/cmd-list.md",
         "patchSetId": 3
@@ -265,6 +465,23 @@
       "writtenOn": "2018-08-22T21:00:43Z",
       "side": 1,
       "message": "Review comments for the other .md file would also apply here in this file.",
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1082cacb_cb4f3f63",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2018-08-23T09:04:24Z",
+      "side": 1,
+      "message": "we want to be able to configure this in refs/meta/config branch of All-Projects, could be added as another configuration option in a later change",
       "revId": "92b975e00284e95c1719738887acade648f92c74",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
@@ -495,6 +712,40 @@
         "endLine": 41,
         "endChar": 10
       },
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0f5dcce_02b78f66",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2018-08-23T09:04:24Z",
+      "side": 1,
+      "message": "I think it would be useful to return this message also to the git client in the same way like the error message is transferred when hard limit is reached",
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e921f04_86e12ccf",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2018-08-23T09:04:24Z",
+      "side": 1,
+      "message": "Why that ? I think it would be useful if an administrator who wants to introduce rate limits but doesn\u0027t yet have an idea what rate limit would be reasonable could use a warning limit without hard limit to log how often a first guess for the rate limit is reached on a real server before defining a hard limit and enforcing that.",
       "revId": "92b975e00284e95c1719738887acade648f92c74",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
