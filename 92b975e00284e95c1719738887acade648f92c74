@@ -626,6 +626,30 @@
     },
     {
       "key": {
+        "uuid": "ab3e48e1_39d4475f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/WarningHourlyRateLimiter.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-09-14T18:03:13Z",
+      "side": 1,
+      "message": "Good point then yes; will consider for this very change.",
+      "parentUuid": "6cf50cf2_bc6e718e",
+      "range": {
+        "startLine": 31,
+        "startChar": 29,
+        "endLine": 31,
+        "endChar": 41
+      },
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4f1b9f50_da1b3e62",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/WarningHourlyRateLimiter.java",
         "patchSetId": 3
@@ -746,6 +770,48 @@
       "side": 1,
       "message": "No time pressure just question: when do you plan to upload a patch-set which addresses this issue?",
       "parentUuid": "a47f4a93_6ace3bda",
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55c90c66_47c8619e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/WarningHourlyRateLimiter.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-09-14T18:03:13Z",
+      "side": 1,
+      "message": "That is what I previously meant, sorry for the lack of clarity. -To be considered for a near patch set then yes.",
+      "parentUuid": "1a17f1bc_96837b72",
+      "range": {
+        "startLine": 60,
+        "startChar": 8,
+        "endLine": 60,
+        "endChar": 45
+      },
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a235ce91_0df67df9",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/WarningHourlyRateLimiter.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-09-14T18:03:13Z",
+      "side": 1,
+      "message": "Planned in this current sprint of ours; depends on our newcomers ramp-up too.",
+      "parentUuid": "20c8106f_6978d274",
       "revId": "92b975e00284e95c1719738887acade648f92c74",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
