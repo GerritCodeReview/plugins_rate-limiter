@@ -182,6 +182,24 @@
     },
     {
       "key": {
+        "uuid": "fa0b3d5e_86b7b649",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1071622
+      },
+      "writtenOn": "2018-10-10T19:03:07Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "898dbae1_2f907ed3",
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c5a0843_fa06fc09",
         "filename": "/COMMIT_MSG",
         "patchSetId": 3
@@ -311,6 +329,24 @@
       "revId": "92b975e00284e95c1719738887acade648f92c74",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ee212d8_8d317f1f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/Configuration.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1071622
+      },
+      "writtenOn": "2018-10-10T19:03:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "033bd44c_82f9d21b",
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -446,6 +482,24 @@
     },
     {
       "key": {
+        "uuid": "22cccc2f_7ea3b69a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/RateLimit.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1071622
+      },
+      "writtenOn": "2018-10-10T19:03:07Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2eb998d6_9c8c3c63",
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "52cb25ad_c149cdcb",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/RateLimitException.java",
         "patchSetId": 3
@@ -479,6 +533,24 @@
       "revId": "92b975e00284e95c1719738887acade648f92c74",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a78ebe6e_31af0dd8",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/RateLimitException.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1071622
+      },
+      "writtenOn": "2018-10-10T19:03:07Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e4d5f48b_4b13e2fc",
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -518,6 +590,24 @@
     },
     {
       "key": {
+        "uuid": "3b7f5a74_3f98d7a7",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/RateLimitType.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1071622
+      },
+      "writtenOn": "2018-10-10T19:03:07Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6792bacf_56115060",
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6247ec09_7aa85139",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/ReplenishCommand.java",
         "patchSetId": 3
@@ -551,6 +641,24 @@
       "revId": "92b975e00284e95c1719738887acade648f92c74",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c302c118_75133e64",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/ReplenishCommand.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1071622
+      },
+      "writtenOn": "2018-10-10T19:03:07Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "54f250b3_f983681b",
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -647,6 +755,30 @@
       "revId": "92b975e00284e95c1719738887acade648f92c74",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b5df09e_594ab581",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/WarningHourlyRateLimiter.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1071622
+      },
+      "writtenOn": "2018-10-10T19:03:07Z",
+      "side": 1,
+      "message": "Done. The logging setup was moved to the RateLimiterStatsLog class",
+      "parentUuid": "ab3e48e1_39d4475f",
+      "range": {
+        "startLine": 31,
+        "startChar": 29,
+        "endLine": 31,
+        "endChar": 41
+      },
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -818,6 +950,48 @@
     },
     {
       "key": {
+        "uuid": "474a0120_5e78b340",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/WarningHourlyRateLimiter.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1071622
+      },
+      "writtenOn": "2018-10-10T19:03:07Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "a235ce91_0df67df9",
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d2bdf35c_5b433ac7",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/WarningHourlyRateLimiter.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1071622
+      },
+      "writtenOn": "2018-10-10T19:03:07Z",
+      "side": 1,
+      "message": "A new variable and get method has been added to the rate-limiter base class during the implementation during the implementation of the Warning only limiter.",
+      "parentUuid": "55c90c66_47c8619e",
+      "range": {
+        "startLine": 60,
+        "startChar": 8,
+        "endLine": 60,
+        "endChar": 45
+      },
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "055f2e70_6c09f2d6",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/WarningHourlyRateLimiter.java",
         "patchSetId": 3
@@ -902,6 +1076,48 @@
     },
     {
       "key": {
+        "uuid": "da79d83d_feb7f8c7",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/WarningHourlyRateLimiter.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1071622
+      },
+      "writtenOn": "2018-10-10T19:03:07Z",
+      "side": 1,
+      "message": "Agreed. Code modified.",
+      "parentUuid": "5276e031_e3788ab2",
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11d803fb_f24ebc4c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/WarningHourlyRateLimiter.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1071622
+      },
+      "writtenOn": "2018-10-10T19:03:07Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a761db43_92bc375f",
+      "range": {
+        "startLine": 62,
+        "startChar": 47,
+        "endLine": 62,
+        "endChar": 58
+      },
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a4c23cfd_c1304a3b",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/WarningHourlyRateLimiter.java",
         "patchSetId": 3
@@ -950,6 +1166,30 @@
     },
     {
       "key": {
+        "uuid": "cb035df5_1f6671f0",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/WarningHourlyRateLimiter.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1071622
+      },
+      "writtenOn": "2018-10-10T19:03:07Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "363e1b5e_1198828f",
+      "range": {
+        "startLine": 69,
+        "startChar": 59,
+        "endLine": 69,
+        "endChar": 70
+      },
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad32f064_0588e741",
         "filename": "src/main/resources/Documentation/about.md",
         "patchSetId": 3
@@ -992,6 +1232,30 @@
         "endChar": 30
       },
       "tag": "autogenerated:gerrit:newPatchSet",
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b5b1162_519c29cf",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1071622
+      },
+      "writtenOn": "2018-10-10T19:03:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bec4acf3_2e93876f",
+      "range": {
+        "startLine": 5,
+        "startChar": 22,
+        "endLine": 5,
+        "endChar": 30
+      },
       "revId": "92b975e00284e95c1719738887acade648f92c74",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
@@ -1262,6 +1526,30 @@
     },
     {
       "key": {
+        "uuid": "ddd0bcad_5949699c",
+        "filename": "src/main/resources/Documentation/cmd-list.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1071622
+      },
+      "writtenOn": "2018-10-10T19:03:07Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "78d8ec02_bd611ee3",
+      "range": {
+        "startLine": 8,
+        "startChar": 1,
+        "endLine": 8,
+        "endChar": 9
+      },
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bef59c97_a4085a7d",
         "filename": "src/main/resources/Documentation/cmd-list.md",
         "patchSetId": 3
@@ -1394,6 +1682,30 @@
     },
     {
       "key": {
+        "uuid": "95b3d3e1_8c88ac01",
+        "filename": "src/main/resources/Documentation/cmd-list.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1071622
+      },
+      "writtenOn": "2018-10-10T19:03:07Z",
+      "side": 1,
+      "message": "The new format for a duration comes with Java8 and is compatible with ISO8601. Little bit different,agreed, but is it not a standard ?\n\nhttps://docs.oracle.com/javase/8/docs/api/java/time/Duration.html",
+      "parentUuid": "156436f0_c9c270a4",
+      "range": {
+        "startLine": 35,
+        "startChar": 65,
+        "endLine": 35,
+        "endChar": 73
+      },
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e170720_7e0e37b5",
         "filename": "src/main/resources/Documentation/cmd-list.md",
         "patchSetId": 3
@@ -1427,6 +1739,24 @@
       "revId": "92b975e00284e95c1719738887acade648f92c74",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9244258_7f0a6ca3",
+        "filename": "src/main/resources/Documentation/cmd-list.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1071622
+      },
+      "writtenOn": "2018-10-10T19:03:07Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f165a07d_50733c4c",
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -1595,6 +1925,24 @@
       "revId": "92b975e00284e95c1719738887acade648f92c74",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21ee91a3_45bee8c7",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1071622
+      },
+      "writtenOn": "2018-10-10T19:03:07Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0024f098_f52c72bf",
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -2066,6 +2414,24 @@
     },
     {
       "key": {
+        "uuid": "9550e5c7_f82ca3f1",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1071622
+      },
+      "writtenOn": "2018-10-10T19:03:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f2194fa3_77625497",
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2c2ffbca_a2c650dd",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 3
@@ -2162,6 +2528,30 @@
     },
     {
       "key": {
+        "uuid": "bfedd81e_f2d3a2f1",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1071622
+      },
+      "writtenOn": "2018-10-10T19:03:07Z",
+      "side": 1,
+      "message": "Tried this but it appears this format is unsupported. There appears to be a problem when the configuration file uses an underscore as a variable name.\n\nWhen the variable name is changed from uploadpackperhourwarn to uploadpackperhour_warn the code that reads this\n\naround Configuration.java:56\n\n\n  config \u003d pluginConfigFactory.getGlobalPluginConfig(pluginName);\n\nDoes not return any groups (no exception thrown either) and you end up with the following in the log.\n\n[2018-09-20 08:05:50,692] [main] WARN com.google.gerrit.server.config.PluginConfigFactory : Failed to load /home/lmcdawh/gerritclean/gerrit/../gerrit_testsite/etc/rate-limiter.config: org.eclipse.jgit.errors.ConfigInvalidException: Cannot read file ../gerrit_testsite/etc/rate-limiter.config",
+      "parentUuid": "5673b571_c3074cfa",
+      "range": {
+        "startLine": 47,
+        "startChar": 4,
+        "endLine": 47,
+        "endChar": 25
+      },
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e0f5dcce_02b78f66",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 3
@@ -2198,6 +2588,24 @@
     },
     {
       "key": {
+        "uuid": "01aeaf7d_62654ef6",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1071622
+      },
+      "writtenOn": "2018-10-10T19:03:07Z",
+      "side": 1,
+      "message": "Considered this and took a look but we may need to defer this at this time.\n\nThe rate-limit plugin works by implementing an UploadValidationListener interface. In our case RateLimitUploadPack. This has two methods onPreupload (we don\u0027t do anything) and  onBeginNegotiate. \n\nThe only return mechanism is via a ValidationException  with Message which presumably causes the operation to fail. My assumption is we can\u0027t use this. There may be other mechanisms but I think we would have to bind another listener.\n\nMaybe another option would be to trigger some sort of email as was discussed in the informing the Administrator feature. Maybe the two features could be combined by mailing the admin and the user when a warning is hit ?",
+      "parentUuid": "d3556cb6_64701159",
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7e921f04_86e12ccf",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 3
@@ -2231,6 +2639,24 @@
       "revId": "92b975e00284e95c1719738887acade648f92c74",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b769487_ba5679c8",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1071622
+      },
+      "writtenOn": "2018-10-10T19:03:07Z",
+      "side": 1,
+      "message": "Agreed. Implemented a WarningUnlimited rate limiter which supports a warning message with no hard limit.",
+      "parentUuid": "8ab660b0_143c4684",
+      "revId": "92b975e00284e95c1719738887acade648f92c74",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
