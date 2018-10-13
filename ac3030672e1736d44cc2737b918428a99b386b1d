@@ -48,6 +48,92 @@
     },
     {
       "key": {
+        "uuid": "eadbe065_7b6b43fd",
+        "filename": "WORKSPACE",
+        "patchSetId": 5
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-10-13T18:44:47Z",
+      "side": 1,
+      "message": "0cdf281f110834b71ae134afe0a7e3fe346f0078\n\u003c\u003d\u003e\n2.14.15 -by now.",
+      "range": {
+        "startLine": 6,
+        "startChar": 14,
+        "endLine": 6,
+        "endChar": 54
+      },
+      "revId": "ac3030672e1736d44cc2737b918428a99b386b1d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d47f9a34_0f89bc4c",
+        "filename": "bazlets.bzl",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-10-13T18:44:47Z",
+      "side": 1,
+      "message": "load(\"@bazel_tools//tools/build_defs/repo:git.bzl\", \"git_repository\")\n\nNAME \u003d \"com_googlesource_gerrit_bazlets\"\n\n-This comment goes with the one below, about replacing native.git_repository with the skylark rule. Explanation from similar commits in other plugins:\n\n\"The native.git_repository rule does not work properly when invoked in a `git submodule foreach` command. Bazel will deprecate the native rules anyway, so replace with skylark\u0027s git_repository. See [1] for context.\n[1] https://github.com/bazelbuild/bazel/issues/6358#issuecomment-429103745\".",
+      "revId": "ac3030672e1736d44cc2737b918428a99b386b1d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fdcee217_401ba61a",
+        "filename": "bazlets.bzl",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-10-13T18:44:47Z",
+      "side": 1,
+      "message": "git_repository(\n\n(Relates to above companion comment.)",
+      "range": {
+        "startLine": 7,
+        "startChar": 8,
+        "endLine": 7,
+        "endChar": 30
+      },
+      "revId": "ac3030672e1736d44cc2737b918428a99b386b1d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca27f751_12b1a461",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 5
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-10-13T18:44:47Z",
+      "side": 1,
+      "message": "2.23.0 is the latest version that is currently being set in the other plugins.",
+      "range": {
+        "startLine": 6,
+        "startChar": 45,
+        "endLine": 6,
+        "endChar": 51
+      },
+      "revId": "ac3030672e1736d44cc2737b918428a99b386b1d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3cb2c17e_82b2e234",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 5
