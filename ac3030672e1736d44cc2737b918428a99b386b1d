@@ -134,6 +134,63 @@
     },
     {
       "key": {
+        "uuid": "47275680_ede851e3",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/HourlyRateLimiter.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2018-10-15T09:59:45Z",
+      "side": 1,
+      "message": "There is still a race condition here, between this code and the code in the replenishPermits method. What could happen is:\n* the replenishPermits method releases all used permits (line 74)\n* one or more threads successfully acquire permits (line 50) and increases usedPermits\n* the \"replenish\" thread then continues and sets usedPermits to zero (line 75)\n\nAlthough both the semaphore and usedPermits variables are individually thread safe, they\nare not updated together in a thread safe manner here... so they can run out of sync.",
+      "revId": "ac3030672e1736d44cc2737b918428a99b386b1d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3cd9d9ec_d9bd29d8",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/HourlyRateLimiter.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2018-10-15T09:59:45Z",
+      "side": 1,
+      "message": "This should be exactly usedPermits, so why not use that here?",
+      "range": {
+        "startLine": 74,
+        "startChar": 22,
+        "endLine": 74,
+        "endChar": 63
+      },
+      "revId": "ac3030672e1736d44cc2737b918428a99b386b1d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "017681ed_82f04975",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/WarningHourlyRateLimiter.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2018-10-15T09:59:45Z",
+      "side": 1,
+      "message": "This is not thread safe. Assume: usedPermits \u003d 49, warnLimit \u003d 50.\n* thread T1 acquires permit (line 61), usedPermits is increased to 50\n* thread T2 acquires permit (line 61), usedPermits is increased to 51\n* thread T1 proceeds to this line and the condition is false\n* thread T2 proceeds to this line and the condition is false\n* no warning is produced",
+      "revId": "ac3030672e1736d44cc2737b918428a99b386b1d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3cb2c17e_82b2e234",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 5
