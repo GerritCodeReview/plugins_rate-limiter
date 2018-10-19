@@ -21,7 +21,7 @@ import com.google.gerrit.common.data.GroupDescription;
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.reviewdb.client.AccountGroup;
 import com.google.gerrit.server.config.PluginConfigFactory;
-import com.google.gerrit.server.group.GroupsCollection;
+import com.google.gerrit.server.restapi.group.GroupsCollection;
 import com.google.inject.Inject;
 import com.google.inject.ProvisionException;
 import com.google.inject.Singleton;
