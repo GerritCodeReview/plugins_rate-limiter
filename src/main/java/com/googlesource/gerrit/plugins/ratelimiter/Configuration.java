@@ -21,7 +21,7 @@ import com.google.gerrit.common.data.GroupDescription;
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.reviewdb.client.AccountGroup;
 import com.google.gerrit.server.config.PluginConfigFactory;
-import com.google.gerrit.server.group.GroupsCollection;
+import com.google.gerrit.server.group.GroupResolver;
 import com.google.inject.Inject;
 import com.google.inject.ProvisionException;
 import com.google.inject.Singleton;
@@ -50,14 +50,14 @@ class Configuration {
   Configuration(
       PluginConfigFactory pluginConfigFactory,
       @PluginName String pluginName,
-      GroupsCollection groupsCollection) {
+      GroupResolver groupsResolver) {
     Config config = pluginConfigFactory.getGlobalPluginConfig(pluginName);
-    parseAllGroupsRateLimits(config, groupsCollection);
+    parseAllGroupsRateLimits(config, groupsResolver);
     rateLimitExceededMsg = parseLimitExceededMsg(config);
   }
 
-  private void parseAllGroupsRateLimits(Config config, GroupsCollection groupsCollection) {
-    Map<String, AccountGroup.UUID> groups = getResolvedGroups(config, groupsCollection);
+  private void parseAllGroupsRateLimits(Config config, GroupResolver groupsResolver) {
+    Map<String, AccountGroup.UUID> groups = getResolvedGroups(config, groupsResolver);
     if (groups.size() == 0) {
       return;
     }
@@ -68,10 +68,10 @@ class Configuration {
   }
 
   private Map<String, AccountGroup.UUID> getResolvedGroups(
-      Config config, GroupsCollection groupsCollection) {
+      Config config, GroupResolver groupsResolver) {
     LinkedHashMap<String, AccountGroup.UUID> groups = new LinkedHashMap<>();
     for (String groupName : config.getSubsections(GROUP_SECTION)) {
-      GroupDescription.Basic groupDesc = groupsCollection.parseId(groupName);
+      GroupDescription.Basic groupDesc = groupsResolver.parseId(groupName);
 
       // Group either is mis-configured, never existed, or was deleted/removed since.
       if (groupDesc == null) {
