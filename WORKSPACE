@@ -3,11 +3,11 @@ workspace(name = "rate_limiter")
 load("//:bazlets.bzl", "load_bazlets")
 
 load_bazlets(
-    commit = "0cdf281f110834b71ae134afe0a7e3fe346f0078",
+    commit = "b17f700875f5f2a96942d434516ba8e6088463d4",
     #local_path = "/home/<user>/projects/bazlets",
 )
 
-#Snapshot Plugin API
+# Snapshot Plugin API
 #load(
 #    "@com_googlesource_gerrit_bazlets//:gerrit_api_maven_local.bzl",
 #    "gerrit_api_maven_local",
