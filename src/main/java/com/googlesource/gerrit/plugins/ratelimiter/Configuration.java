@@ -75,7 +75,7 @@ class Configuration {
 
       // Group either is mis-configured, never existed, or was deleted/removed since.
       if (groupDesc == null) {
-        log.warn(String.format("Invalid configuration, group not found: %s", groupName));
+        log.warn("Invalid configuration, group not found: {}", groupName);
       } else {
         groups.put(groupName, groupDesc.getGroupUUID());
       }
