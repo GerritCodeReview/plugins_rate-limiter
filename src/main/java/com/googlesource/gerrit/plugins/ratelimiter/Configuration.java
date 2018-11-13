@@ -19,9 +19,12 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Table;
 import com.google.gerrit.common.data.GroupDescription;
 import com.google.gerrit.extensions.annotations.PluginName;
+import com.google.gerrit.extensions.restapi.IdString;
+import com.google.gerrit.extensions.restapi.RestApiException;
+import com.google.gerrit.extensions.restapi.TopLevelResource;
 import com.google.gerrit.reviewdb.client.AccountGroup;
 import com.google.gerrit.server.config.PluginConfigFactory;
-import com.google.gerrit.server.group.GroupsCollection;
+import com.google.gerrit.server.restapi.group.GroupsCollection;
 import com.google.inject.Inject;
 import com.google.inject.ProvisionException;
 import com.google.inject.Singleton;
@@ -71,13 +74,15 @@ class Configuration {
       Config config, GroupsCollection groupsCollection) {
     LinkedHashMap<String, AccountGroup.UUID> groups = new LinkedHashMap<>();
     for (String groupName : config.getSubsections(GROUP_SECTION)) {
-      GroupDescription.Basic groupDesc = groupsCollection.parseId(groupName);
-
-      // Group either is mis-configured, never existed, or was deleted/removed since.
-      if (groupDesc == null) {
-        log.warn("Invalid configuration, group not found: {}", groupName);
-      } else {
+      try {
+        GroupDescription.Basic groupDesc =
+            groupsCollection
+                .parse(TopLevelResource.INSTANCE, IdString.fromDecoded(groupName))
+                .getGroup();
         groups.put(groupName, groupDesc.getGroupUUID());
+      } catch (RestApiException e) {
+        // Group either is mis-configured, never existed, or was deleted/removed since.
+        log.warn("Invalid configuration, group not found: {}", groupName);
       }
     }
     return groups;

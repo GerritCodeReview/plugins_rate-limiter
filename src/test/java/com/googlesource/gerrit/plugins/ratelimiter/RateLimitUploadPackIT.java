@@ -32,11 +32,11 @@ import org.junit.Test;
 public class RateLimitUploadPackIT extends LightweightPluginDaemonTest {
 
   @Override
-  public void setUp() throws Exception {
+  public void setUpTestPlugin() throws Exception {
     // Create the group before the plugin is loaded since limits per group are
     // resolved at plugin load time.
     addUserToNewGroup("user", "limitGroup");
-    super.setUp();
+    super.setUpTestPlugin();
   }
 
   @Test

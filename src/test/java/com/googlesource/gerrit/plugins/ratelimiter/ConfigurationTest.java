@@ -18,9 +18,13 @@ import static com.google.common.truth.Truth.assertThat;
 import static org.mockito.Mockito.when;
 
 import com.google.gerrit.common.data.GroupDescription;
+import com.google.gerrit.extensions.restapi.IdString;
+import com.google.gerrit.extensions.restapi.ResourceNotFoundException;
+import com.google.gerrit.extensions.restapi.TopLevelResource;
 import com.google.gerrit.reviewdb.client.AccountGroup;
 import com.google.gerrit.server.config.PluginConfigFactory;
-import com.google.gerrit.server.group.GroupsCollection;
+import com.google.gerrit.server.group.GroupResource;
+import com.google.gerrit.server.restapi.group.GroupsCollection;
 import com.google.inject.ProvisionException;
 import java.util.Map;
 import org.eclipse.jgit.errors.ConfigInvalidException;
@@ -40,6 +44,8 @@ public class ConfigurationTest {
   @Rule public ExpectedException exception = ExpectedException.none();
   @Mock private PluginConfigFactory pluginConfigFactoryMock;
   @Mock private GroupsCollection groupsCollectionMock;
+  @Mock private GroupResource administratorsGroupResourceMock;
+  @Mock private GroupResource someGroupResourceMock;
   @Mock private GroupDescription.Basic administratorsGroupDescMock;
   @Mock private GroupDescription.Basic someGroupDescMock;
   private Config globalPluginConfig;
@@ -48,19 +54,24 @@ public class ConfigurationTest {
   private final String groupTagName = "group";
 
   @Before
-  public void setUp() {
+  public void setUp() throws Exception {
     globalPluginConfig = new Config();
+    IdString administratorsId = IdString.fromDecoded("Administrators");
+    IdString someGroupId = IdString.fromDecoded("someGroup");
+
     when(pluginConfigFactoryMock.getGlobalPluginConfig(PLUGIN_NAME)).thenReturn(globalPluginConfig);
 
-    when(administratorsGroupDescMock.getName()).thenReturn("Administrators");
     when(administratorsGroupDescMock.getGroupUUID())
         .thenReturn(new AccountGroup.UUID("admin_uuid"));
-    when(groupsCollectionMock.parseId(administratorsGroupDescMock.getName()))
-        .thenReturn(administratorsGroupDescMock);
+    when(groupsCollectionMock.parse(TopLevelResource.INSTANCE, administratorsId))
+        .thenReturn(administratorsGroupResourceMock);
+    when(administratorsGroupResourceMock.getGroup()).thenReturn(administratorsGroupDescMock);
 
     when(someGroupDescMock.getName()).thenReturn("someGroup");
     when(someGroupDescMock.getGroupUUID()).thenReturn(new AccountGroup.UUID("some_uuid"));
-    when(groupsCollectionMock.parseId(someGroupDescMock.getName())).thenReturn(someGroupDescMock);
+    when(groupsCollectionMock.parse(TopLevelResource.INSTANCE, someGroupId))
+        .thenReturn(someGroupResourceMock);
+    when(someGroupResourceMock.getGroup()).thenReturn(someGroupDescMock);
   }
 
   private Configuration getConfiguration() {
@@ -115,7 +126,7 @@ public class ConfigurationTest {
   }
 
   @Test
-  public void testInvalidGroup() {
+  public void testInvalidGroup() throws Exception {
 
     // Set a good group and a bad and ensure the good is still parsed
     globalPluginConfig.setInt(
@@ -129,6 +140,10 @@ public class ConfigurationTest {
         "nonexistingGroup",
         RateLimitType.UPLOAD_PACK_PER_HOUR.toString(),
         "badGroup");
+
+    IdString invalidGroupId = IdString.fromDecoded("nonexistingGroup");
+    when(groupsCollectionMock.parse(TopLevelResource.INSTANCE, invalidGroupId))
+        .thenThrow(new ResourceNotFoundException());
 
     Map<AccountGroup.UUID, RateLimit> rateLimit =
         getConfiguration().getRatelimits(RateLimitType.UPLOAD_PACK_PER_HOUR);
