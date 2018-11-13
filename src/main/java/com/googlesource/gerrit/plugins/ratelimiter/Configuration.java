@@ -17,11 +17,11 @@ package com.googlesource.gerrit.plugins.ratelimiter;
 import com.google.common.collect.ArrayTable;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Table;
-import com.google.gerrit.common.data.GroupDescription;
+import com.google.gerrit.common.data.GroupDescription.Basic;
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.reviewdb.client.AccountGroup;
 import com.google.gerrit.server.config.PluginConfigFactory;
-import com.google.gerrit.server.group.GroupsCollection;
+import com.google.gerrit.server.group.GroupResolver;
 import com.google.inject.Inject;
 import com.google.inject.ProvisionException;
 import com.google.inject.Singleton;
@@ -30,13 +30,9 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 import org.eclipse.jgit.lib.Config;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 @Singleton
 class Configuration {
-
-  private static final Logger log = LoggerFactory.getLogger(Configuration.class);
 
   static final String RATE_LIMIT_TOKEN = "${rateLimit}";
   private static final String GROUP_SECTION = "group";
@@ -50,13 +46,13 @@ class Configuration {
   Configuration(
       PluginConfigFactory pluginConfigFactory,
       @PluginName String pluginName,
-      GroupsCollection groupsCollection) {
+      GroupResolver groupsCollection) {
     Config config = pluginConfigFactory.getGlobalPluginConfig(pluginName);
     parseAllGroupsRateLimits(config, groupsCollection);
     rateLimitExceededMsg = parseLimitExceededMsg(config);
   }
 
-  private void parseAllGroupsRateLimits(Config config, GroupsCollection groupsCollection) {
+  private void parseAllGroupsRateLimits(Config config, GroupResolver groupsCollection) {
     Map<String, AccountGroup.UUID> groups = getResolvedGroups(config, groupsCollection);
     if (groups.size() == 0) {
       return;
@@ -68,16 +64,12 @@ class Configuration {
   }
 
   private Map<String, AccountGroup.UUID> getResolvedGroups(
-      Config config, GroupsCollection groupsCollection) {
+      Config config, GroupResolver groupsCollection) {
     LinkedHashMap<String, AccountGroup.UUID> groups = new LinkedHashMap<>();
     for (String groupName : config.getSubsections(GROUP_SECTION)) {
-      GroupDescription.Basic groupDesc = groupsCollection.parseId(groupName);
-
-      // Group either is mis-configured, never existed, or was deleted/removed since.
-      if (groupDesc == null) {
-        log.warn("Invalid configuration, group not found: {}", groupName);
-      } else {
-        groups.put(groupName, groupDesc.getGroupUUID());
+      Basic basic = groupsCollection.parseId(groupName);
+      if (basic != null) {
+        groups.put(groupName, basic.getGroupUUID());
       }
     }
     return groups;

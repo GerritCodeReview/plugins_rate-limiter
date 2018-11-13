@@ -20,7 +20,7 @@ import static org.mockito.Mockito.when;
 import com.google.gerrit.common.data.GroupDescription;
 import com.google.gerrit.reviewdb.client.AccountGroup;
 import com.google.gerrit.server.config.PluginConfigFactory;
-import com.google.gerrit.server.group.GroupsCollection;
+import com.google.gerrit.server.group.GroupResolver;
 import com.google.inject.ProvisionException;
 import java.util.Map;
 import org.eclipse.jgit.errors.ConfigInvalidException;
@@ -39,7 +39,7 @@ public class ConfigurationTest {
 
   @Rule public ExpectedException exception = ExpectedException.none();
   @Mock private PluginConfigFactory pluginConfigFactoryMock;
-  @Mock private GroupsCollection groupsCollectionMock;
+  @Mock private GroupResolver groupsCollectionMock;
   @Mock private GroupDescription.Basic administratorsGroupDescMock;
   @Mock private GroupDescription.Basic someGroupDescMock;
   private Config globalPluginConfig;
@@ -48,19 +48,18 @@ public class ConfigurationTest {
   private final String groupTagName = "group";
 
   @Before
-  public void setUp() {
+  public void setUp() throws Exception {
     globalPluginConfig = new Config();
+
     when(pluginConfigFactoryMock.getGlobalPluginConfig(PLUGIN_NAME)).thenReturn(globalPluginConfig);
 
-    when(administratorsGroupDescMock.getName()).thenReturn("Administrators");
     when(administratorsGroupDescMock.getGroupUUID())
         .thenReturn(new AccountGroup.UUID("admin_uuid"));
-    when(groupsCollectionMock.parseId(administratorsGroupDescMock.getName()))
-        .thenReturn(administratorsGroupDescMock);
+    when(groupsCollectionMock.parseId("Administrators")).thenReturn(administratorsGroupDescMock);
 
     when(someGroupDescMock.getName()).thenReturn("someGroup");
     when(someGroupDescMock.getGroupUUID()).thenReturn(new AccountGroup.UUID("some_uuid"));
-    when(groupsCollectionMock.parseId(someGroupDescMock.getName())).thenReturn(someGroupDescMock);
+    when(groupsCollectionMock.parseId("someGroup")).thenReturn(someGroupDescMock);
   }
 
   private Configuration getConfiguration() {
@@ -115,7 +114,7 @@ public class ConfigurationTest {
   }
 
   @Test
-  public void testInvalidGroup() {
+  public void testInvalidGroup() throws Exception {
 
     // Set a good group and a bad and ensure the good is still parsed
     globalPluginConfig.setInt(
