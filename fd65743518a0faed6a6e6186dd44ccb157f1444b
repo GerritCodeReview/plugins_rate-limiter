@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "7e7f6d31_bdc7f77b",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/ratelimiter/RateLimitUploadPackIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-11-14T18:09:17Z",
+      "side": 1,
+      "message": "Getting this exception while reaching this setup stage; missing step, likely:\n\nDEBUG com.google.gerrit.server.logging.TraceContext.TraceTimer : Loading project com.googlesource.gerrit.plugins.ratelimiter.RateLimitUploadPackIT_requestIsBlockedForGroupAfterRateLimitReached_project (0 ms)\nDEBUG com.google.gerrit.server.project.ProjectCacheImpl : Cannot find project com.googlesource.gerrit.plugins.ratelimiter.RateLimitUploadPackIT_requestIsBlockedForGroupAfterRateLimitReached_project\njava.util.concurrent.ExecutionException: org.eclipse.jgit.errors.RepositoryNotFoundException: repository not found: Cannot open repository com.googlesource.gerrit.plugins.ratelimiter.RateLimitUploadPackIT_requestIsBlockedForGroupAfterRateLimitReached_project",
+      "revId": "fd65743518a0faed6a6e6186dd44ccb157f1444b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f49e12b2_ef8ae664",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/ratelimiter/RateLimitUploadPackIT.java",
         "patchSetId": 1
