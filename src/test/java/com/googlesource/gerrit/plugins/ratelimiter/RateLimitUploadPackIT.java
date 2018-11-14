@@ -35,7 +35,7 @@ public class RateLimitUploadPackIT extends LightweightPluginDaemonTest {
   public void setUp() throws Exception {
     // Create the group before the plugin is loaded since limits per group are
     // resolved at plugin load time.
-    addUserToNewGroup("user", "limitGroup");
+    addUserToNewGroup(user.username, "limitGroup");
     super.setUp();
   }
 
