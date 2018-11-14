@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f49e12b2_ef8ae664",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/ratelimiter/RateLimitUploadPackIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-11-14T17:54:53Z",
+      "side": 1,
+      "message": "\u003d\u003e WARN  com.googlesource.gerrit.plugins.ratelimiter.Configuration : Invalid configuration, group not found: limitGroup\n\n\u003c\u003d\u003e Working on fixing this first, prior to expecting this test to pass further; WiP.",
+      "range": {
+        "startLine": 46,
+        "startChar": 20,
+        "endLine": 46,
+        "endChar": 30
+      },
+      "revId": "fd65743518a0faed6a6e6186dd44ccb157f1444b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
