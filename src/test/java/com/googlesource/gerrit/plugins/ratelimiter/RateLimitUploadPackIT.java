@@ -60,7 +60,7 @@ public class RateLimitUploadPackIT extends LightweightPluginDaemonTest {
     cloneProject(new Project.NameKey(projectB), user);
   }
 
-  void addUserToNewGroup(String user, String groupName) throws RestApiException {
+  private void addUserToNewGroup(String user, String groupName) throws RestApiException {
     GroupInput in = new GroupInput();
     in.name = groupName;
     in.ownerId = "Administrators";
@@ -68,7 +68,7 @@ public class RateLimitUploadPackIT extends LightweightPluginDaemonTest {
     gApi.groups().id(groupName).addMembers(user);
   }
 
-  void createProjectWithChange(String projectName) throws RestApiException {
+  private void createProjectWithChange(String projectName) throws RestApiException {
     ProjectInput input = new ProjectInput();
     input.name = projectName;
     input.createEmptyCommit = true;
