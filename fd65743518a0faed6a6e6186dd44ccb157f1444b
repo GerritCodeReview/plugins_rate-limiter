@@ -57,6 +57,30 @@
       "revId": "fd65743518a0faed6a6e6186dd44ccb157f1444b",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4540ea87_7259490d",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/ratelimiter/RateLimitUploadPackIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-11-14T22:45:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f49e12b2_ef8ae664",
+      "range": {
+        "startLine": 46,
+        "startChar": 20,
+        "endLine": 46,
+        "endChar": 30
+      },
+      "revId": "fd65743518a0faed6a6e6186dd44ccb157f1444b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
