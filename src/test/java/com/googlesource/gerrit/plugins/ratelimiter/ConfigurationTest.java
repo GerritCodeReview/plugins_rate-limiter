@@ -49,7 +49,7 @@ public class ConfigurationTest {
   private final String groupTagName = "group";
 
   @Before
-  public void setUp() throws Exception {
+  public void setUp() {
     globalPluginConfig = new Config();
 
     when(pluginConfigFactoryMock.getGlobalPluginConfig(PLUGIN_NAME)).thenReturn(globalPluginConfig);
@@ -117,7 +117,7 @@ public class ConfigurationTest {
   }
 
   @Test
-  public void testInvalidGroup() throws Exception {
+  public void testInvalidGroup() {
     // Set a good group and a bad and ensure the good is still parsed
 
     globalPluginConfig.setInt(
