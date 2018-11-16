@@ -38,13 +38,14 @@ public class ConfigurationTest {
   private static final String PLUGIN_NAME = "rate-limiter";
 
   @Rule public ExpectedException exception = ExpectedException.none();
+
   @Mock private PluginConfigFactory pluginConfigFactoryMock;
   @Mock private GroupsCollection groupsCollectionMock;
   @Mock private GroupDescription.Basic administratorsGroupDescMock;
   @Mock private GroupDescription.Basic someGroupDescMock;
+
   private Config globalPluginConfig;
   private final int validRate = 123;
-  private final String invalidType = "dummyType";
   private final String groupTagName = "group";
 
   @Before
@@ -100,6 +101,8 @@ public class ConfigurationTest {
 
   @Test
   public void testInvalidRateLimitValue() {
+    String invalidType = "dummyType";
+
     globalPluginConfig.setString(
         groupTagName,
         someGroupDescMock.getName(),
@@ -116,8 +119,8 @@ public class ConfigurationTest {
 
   @Test
   public void testInvalidGroup() {
-
     // Set a good group and a bad and ensure the good is still parsed
+
     globalPluginConfig.setInt(
         groupTagName,
         someGroupDescMock.getName(),
