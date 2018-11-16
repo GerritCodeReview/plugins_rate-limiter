@@ -35,7 +35,7 @@ public class RateLimitUploadPackIT extends LightweightPluginDaemonTest {
   public void setUp() throws Exception {
     // Create the group before the plugin is loaded since limits per group are
     // resolved at plugin load time.
-    addUserToNewGroup("user", "limitGroup");
+    addUserToNewGroup();
     super.setUp();
   }
 
@@ -60,15 +60,16 @@ public class RateLimitUploadPackIT extends LightweightPluginDaemonTest {
     cloneProject(new Project.NameKey(projectB), user);
   }
 
-  void addUserToNewGroup(String user, String groupName) throws RestApiException {
+  private void addUserToNewGroup() throws RestApiException {
     GroupInput in = new GroupInput();
+    String groupName = "limitGroup";
     in.name = groupName;
     in.ownerId = "Administrators";
     gApi.groups().create(in);
-    gApi.groups().id(groupName).addMembers(user);
+    gApi.groups().id(groupName).addMembers(user.username);
   }
 
-  void createProjectWithChange(String projectName) throws RestApiException {
+  private void createProjectWithChange(String projectName) throws RestApiException {
     ProjectInput input = new ProjectInput();
     input.name = projectName;
     input.createEmptyCommit = true;

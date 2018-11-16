@@ -18,12 +18,10 @@ import java.util.Comparator;
 import java.util.concurrent.TimeUnit;
 
 interface RateLimiter extends Comparable<RateLimiter> {
-  Comparator<RateLimiter> REVERSE_ORDER_COMPARATOR =
-      Comparator.comparing(RateLimiter::availablePermits).reversed();
 
   @Override
   public default int compareTo(RateLimiter other) {
-    return REVERSE_ORDER_COMPARATOR.compare(this, other);
+    return Comparator.comparing(RateLimiter::availablePermits).reversed().compare(this, other);
   }
 
   /** Returns number of permits allowed per hour. */
