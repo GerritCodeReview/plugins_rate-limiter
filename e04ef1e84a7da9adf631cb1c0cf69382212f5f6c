@@ -16,6 +16,24 @@
       "revId": "e04ef1e84a7da9adf631cb1c0cf69382212f5f6c",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be3cbf8a_2ffd0a2d",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 5
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2018-11-23T21:05:36Z",
+      "side": 1,
+      "message": "Plugin builds and passes its tests without it so far; maybe not?",
+      "parentUuid": "f42421f2_9331a07e",
+      "revId": "e04ef1e84a7da9adf631cb1c0cf69382212f5f6c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
