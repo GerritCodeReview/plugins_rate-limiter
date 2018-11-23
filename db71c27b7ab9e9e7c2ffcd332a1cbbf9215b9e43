@@ -46,6 +46,30 @@
       "revId": "db71c27b7ab9e9e7c2ffcd332a1cbbf9215b9e43",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2327f47b_4e01c588",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2018-11-23T04:10:24Z",
+      "side": 1,
+      "message": "Ah, I missed this because the changes were automated and I was expecting all the plugins to have the same formatting in the file, which this one doesn\u0027t.",
+      "parentUuid": "a2aeb3e5_511f4076",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 47
+      },
+      "revId": "db71c27b7ab9e9e7c2ffcd332a1cbbf9215b9e43",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
