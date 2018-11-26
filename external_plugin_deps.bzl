@@ -11,9 +11,11 @@ def external_plugin_deps():
         ],
     )
 
+    BYTE_BUDDY_VERSION = "1.9.3"
+
     maven_jar(
         name = "byte-buddy",
-        artifact = "net.bytebuddy:byte-buddy:1.9.3",
+        artifact = "net.bytebuddy:byte-buddy:" + BYTE_BUDDY_VERSION,
         sha1 = "f32e510b239620852fc9a2387fac41fd053d6a4d",
     )
 
