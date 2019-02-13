@@ -22,6 +22,30 @@
       "revId": "4dec61e8435eec774f5619cd32d076330e4cd324",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a772dc7_8b58e23f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2019-02-13T06:39:47Z",
+      "side": 1,
+      "message": "Thanks, I\u0027d forgotten about that.  I\u0027ll apply that fix in core instead.",
+      "parentUuid": "937e10df_f39c9e3c",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 45
+      },
+      "revId": "4dec61e8435eec774f5619cd32d076330e4cd324",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
