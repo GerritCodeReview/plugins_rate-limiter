@@ -67,10 +67,7 @@ final class ListCommand extends SshCommand {
               "Available Permits",
               "Replenish in"));
       stdout.println(DASHED_LINE);
-      uploadPackPerHour
-          .asMap()
-          .entrySet()
-          .stream()
+      uploadPackPerHour.asMap().entrySet().stream()
           .sorted(Map.Entry.comparingByValue())
           .forEach(this::printEntry);
       stdout.println(DASHED_LINE);
