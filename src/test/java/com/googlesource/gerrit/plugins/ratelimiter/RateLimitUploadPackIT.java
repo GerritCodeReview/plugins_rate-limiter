@@ -66,7 +66,7 @@ public class RateLimitUploadPackIT extends LightweightPluginDaemonTest {
     in.name = groupName;
     in.ownerId = "Administrators";
     gApi.groups().create(in);
-    gApi.groups().id(groupName).addMembers(user.username);
+    gApi.groups().id(groupName).addMembers(user.username());
   }
 
   private void createProjectWithChange(String projectName) throws RestApiException {
