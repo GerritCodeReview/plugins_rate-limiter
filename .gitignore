@@ -4,3 +4,4 @@
 /.primary_build_tool
 /bazel-*
 /eclipse-out/
+/.apt_generated/

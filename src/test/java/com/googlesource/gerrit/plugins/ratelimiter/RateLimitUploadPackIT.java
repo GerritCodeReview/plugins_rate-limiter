@@ -14,6 +14,8 @@
 
 package com.googlesource.gerrit.plugins.ratelimiter;
 
+import static com.google.gerrit.testing.GerritJUnit.assertThrows;
+
 import com.google.gerrit.acceptance.GlobalPluginConfig;
 import com.google.gerrit.acceptance.LightweightPluginDaemonTest;
 import com.google.gerrit.acceptance.TestPlugin;
@@ -55,9 +57,8 @@ public class RateLimitUploadPackIT extends LightweightPluginDaemonTest {
     createProjectWithChange(projectA);
     createProjectWithChange(projectB);
 
-    cloneProject(new Project.NameKey(projectA), user);
-    exception.expect(TransportException.class);
-    cloneProject(new Project.NameKey(projectB), user);
+    cloneProject(Project.nameKey(projectA), user);
+    assertThrows(TransportException.class, () -> cloneProject(Project.nameKey(projectB), user));
   }
 
   private void addUserToNewGroup() throws RestApiException {

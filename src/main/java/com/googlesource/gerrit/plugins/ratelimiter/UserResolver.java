@@ -33,7 +33,7 @@ class UserResolver {
 
   Optional<IdentifiedUser> getIdentifiedUser(String key) {
     return isNumeric(key)
-        ? Optional.ofNullable(userFactory.create(new Account.Id(Integer.parseInt(key))))
+        ? Optional.ofNullable(userFactory.create(Account.id(Integer.parseInt(key))))
         : Optional.empty();
   }
 

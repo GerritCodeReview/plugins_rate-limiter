@@ -54,12 +54,11 @@ public class ConfigurationTest {
 
     when(pluginConfigFactoryMock.getGlobalPluginConfig(PLUGIN_NAME)).thenReturn(globalPluginConfig);
 
-    when(administratorsGroupDescMock.getGroupUUID())
-        .thenReturn(new AccountGroup.UUID("admin_uuid"));
+    when(administratorsGroupDescMock.getGroupUUID()).thenReturn(AccountGroup.uuid("admin_uuid"));
     when(groupsCollectionMock.parseId("Administrators")).thenReturn(administratorsGroupDescMock);
 
     when(someGroupDescMock.getName()).thenReturn("someGroup");
-    when(someGroupDescMock.getGroupUUID()).thenReturn(new AccountGroup.UUID("some_uuid"));
+    when(someGroupDescMock.getGroupUUID()).thenReturn(AccountGroup.uuid("some_uuid"));
     when(groupsCollectionMock.parseId("someGroup")).thenReturn(someGroupDescMock);
   }
 
