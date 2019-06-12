@@ -28,7 +28,7 @@ java_library(
 )
 
 junit_tests(
-    name = "rate-limiter_tests",
+    name = "rate_limiter_tests",
     srcs = glob(["src/test/java/**/*.java"]),
     tags = [
         "rate-limiter",
