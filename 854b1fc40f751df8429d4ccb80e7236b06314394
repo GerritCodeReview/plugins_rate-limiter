@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f22b90fa_dccde411",
+        "filename": "WORKSPACE",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-07-09T16:30:35Z",
+      "side": 1,
+      "message": "Should not have enabled release API over snapshot\u0027s.",
+      "revId": "854b1fc40f751df8429d4ccb80e7236b06314394",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
