@@ -16,7 +16,7 @@ package com.googlesource.gerrit.plugins.ratelimiter;
 
 import static com.google.gerrit.server.group.SystemGroupBackend.ANONYMOUS_USERS;
 
-import com.google.gerrit.reviewdb.client.AccountGroup;
+import com.google.gerrit.entities.AccountGroup;
 import com.google.gerrit.server.IdentifiedUser;
 import com.google.gerrit.server.account.GroupMembership;
 import com.google.gerrit.server.group.SystemGroupBackend;

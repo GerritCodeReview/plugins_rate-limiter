@@ -19,9 +19,9 @@ import static com.googlesource.gerrit.plugins.ratelimiter.Module.UPLOAD_PACK_PER
 
 import com.google.common.cache.LoadingCache;
 import com.google.gerrit.common.data.GlobalCapability;
+import com.google.gerrit.entities.Account;
 import com.google.gerrit.extensions.annotations.CapabilityScope;
 import com.google.gerrit.extensions.annotations.RequiresCapability;
-import com.google.gerrit.reviewdb.client.Account;
 import com.google.gerrit.sshd.CommandMetaData;
 import com.google.gerrit.sshd.SshCommand;
 import com.google.inject.Inject;

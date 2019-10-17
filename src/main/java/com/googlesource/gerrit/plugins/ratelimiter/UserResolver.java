@@ -14,7 +14,7 @@
 
 package com.googlesource.gerrit.plugins.ratelimiter;
 
-import com.google.gerrit.reviewdb.client.Account;
+import com.google.gerrit.entities.Account;
 import com.google.gerrit.server.IdentifiedUser;
 import com.google.gerrit.server.IdentifiedUser.GenericFactory;
 import com.google.inject.Inject;

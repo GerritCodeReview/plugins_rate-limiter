@@ -18,7 +18,7 @@ import static com.googlesource.gerrit.plugins.ratelimiter.Configuration.RATE_LIM
 import static com.googlesource.gerrit.plugins.ratelimiter.Module.UPLOAD_PACK_PER_HOUR;
 
 import com.google.common.cache.LoadingCache;
-import com.google.gerrit.reviewdb.client.Project;
+import com.google.gerrit.entities.Project;
 import com.google.gerrit.server.CurrentUser;
 import com.google.gerrit.server.git.validators.UploadValidationListener;
 import com.google.gerrit.server.validators.ValidationException;

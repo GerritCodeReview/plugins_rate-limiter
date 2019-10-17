@@ -20,10 +20,10 @@ import com.google.gerrit.acceptance.GlobalPluginConfig;
 import com.google.gerrit.acceptance.LightweightPluginDaemonTest;
 import com.google.gerrit.acceptance.TestPlugin;
 import com.google.gerrit.acceptance.UseLocalDisk;
+import com.google.gerrit.entities.Project;
 import com.google.gerrit.extensions.api.groups.GroupInput;
 import com.google.gerrit.extensions.api.projects.ProjectInput;
 import com.google.gerrit.extensions.restapi.RestApiException;
-import com.google.gerrit.reviewdb.client.Project;
 import org.eclipse.jgit.api.errors.TransportException;
 import org.junit.Test;
 
