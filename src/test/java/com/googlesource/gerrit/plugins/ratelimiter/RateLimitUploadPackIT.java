@@ -16,7 +16,7 @@ package com.googlesource.gerrit.plugins.ratelimiter;
 
 import static com.google.gerrit.testing.GerritJUnit.assertThrows;
 
-import com.google.gerrit.acceptance.GlobalPluginConfig;
+import com.google.gerrit.acceptance.config.GlobalPluginConfig;
 import com.google.gerrit.acceptance.LightweightPluginDaemonTest;
 import com.google.gerrit.acceptance.TestPlugin;
 import com.google.gerrit.acceptance.UseLocalDisk;
