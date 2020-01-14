@@ -15,6 +15,7 @@
 package com.googlesource.gerrit.plugins.ratelimiter;
 
 import static com.google.common.truth.Truth.assertThat;
+import static com.google.gerrit.testing.GerritJUnit.assertThrows;
 import static org.mockito.Mockito.when;
 
 import com.google.gerrit.common.data.GroupDescription;
@@ -26,9 +27,7 @@ import java.util.Map;
 import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.eclipse.jgit.lib.Config;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
@@ -36,8 +35,6 @@ import org.mockito.junit.MockitoJUnitRunner;
 @RunWith(MockitoJUnitRunner.class)
 public class ConfigurationTest {
   private static final String PLUGIN_NAME = "rate-limiter";
-
-  @Rule public ExpectedException exception = ExpectedException.none();
 
   @Mock private PluginConfigFactory pluginConfigFactoryMock;
   @Mock private GroupResolver groupsCollectionMock;
@@ -91,10 +88,10 @@ public class ConfigurationTest {
     globalPluginConfig.setInt(
         groupTagName, someGroupDescMock.getName(), "invalidTypePerHour", validRate);
 
-    exception.expect(ProvisionException.class);
-    exception.expectMessage(
-        "Invalid configuration, unsupported rate limit type: invalidTypePerHour");
-    getConfiguration();
+    ProvisionException thrown = assertThrows(ProvisionException.class, () -> getConfiguration());
+    assertThat(thrown)
+        .hasMessageThat()
+        .contains("Invalid configuration, unsupported rate limit type: invalidTypePerHour");
   }
 
   @Test
@@ -107,12 +104,12 @@ public class ConfigurationTest {
         RateLimitType.UPLOAD_PACK_PER_HOUR.toString(),
         invalidType);
 
-    exception.expect(ProvisionException.class);
-    exception.expectMessage(
-        "Invalid configuration, 'rate limit value '"
-            + invalidType
-            + "' for 'group.someGroup.uploadpackperhour' is not a valid number");
-    getConfiguration();
+    String expectedMessage =
+        String.format(
+            "Invalid configuration, 'rate limit value '%s' for 'group.someGroup.uploadpackperhour' is not a valid number",
+            invalidType);
+    ProvisionException thrown = assertThrows(ProvisionException.class, () -> getConfiguration());
+    assertThat(thrown).hasMessageThat().contains(expectedMessage);
   }
 
   @Test
