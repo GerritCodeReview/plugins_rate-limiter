@@ -3,7 +3,7 @@ workspace(name = "rate_limiter")
 load("//:bazlets.bzl", "load_bazlets")
 
 load_bazlets(
-    commit = "8c8df720486ebe0b60adccd0eceb1c8122edaf58",
+    commit = "968b97fa03a9d2afd760f2e8ede3d5643da390d2",
     #local_path = "/home/<user>/projects/bazlets",
 )
 
