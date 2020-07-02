@@ -1,11 +1,13 @@
 {
   "checks": {
     "zuul-check:plugins_rate-limiter": {
-      "state": "RUNNING",
-      "message": "Jobs have started running",
+      "state": "SUCCESSFUL",
+      "message": "Change passed all voting jobs",
+      "url": "https://ci.gerritcodereview.com/t/gerrit/buildset/f18edc8088dd482daf655d7e63a8869a",
       "started": "2020-07-02T01:06:00Z",
+      "finished": "2020-07-02T01:35:21Z",
       "created": "2020-07-02T00:34:31Z",
-      "updated": "2020-07-02T01:06:01Z"
+      "updated": "2020-07-02T01:35:21Z"
     }
   }
 }
