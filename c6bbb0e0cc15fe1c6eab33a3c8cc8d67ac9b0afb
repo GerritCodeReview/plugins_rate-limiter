@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "824c5c34_ab781e5d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2020-07-17T17:33:40Z",
+      "side": 1,
+      "message": "Is this build failure justified here?",
+      "revId": "c6bbb0e0cc15fe1c6eab33a3c8cc8d67ac9b0afb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
