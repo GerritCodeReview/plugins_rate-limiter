@@ -1,11 +1,13 @@
 {
   "checks": {
     "zuul-check:plugins_rate-limiter": {
-      "state": "SCHEDULED",
-      "message": "Change has been enqueued in check",
+      "state": "FAILED",
+      "message": "Change failed",
+      "url": "https://ci.gerritcodereview.com/t/gerrit/buildset/d10aca47cce4412fa5b9f6e2ddfd8476",
       "started": "2020-07-18T21:35:52Z",
+      "finished": "2020-07-18T21:36:55Z",
       "created": "2020-07-18T21:35:52Z",
-      "updated": "2020-07-18T21:35:52Z"
+      "updated": "2020-07-18T21:36:55Z"
     }
   }
 }
