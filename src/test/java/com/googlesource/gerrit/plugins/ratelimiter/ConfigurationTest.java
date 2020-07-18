@@ -18,8 +18,8 @@ import static com.google.common.truth.Truth.assertThat;
 import static com.google.gerrit.testing.GerritJUnit.assertThrows;
 import static org.mockito.Mockito.when;
 
-import com.google.gerrit.common.data.GroupDescription;
 import com.google.gerrit.entities.AccountGroup;
+import com.google.gerrit.entities.GroupDescription;
 import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.gerrit.server.group.GroupResolver;
 import com.google.inject.ProvisionException;
