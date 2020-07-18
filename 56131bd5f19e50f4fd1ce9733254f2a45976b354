@@ -1,13 +1,9 @@
 {
   "checks": {
     "zuul-check:plugins_rate-limiter": {
-      "state": "FAILED",
-      "message": "Change failed",
-      "url": "https://ci.gerritcodereview.com/t/gerrit/buildset/d10aca47cce4412fa5b9f6e2ddfd8476",
-      "started": "2020-07-18T21:35:52Z",
-      "finished": "2020-07-18T21:36:55Z",
+      "state": "NOT_STARTED",
       "created": "2020-07-18T21:35:52Z",
-      "updated": "2020-07-18T21:36:55Z"
+      "updated": "2020-07-18T21:39:55Z"
     }
   }
 }
