@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "70302e3b_0ee58a1b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2020-07-19T06:12:55Z",
+      "side": 1,
+      "message": "This is not accurate:\n\n  $ ls -1 java/com/google/gerrit/common/data/ | wc -l\n  21\n\nMay be \"Adapt the code to move of GroupDescription to entities package\"",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 48
+      },
+      "revId": "5b98017b541e07c80cd1d9cf5d7a6be38f50df7f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
