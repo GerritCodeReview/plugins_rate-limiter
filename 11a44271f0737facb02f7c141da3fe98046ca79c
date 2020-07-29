@@ -1,9 +1,11 @@
 {
   "checks": {
     "zuul-check:plugins_rate-limiter": {
-      "state": "NOT_STARTED",
+      "state": "SCHEDULED",
+      "message": "Change has been enqueued in check",
+      "started": "2020-07-29T14:55:05Z",
       "created": "2020-07-29T14:20:06Z",
-      "updated": "2020-07-29T14:54:50Z"
+      "updated": "2020-07-29T14:55:05Z"
     }
   }
 }
