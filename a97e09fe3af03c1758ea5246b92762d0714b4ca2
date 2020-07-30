@@ -51,6 +51,42 @@
       "revId": "a97e09fe3af03c1758ea5246b92762d0714b4ca2",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eddf3539_f6a4f5d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-07-30T19:34:03Z",
+      "side": 1,
+      "message": "(Stated below; thanks.)",
+      "parentUuid": "f6c80fbb_1c9714a9",
+      "revId": "a97e09fe3af03c1758ea5246b92762d0714b4ca2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e81425b8_c0c8dce9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-07-30T19:34:03Z",
+      "side": 1,
+      "message": "Done through patch set 2.",
+      "parentUuid": "68c4e0aa_c4c5c4e0",
+      "revId": "a97e09fe3af03c1758ea5246b92762d0714b4ca2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
