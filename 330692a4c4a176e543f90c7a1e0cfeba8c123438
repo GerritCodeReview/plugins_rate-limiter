@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "669557e0_921fd194",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-07-30T19:36:51Z",
+      "side": 1,
+      "message": "\u003d\u003e Issue 13207 to report about the misleading or missing CI part.",
+      "revId": "330692a4c4a176e543f90c7a1e0cfeba8c123438",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
