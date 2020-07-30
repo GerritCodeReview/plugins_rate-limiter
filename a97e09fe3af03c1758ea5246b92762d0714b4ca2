@@ -34,6 +34,23 @@
       "revId": "a97e09fe3af03c1758ea5246b92762d0714b4ca2",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "68c4e0aa_c4c5c4e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2020-07-30T19:27:57Z",
+      "side": 1,
+      "message": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/Configuration.java:21: error: package com.google.gerrit.entities.GroupDescription does not exist\nimport com.google.gerrit.entities.GroupDescription.Basic;\n                                                  ^\nsrc/main/java/com/googlesource/gerrit/plugins/ratelimiter/Configuration.java:70: error: cannot find symbol\n      Basic basic \u003d groupsCollection.parseId(groupName);\n      ^\n  symbol:   class Basic\n  location: class Configuration\nTarget //:rate-limiter failed to build\nUse --verbose_failures to see the command lines of failed build steps.\nINFO: Elapsed time: 27.936s, Critical Path: 5.39s\nINFO: 5 processes: 4 linux-sandbox, 1 worker.\nFAILED: Build did NOT complete successfully\n\nHow this should be fixed, if we do not publish snapshot API artifacts?",
+      "revId": "a97e09fe3af03c1758ea5246b92762d0714b4ca2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
