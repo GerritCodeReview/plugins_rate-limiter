@@ -16,17 +16,10 @@ package com.googlesource.gerrit.plugins.ratelimiter;
 
 import com.google.inject.Inject;
 import com.google.inject.assistedinject.Assisted;
+import java.util.Optional;
 import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ScheduledFuture;
-import java.util.concurrent.Semaphore;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicInteger;
 
-class HourlyRateLimiter implements RateLimiter {
-  private final Semaphore semaphore;
-  private final int maxPermits;
-  private final AtomicInteger usedPermits;
-  private final ScheduledFuture<?> replenishTask;
+class HourlyRateLimiter extends GeneralRateLimiter {
 
   interface Factory {
     HourlyRateLimiter create(int permits);
@@ -34,49 +27,6 @@ class HourlyRateLimiter implements RateLimiter {
 
   @Inject
   HourlyRateLimiter(@RateLimitExecutor ScheduledExecutorService executor, @Assisted int permits) {
-    this.semaphore = new Semaphore(permits);
-    this.maxPermits = permits;
-    this.usedPermits = new AtomicInteger();
-    replenishTask = executor.scheduleAtFixedRate(this::replenishPermits, 1, 1, TimeUnit.HOURS);
-  }
-
-  @Override
-  public int permitsPerHour() {
-    return maxPermits;
-  }
-
-  @Override
-  public synchronized boolean acquirePermit() {
-    boolean permit = semaphore.tryAcquire();
-    if (permit) {
-      usedPermits.getAndIncrement();
-    }
-    return permit;
-  }
-
-  @Override
-  public int availablePermits() {
-    return semaphore.availablePermits();
-  }
-
-  @Override
-  public int usedPermits() {
-    return usedPermits.get();
-  }
-
-  @Override
-  public long remainingTime(TimeUnit timeUnit) {
-    return replenishTask.getDelay(timeUnit);
-  }
-
-  @Override
-  public synchronized void replenishPermits() {
-    semaphore.release(usedPermits());
-    usedPermits.set(0);
-  }
-
-  @Override
-  public void close() {
-    replenishTask.cancel(true);
+    super(executor, permits, Optional.empty());
   }
 }
