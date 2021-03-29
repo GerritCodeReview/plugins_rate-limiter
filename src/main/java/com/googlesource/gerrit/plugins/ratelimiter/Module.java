@@ -32,6 +32,7 @@ import com.google.inject.name.Named;
 import java.util.Optional;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+import org.slf4j.Logger;
 
 class Module extends AbstractModule {
   static final String UPLOAD_PACK_PER_HOUR = "upload_pack_per_hour";
@@ -49,9 +50,9 @@ class Module extends AbstractModule {
     bind(LifecycleListener.class)
         .annotatedWith(UniqueAnnotations.create())
         .to(RateLimiterStatsLog.class);
-    install(new FactoryModuleBuilder().build(HourlyRateLimiter.Factory.class));
-    install(new FactoryModuleBuilder().build(WarningHourlyRateLimiter.Factory.class));
-    install(new FactoryModuleBuilder().build(WarningHourlyUnlimitedRateLimiter.Factory.class));
+    install(new FactoryModuleBuilder().build(PeriodicRateLimiter.Factory.class));
+    install(new FactoryModuleBuilder().build(WarningRateLimiter.Factory.class));
+    install(new FactoryModuleBuilder().build(WarningUnlimitedRateLimiter.Factory.class));
   }
 
   @Provides
@@ -68,27 +69,29 @@ class Module extends AbstractModule {
 
   private static class RateLimiterLoader extends CacheLoader<String, RateLimiter> {
     private final RateLimitFinder finder;
-    private final HourlyRateLimiter.Factory hourlyRateLimiterFactory;
-    private final WarningHourlyRateLimiter.Factory warningHourlyRateLimiterFactory;
-    private final WarningHourlyUnlimitedRateLimiter.Factory
-        warningHourlyUnlimitedRateLimiterFactory;
+    private final PeriodicRateLimiter.Factory periodicRateLimiterFactory;
+    private final WarningRateLimiter.Factory warningRateLimiterFactory;
+    private final WarningUnlimitedRateLimiter.Factory warningUnlimitedRateLimiterFactory;
+    private final Logger logger;
 
     @Inject
     RateLimiterLoader(
         RateLimitFinder finder,
-        HourlyRateLimiter.Factory hourlyRateLimiterFactory,
-        WarningHourlyRateLimiter.Factory warningHourlyRateLimiterFactory,
-        WarningHourlyUnlimitedRateLimiter.Factory warningUnlimitedRateLimiterFactory) {
+        PeriodicRateLimiter.Factory periodicRateLimiterFactory,
+        WarningRateLimiter.Factory warningRateLimiterFactory,
+        WarningUnlimitedRateLimiter.Factory warningUnlimitedRateLimiterFactory) {
       this.finder = finder;
-      this.hourlyRateLimiterFactory = hourlyRateLimiterFactory;
-      this.warningHourlyRateLimiterFactory = warningHourlyRateLimiterFactory;
-      this.warningHourlyUnlimitedRateLimiterFactory = warningUnlimitedRateLimiterFactory;
+      this.periodicRateLimiterFactory = periodicRateLimiterFactory;
+      this.warningRateLimiterFactory = warningRateLimiterFactory;
+      this.warningUnlimitedRateLimiterFactory = warningUnlimitedRateLimiterFactory;
+      this.logger = RateLimiterStatsLog.getLogger();
     }
 
     @Override
     public RateLimiter load(String key) {
       Optional<RateLimit> limit = finder.find(RateLimitType.UPLOAD_PACK_PER_HOUR, key);
       Optional<RateLimit> warn = finder.find(RateLimitType.UPLOAD_PACK_PER_HOUR_WARN, key);
+      Optional<RateLimit> timeLapse = finder.find(RateLimitType.TIME_LAPSE_IN_MINUTES, key);
       if (!limit.isPresent() && !warn.isPresent()) {
         return UnlimitedRateLimiter.INSTANCE;
       }
@@ -99,15 +102,30 @@ class Module extends AbstractModule {
         myLimit = limit.get().getRatePerHour();
       }
 
-      RateLimiter rateLimiter = hourlyRateLimiterFactory.create(myLimit);
+      long effectiveTimeLapse = PeriodicRateLimiter.DEFAULT_TIME_LAPSE_IN_MINUTES;
+      if (timeLapse.isPresent()) {
+        long providedTimeLapse = timeLapse.get().getRatePerHour();
+        effectiveTimeLapse =
+            (providedTimeLapse < effectiveTimeLapse && providedTimeLapse >= 0)
+                ? providedTimeLapse
+                : effectiveTimeLapse;
+        if (effectiveTimeLapse == PeriodicRateLimiter.DEFAULT_TIME_LAPSE_IN_MINUTES) {
+          logger.warn(
+              "The time lapse is set to the default {} minutes. This happens because the entered value is "
+                  + "equal to or higher than the maximum {} or is negative",
+              effectiveTimeLapse,
+              effectiveTimeLapse);
+        }
+      }
+      RateLimiter rateLimiter = periodicRateLimiterFactory.create(myLimit, effectiveTimeLapse);
 
       if (warn.isPresent()) {
         if (limit.isPresent()) {
-          return warningHourlyRateLimiterFactory.create(
-              rateLimiter, key, warn.get().getRatePerHour());
+          return warningRateLimiterFactory.create(
+              rateLimiter, key, warn.get().getRatePerHour(), effectiveTimeLapse);
         }
-        return warningHourlyUnlimitedRateLimiterFactory.create(
-            rateLimiter, key, warn.get().getRatePerHour());
+        return warningUnlimitedRateLimiterFactory.create(
+            rateLimiter, key, warn.get().getRatePerHour(), effectiveTimeLapse);
       }
       return rateLimiter;
     }
