@@ -50,6 +50,7 @@ class Module extends AbstractModule {
         .annotatedWith(UniqueAnnotations.create())
         .to(RateLimiterStatsLog.class);
     install(new FactoryModuleBuilder().build(HourlyRateLimiter.Factory.class));
+    install(new FactoryModuleBuilder().build(CustomRateLimiter.Factory.class));
     install(new FactoryModuleBuilder().build(WarningHourlyRateLimiter.Factory.class));
     install(new FactoryModuleBuilder().build(WarningHourlyUnlimitedRateLimiter.Factory.class));
   }
@@ -69,6 +70,7 @@ class Module extends AbstractModule {
   private static class RateLimiterLoader extends CacheLoader<String, RateLimiter> {
     private final RateLimitFinder finder;
     private final HourlyRateLimiter.Factory hourlyRateLimiterFactory;
+    private final CustomRateLimiter.Factory customRateLimiterFactory;
     private final WarningHourlyRateLimiter.Factory warningHourlyRateLimiterFactory;
     private final WarningHourlyUnlimitedRateLimiter.Factory
         warningHourlyUnlimitedRateLimiterFactory;
@@ -77,10 +79,12 @@ class Module extends AbstractModule {
     RateLimiterLoader(
         RateLimitFinder finder,
         HourlyRateLimiter.Factory hourlyRateLimiterFactory,
+        CustomRateLimiter.Factory customRateLimiterFactory,
         WarningHourlyRateLimiter.Factory warningHourlyRateLimiterFactory,
         WarningHourlyUnlimitedRateLimiter.Factory warningUnlimitedRateLimiterFactory) {
       this.finder = finder;
       this.hourlyRateLimiterFactory = hourlyRateLimiterFactory;
+      this.customRateLimiterFactory = customRateLimiterFactory;
       this.warningHourlyRateLimiterFactory = warningHourlyRateLimiterFactory;
       this.warningHourlyUnlimitedRateLimiterFactory = warningUnlimitedRateLimiterFactory;
     }
@@ -89,6 +93,7 @@ class Module extends AbstractModule {
     public RateLimiter load(String key) {
       Optional<RateLimit> limit = finder.find(RateLimitType.UPLOAD_PACK_PER_HOUR, key);
       Optional<RateLimit> warn = finder.find(RateLimitType.UPLOAD_PACK_PER_HOUR_WARN, key);
+      Optional<RateLimit> timeLapse = finder.find(RateLimitType.TIME_LAPSE, key);
       if (!limit.isPresent() && !warn.isPresent()) {
         return UnlimitedRateLimiter.INSTANCE;
       }
@@ -99,7 +104,12 @@ class Module extends AbstractModule {
         myLimit = limit.get().getRatePerHour();
       }
 
-      RateLimiter rateLimiter = hourlyRateLimiterFactory.create(myLimit);
+      RateLimiter rateLimiter;
+      if (timeLapse.isPresent() && timeLapse.get().getRatePerHour() < 60) {
+        rateLimiter = customRateLimiterFactory.create(myLimit, timeLapse);
+      } else {
+        rateLimiter = hourlyRateLimiterFactory.create(myLimit);
+      }
 
       if (warn.isPresent()) {
         if (limit.isPresent()) {

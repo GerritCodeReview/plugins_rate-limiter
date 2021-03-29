@@ -1,4 +1,4 @@
-// Copyright (C) 2017 The Android Open Source Project
+// Copyright (C) 2020 The Android Open Source Project
 //
 // Licensed under the Apache License, Version 2.0 (the "License"),
 // you may not use this file except in compliance with the License.
@@ -14,28 +14,22 @@
 
 package com.googlesource.gerrit.plugins.ratelimiter;
 
-enum RateLimitType {
-  UPLOAD_PACK_PER_HOUR("uploadpackperhour"),
-  UPLOAD_PACK_PER_HOUR_WARN("uploadpackperhourwarn"),
-  TIME_LAPSE("timelapse");
+import com.google.inject.Inject;
+import com.google.inject.assistedinject.Assisted;
+import java.util.Optional;
+import java.util.concurrent.ScheduledExecutorService;
 
-  private final String type;
+class CustomRateLimiter extends GeneralRateLimiter {
 
-  RateLimitType(String type) {
-    this.type = type;
+  interface Factory {
+    CustomRateLimiter create(int permits, Optional<RateLimit> timeLapse);
   }
 
-  @Override
-  public String toString() {
-    return type;
-  }
-
-  static RateLimitType from(String value) {
-    for (RateLimitType rateLimitType : RateLimitType.values()) {
-      if (rateLimitType.toString().equalsIgnoreCase(value)) {
-        return rateLimitType;
-      }
-    }
-    return null;
+  @Inject
+  CustomRateLimiter(
+      @RateLimitExecutor ScheduledExecutorService executor,
+      @Assisted int permits,
+      @Assisted Optional<RateLimit> timeLapse) {
+    super(executor, permits, timeLapse);
   }
 }
