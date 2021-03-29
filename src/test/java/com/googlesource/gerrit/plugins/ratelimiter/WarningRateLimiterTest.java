@@ -28,12 +28,12 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 
-public class WarningHourlyRateLimiterTest {
+public class WarningRateLimiterTest {
 
   private static final int RATE = 1000;
   private static final int WARN_RATE = 900;
-  private WarningHourlyRateLimiter warningLimiter1;
-  private WarningHourlyRateLimiter warningLimiter2;
+  private WarningRateLimiter warningLimiter1;
+  private WarningRateLimiter warningLimiter2;
   private ScheduledExecutorService scheduledExecutorMock1;
   private UserResolver userResolver = mock(UserResolver.class);
 
@@ -43,14 +43,32 @@ public class WarningHourlyRateLimiterTest {
 
     ScheduledExecutorService scheduledExecutorMock2 = mock(ScheduledExecutorService.class);
 
-    HourlyRateLimiter limiter1 = spy(new HourlyRateLimiter(scheduledExecutorMock1, RATE));
+    PeriodicRateLimiter limiter1 =
+        spy(
+            new PeriodicRateLimiter(
+                scheduledExecutorMock1, RATE, PeriodicRateLimiter.DEFAULT_TIME_LAPSE_IN_MINUTES));
     doReturn(1L).when(limiter1).remainingTime(any(TimeUnit.class));
 
-    HourlyRateLimiter limiter2 = spy(new HourlyRateLimiter(scheduledExecutorMock2, RATE));
+    PeriodicRateLimiter limiter2 =
+        spy(
+            new PeriodicRateLimiter(
+                scheduledExecutorMock2, RATE, PeriodicRateLimiter.DEFAULT_TIME_LAPSE_IN_MINUTES));
     doReturn(1L).when(limiter2).remainingTime(any(TimeUnit.class));
 
-    warningLimiter1 = new WarningHourlyRateLimiter(userResolver, limiter1, "dummy", WARN_RATE);
-    warningLimiter2 = new WarningHourlyRateLimiter(userResolver, limiter2, "dummy2", WARN_RATE);
+    warningLimiter1 =
+        new WarningRateLimiter(
+            userResolver,
+            limiter1,
+            "dummy",
+            WARN_RATE,
+            PeriodicRateLimiter.DEFAULT_TIME_LAPSE_IN_MINUTES);
+    warningLimiter2 =
+        new WarningRateLimiter(
+            userResolver,
+            limiter2,
+            "dummy2",
+            WARN_RATE,
+            PeriodicRateLimiter.DEFAULT_TIME_LAPSE_IN_MINUTES);
   }
 
   @Test
@@ -90,14 +108,23 @@ public class WarningHourlyRateLimiterTest {
 
   @Test
   public void testReplenishPermitsIsScheduled() {
-    verify(scheduledExecutorMock1).scheduleAtFixedRate(any(), eq(1L), eq(1L), eq(TimeUnit.HOURS));
+    verify(scheduledExecutorMock1)
+        .scheduleAtFixedRate(
+            any(),
+            eq(1L),
+            eq(PeriodicRateLimiter.DEFAULT_TIME_LAPSE_IN_MINUTES),
+            eq(TimeUnit.MINUTES));
   }
 
   @Test
   public void testReplenishPermitsScheduledRunnableIsWorking() {
     ArgumentCaptor<Runnable> runnableCaptor = ArgumentCaptor.forClass(Runnable.class);
     verify(scheduledExecutorMock1)
-        .scheduleAtFixedRate(runnableCaptor.capture(), eq(1L), eq(1L), eq(TimeUnit.HOURS));
+        .scheduleAtFixedRate(
+            runnableCaptor.capture(),
+            eq(1L),
+            eq(PeriodicRateLimiter.DEFAULT_TIME_LAPSE_IN_MINUTES),
+            eq(TimeUnit.MINUTES));
 
     replenishPermits(warningLimiter1, runnableCaptor);
     testAcquireAll();

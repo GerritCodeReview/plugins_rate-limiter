@@ -26,20 +26,27 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 
-public class WarningHourlyUnlimitedRateLimiterTest {
+public class WarningUnlimitedRateLimiterTest {
 
   private static final int RATE = 1000;
   private static final int WARN_RATE = 900;
-  private WarningHourlyUnlimitedRateLimiter warningUnlimitedLimiter;
+  private WarningUnlimitedRateLimiter warningUnlimitedLimiter;
   private ScheduledExecutorService scheduledExecutorMock;
   private UserResolver userResolver = mock(UserResolver.class);
 
   @Before
   public void setUp() {
     scheduledExecutorMock = mock(ScheduledExecutorService.class);
-    HourlyRateLimiter limiter = new HourlyRateLimiter(scheduledExecutorMock, RATE);
+    PeriodicRateLimiter limiter =
+        new PeriodicRateLimiter(
+            scheduledExecutorMock, RATE, PeriodicRateLimiter.DEFAULT_TIME_LAPSE_IN_MINUTES);
     warningUnlimitedLimiter =
-        new WarningHourlyUnlimitedRateLimiter(userResolver, limiter, "dummy", WARN_RATE);
+        new WarningUnlimitedRateLimiter(
+            userResolver,
+            limiter,
+            "dummy",
+            WARN_RATE,
+            PeriodicRateLimiter.DEFAULT_TIME_LAPSE_IN_MINUTES);
   }
 
   @Test
@@ -68,14 +75,23 @@ public class WarningHourlyUnlimitedRateLimiterTest {
 
   @Test
   public void testReplenishPermitsIsScheduled() {
-    verify(scheduledExecutorMock).scheduleAtFixedRate(any(), eq(1L), eq(1L), eq(TimeUnit.HOURS));
+    verify(scheduledExecutorMock)
+        .scheduleAtFixedRate(
+            any(),
+            eq(1L),
+            eq(PeriodicRateLimiter.DEFAULT_TIME_LAPSE_IN_MINUTES),
+            eq(TimeUnit.MINUTES));
   }
 
   @Test
   public void testReplenishPermitsScheduledRunnableIsWorking() {
     ArgumentCaptor<Runnable> runnableCaptor = ArgumentCaptor.forClass(Runnable.class);
     verify(scheduledExecutorMock)
-        .scheduleAtFixedRate(runnableCaptor.capture(), eq(1L), eq(1L), eq(TimeUnit.HOURS));
+        .scheduleAtFixedRate(
+            runnableCaptor.capture(),
+            eq(1L),
+            eq(PeriodicRateLimiter.DEFAULT_TIME_LAPSE_IN_MINUTES),
+            eq(TimeUnit.MINUTES));
 
     testTriggerWarning();
 
