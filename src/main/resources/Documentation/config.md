@@ -14,6 +14,7 @@ Example:
   [group "buildserver"]
     uploadpackperhour = 10
     uploadpackperhourwarn = 8
+    timelapseinminutes = 10
 
   [group "Registered Users"]
     uploadpackperhour = 1
@@ -24,6 +25,11 @@ Example:
   [group "gerrit-user"]
     uploadpackperhourwarn = 10
 ```
+In this example, the plugin will apply the uploadpackperhour and
+uploadpackperhourwarn properties every 10 minutes for the members of
+the group buildserver and every 1 hour for the other groups. Therefore,
+the members of the group buildserver will have a limit of 10 uploaded
+packs every 10 minutes.
 
 For logged-in users, rate limits are associated to their accountId. For
 anonymous users, rate limits are associated to their remote host address.
@@ -104,3 +110,6 @@ The rate limit exceeded message can be configured by setting the
 message and will be replaced by the effective rate limit per hour.
 
 Defaults to `Exceeded rate limit of ${rateLimit} fetch requests/hour`.
+
+`timelapseinminutes` defines a period of time in which the limit of uploadpack takes place.
+If it is not configured a default value of 1 hour is established.
