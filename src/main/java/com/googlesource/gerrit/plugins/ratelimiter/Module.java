@@ -89,6 +89,7 @@ class Module extends AbstractModule {
     public RateLimiter load(String key) {
       Optional<RateLimit> limit = finder.find(RateLimitType.UPLOAD_PACK_PER_HOUR, key);
       Optional<RateLimit> warn = finder.find(RateLimitType.UPLOAD_PACK_PER_HOUR_WARN, key);
+      Optional<RateLimit> timeLapse = finder.find(RateLimitType.TIME_LAPSE, key);
       if (!limit.isPresent() && !warn.isPresent()) {
         return UnlimitedRateLimiter.INSTANCE;
       }
@@ -99,7 +100,7 @@ class Module extends AbstractModule {
         myLimit = limit.get().getRatePerHour();
       }
 
-      RateLimiter rateLimiter = hourlyRateLimiterFactory.create(myLimit);
+      RateLimiter rateLimiter = hourlyRateLimiterFactory.create(myLimit, timeLapse);
 
       if (warn.isPresent()) {
         if (limit.isPresent()) {

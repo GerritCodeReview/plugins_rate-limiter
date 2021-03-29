@@ -16,6 +16,7 @@ package com.googlesource.gerrit.plugins.ratelimiter;
 
 import com.google.inject.Inject;
 import com.google.inject.assistedinject.Assisted;
+import java.util.Optional;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.Semaphore;
@@ -29,15 +30,24 @@ class HourlyRateLimiter implements RateLimiter {
   private final ScheduledFuture<?> replenishTask;
 
   interface Factory {
-    HourlyRateLimiter create(int permits);
+    HourlyRateLimiter create(int permits, Optional<RateLimit> timeLapse);
   }
 
   @Inject
-  HourlyRateLimiter(@RateLimitExecutor ScheduledExecutorService executor, @Assisted int permits) {
+  HourlyRateLimiter(
+      @RateLimitExecutor ScheduledExecutorService executor,
+      @Assisted int permits,
+      @Assisted Optional<RateLimit> timeLapse) {
     this.semaphore = new Semaphore(permits);
     this.maxPermits = permits;
     this.usedPermits = new AtomicInteger();
-    replenishTask = executor.scheduleAtFixedRate(this::replenishPermits, 1, 1, TimeUnit.HOURS);
+    if (timeLapse.isPresent()) {
+      int time = timeLapse.get().getRatePerHour();
+      replenishTask =
+          executor.scheduleAtFixedRate(this::replenishPermits, 1, time, TimeUnit.MINUTES);
+    } else {
+      replenishTask = executor.scheduleAtFixedRate(this::replenishPermits, 1, 1, TimeUnit.HOURS);
+    }
   }
 
   @Override

@@ -20,6 +20,7 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
+import java.util.Optional;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import org.junit.Before;
@@ -36,7 +37,7 @@ public class HourlyRateLimiterTest {
   @Before
   public void setUp() {
     scheduledExecutorMock = mock(ScheduledExecutorService.class);
-    limiter = new HourlyRateLimiter(scheduledExecutorMock, RATE);
+    limiter = new HourlyRateLimiter(scheduledExecutorMock, RATE, Optional.empty());
   }
 
   @Test

@@ -22,6 +22,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
 
+import java.util.Optional;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import org.junit.Before;
@@ -43,10 +44,12 @@ public class WarningHourlyRateLimiterTest {
 
     ScheduledExecutorService scheduledExecutorMock2 = mock(ScheduledExecutorService.class);
 
-    HourlyRateLimiter limiter1 = spy(new HourlyRateLimiter(scheduledExecutorMock1, RATE));
+    HourlyRateLimiter limiter1 =
+        spy(new HourlyRateLimiter(scheduledExecutorMock1, RATE, Optional.empty()));
     doReturn(1L).when(limiter1).remainingTime(any(TimeUnit.class));
 
-    HourlyRateLimiter limiter2 = spy(new HourlyRateLimiter(scheduledExecutorMock2, RATE));
+    HourlyRateLimiter limiter2 =
+        spy(new HourlyRateLimiter(scheduledExecutorMock2, RATE, Optional.empty()));
     doReturn(1L).when(limiter2).remainingTime(any(TimeUnit.class));
 
     warningLimiter1 = new WarningHourlyRateLimiter(userResolver, limiter1, "dummy", WARN_RATE);
