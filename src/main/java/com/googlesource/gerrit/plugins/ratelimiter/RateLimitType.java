@@ -16,7 +16,8 @@ package com.googlesource.gerrit.plugins.ratelimiter;
 
 enum RateLimitType {
   UPLOAD_PACK_PER_HOUR("uploadpackperhour"),
-  UPLOAD_PACK_PER_HOUR_WARN("uploadpackperhourwarn");
+  UPLOAD_PACK_PER_HOUR_WARN("uploadpackperhourwarn"),
+  TIME_LAPSE("timelapse");
 
   private final String type;
 
