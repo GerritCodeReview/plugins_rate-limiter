@@ -60,6 +60,29 @@ public class RateLimitUploadPackIT extends LightweightPluginDaemonTest {
     cloneProject(new Project.NameKey(projectB), user);
   }
 
+  @Test
+  @UseLocalDisk
+  @GlobalPluginConfig(
+      pluginName = "rate-limiter",
+      name = "group.limitGroup.uploadpackperhour",
+      value = "1")
+  @GlobalPluginConfig(pluginName = "rate-limiter", name = "group.limitGroup.timelapse", value = "1")
+  @GlobalPluginConfig(
+      pluginName = "rate-limiter",
+      name = "configuration.uploadpackLimitExceededMsg",
+      value = "Custom message: Limit exceeded ${rateLimit} requests/hour")
+  public void requestIsBlockedForGroupAfterRateLimitReachedAndGrantedAfterTimeLapse()
+      throws Exception {
+    String projectA = "projectA";
+    String projectB = "projectB";
+    createProjectWithChange(projectA);
+    createProjectWithChange(projectB);
+
+    cloneProject(new Project.NameKey(projectA), user);
+    Thread.sleep(60000);
+    cloneProject(new Project.NameKey(projectB), user);
+  }
+
   private void addUserToNewGroup() throws RestApiException {
     GroupInput in = new GroupInput();
     String groupName = "limitGroup";
