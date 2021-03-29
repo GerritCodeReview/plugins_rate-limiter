@@ -14,6 +14,7 @@ Example:
   [group "buildserver"]
     uploadpackperhour = 10
     uploadpackperhourwarn = 8
+    timelapseinminutes = 1
 
   [group "Registered Users"]
     uploadpackperhour = 1
@@ -104,3 +105,6 @@ The rate limit exceeded message can be configured by setting the
 message and will be replaced by the effective rate limit per hour.
 
 Defaults to `Exceeded rate limit of ${rateLimit} fetch requests/hour`.
+
+`timelapseinminutes` defines a period of time in which the limit of uploadpack takes place.
+If it is not configured a default value of 1 hour is established.

@@ -43,10 +43,12 @@ public class WarningHourlyRateLimiterTest {
 
     ScheduledExecutorService scheduledExecutorMock2 = mock(ScheduledExecutorService.class);
 
-    HourlyRateLimiter limiter1 = spy(new HourlyRateLimiter(scheduledExecutorMock1, RATE));
+    CustomRateLimiter limiter1 =
+        spy(new CustomRateLimiter(scheduledExecutorMock1, RATE, CustomRateLimiter.DEFAULT_HOUR));
     doReturn(1L).when(limiter1).remainingTime(any(TimeUnit.class));
 
-    HourlyRateLimiter limiter2 = spy(new HourlyRateLimiter(scheduledExecutorMock2, RATE));
+    CustomRateLimiter limiter2 =
+        spy(new CustomRateLimiter(scheduledExecutorMock2, RATE, CustomRateLimiter.DEFAULT_HOUR));
     doReturn(1L).when(limiter2).remainingTime(any(TimeUnit.class));
 
     warningLimiter1 = new WarningHourlyRateLimiter(userResolver, limiter1, "dummy", WARN_RATE);
@@ -90,14 +92,20 @@ public class WarningHourlyRateLimiterTest {
 
   @Test
   public void testReplenishPermitsIsScheduled() {
-    verify(scheduledExecutorMock1).scheduleAtFixedRate(any(), eq(1L), eq(1L), eq(TimeUnit.HOURS));
+    verify(scheduledExecutorMock1)
+        .scheduleAtFixedRate(
+            any(), eq(1L), eq(CustomRateLimiter.DEFAULT_HOUR), eq(TimeUnit.MINUTES));
   }
 
   @Test
   public void testReplenishPermitsScheduledRunnableIsWorking() {
     ArgumentCaptor<Runnable> runnableCaptor = ArgumentCaptor.forClass(Runnable.class);
     verify(scheduledExecutorMock1)
-        .scheduleAtFixedRate(runnableCaptor.capture(), eq(1L), eq(1L), eq(TimeUnit.HOURS));
+        .scheduleAtFixedRate(
+            runnableCaptor.capture(),
+            eq(1L),
+            eq(CustomRateLimiter.DEFAULT_HOUR),
+            eq(TimeUnit.MINUTES));
 
     replenishPermits(warningLimiter1, runnableCaptor);
     testAcquireAll();

@@ -22,22 +22,27 @@ import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
-class HourlyRateLimiter implements RateLimiter {
+class CustomRateLimiter implements RateLimiter {
   private final Semaphore semaphore;
   private final int maxPermits;
   private final AtomicInteger usedPermits;
   private final ScheduledFuture<?> replenishTask;
+  public static final long DEFAULT_HOUR = 60L;
 
   interface Factory {
-    HourlyRateLimiter create(int permits);
+    CustomRateLimiter create(int permits, long timeLapse);
   }
 
   @Inject
-  HourlyRateLimiter(@RateLimitExecutor ScheduledExecutorService executor, @Assisted int permits) {
+  CustomRateLimiter(
+      @RateLimitExecutor ScheduledExecutorService executor,
+      @Assisted int permits,
+      @Assisted long timeLapse) {
     this.semaphore = new Semaphore(permits);
     this.maxPermits = permits;
     this.usedPermits = new AtomicInteger();
-    replenishTask = executor.scheduleAtFixedRate(this::replenishPermits, 1, 1, TimeUnit.HOURS);
+    this.replenishTask =
+        executor.scheduleAtFixedRate(this::replenishPermits, 1, timeLapse, TimeUnit.MINUTES);
   }
 
   @Override
