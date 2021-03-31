@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3038c736_addc1039",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2021-03-31T19:10:23Z",
+      "side": 1,
+      "message": "Both classes HourlyRateLimiter, CustomRateLimiter are identical except of hardcoded Optional.empty());\nThis doesn\u0027t make sense and overcomplicate design.\n\nThere is no need to new class.\nObjects are initiated in : Module.java\n\n    if (timeLapse.isPresent() \u0026\u0026 timeLapse.get().getRatePerHour() \u003c 60) {\n        rateLimiter \u003d customRateLimiterFactory.create(myLimit, timeLapse);\n      } else {\n        rateLimiter \u003d hourlyRateLimiterFactory.create(myLimit);\n\nHere You can hardcode value for 1h and get rid of not needed new classes\nPass int instead of optional\n",
+      "revId": "1d3f51fe40991f000d5c788793806d84b03ac854",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b94d6ae_7bf4fd3e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/GeneralRateLimiter.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2021-03-31T19:10:23Z",
+      "side": 1,
+      "message": "You dont create instance of this class. This is only base class so should be abstract. If its abstract rename to AbstractRateLimiter",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 49
+      },
+      "revId": "1d3f51fe40991f000d5c788793806d84b03ac854",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
