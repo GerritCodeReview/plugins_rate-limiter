@@ -39,6 +39,52 @@
       },
       "revId": "1d3f51fe40991f000d5c788793806d84b03ac854",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67b96493_29408222",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/GeneralRateLimiter.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2021-03-31T19:15:27Z",
+      "side": 1,
+      "message": "Not needed. Pass always int with value instead of optional and create with Minutes.",
+      "range": {
+        "startLine": 38,
+        "startChar": 4,
+        "endLine": 45,
+        "endChar": 5
+      },
+      "revId": "1d3f51fe40991f000d5c788793806d84b03ac854",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb181d2f_352a4577",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/Module.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2021-03-31T19:15:27Z",
+      "side": 1,
+      "message": "add static final int HOUR \u003d 60; on beging of the class and use it instead of magic nr.\n\nhadrcode else \nrateLimiter \u003d customRateLimiterFactory.create(myLimit, HOUR);",
+      "range": {
+        "startLine": 108,
+        "startChar": 4,
+        "endLine": 113,
+        "endChar": 0
+      },
+      "revId": "1d3f51fe40991f000d5c788793806d84b03ac854",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
