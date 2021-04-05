@@ -16,6 +16,24 @@
       "message": "I think you are lacking some test coverage for the new feature. Also how warning limits is going to be handled, will it work the same way as custom that you introduced?",
       "revId": "5bb2d45980ef2b7560639b17ca8a14b2b2f5622a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef892888_ff61d9e7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-04-05T17:53:39Z",
+      "side": 1,
+      "message": "For the warning limits it is handled in the follow-up change. A test was added to include the scenario of adding a timeLapse between two clone operations.",
+      "parentUuid": "e1274df3_20f81871",
+      "revId": "5bb2d45980ef2b7560639b17ca8a14b2b2f5622a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
