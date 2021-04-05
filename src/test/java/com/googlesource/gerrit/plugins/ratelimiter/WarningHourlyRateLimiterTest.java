@@ -51,8 +51,12 @@ public class WarningHourlyRateLimiterTest {
         spy(new CustomRateLimiter(scheduledExecutorMock2, RATE, CustomRateLimiter.DEFAULT_HOUR));
     doReturn(1L).when(limiter2).remainingTime(any(TimeUnit.class));
 
-    warningLimiter1 = new WarningHourlyRateLimiter(userResolver, limiter1, "dummy", WARN_RATE);
-    warningLimiter2 = new WarningHourlyRateLimiter(userResolver, limiter2, "dummy2", WARN_RATE);
+    warningLimiter1 =
+        new WarningHourlyRateLimiter(
+            userResolver, limiter1, "dummy", WARN_RATE, CustomRateLimiter.DEFAULT_HOUR);
+    warningLimiter2 =
+        new WarningHourlyRateLimiter(
+            userResolver, limiter2, "dummy2", WARN_RATE, CustomRateLimiter.DEFAULT_HOUR);
   }
 
   @Test

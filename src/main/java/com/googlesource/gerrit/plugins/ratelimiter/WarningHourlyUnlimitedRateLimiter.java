@@ -23,7 +23,8 @@ import org.slf4j.Logger;
 class WarningHourlyUnlimitedRateLimiter implements RateLimiter {
   @FunctionalInterface
   interface Factory {
-    WarningHourlyUnlimitedRateLimiter create(RateLimiter delegate, String key, int warnLimit);
+    WarningHourlyUnlimitedRateLimiter create(
+        RateLimiter delegate, String key, int warnLimit, long timeLapse);
   }
 
   private static final Logger rateLimitLog = RateLimiterStatsLog.getLogger();
@@ -32,6 +33,7 @@ class WarningHourlyUnlimitedRateLimiter implements RateLimiter {
   private final RateLimiter delegate;
   private final int warnLimit;
   private final String key;
+  private final long timeLapse;
   private volatile boolean warningWasLogged = false;
 
   @Inject
@@ -39,11 +41,13 @@ class WarningHourlyUnlimitedRateLimiter implements RateLimiter {
       UserResolver userResolver,
       @Assisted RateLimiter delegate,
       @Assisted String key,
-      @Assisted int warnLimit) {
+      @Assisted int warnLimit,
+      @Assisted long timeLapse) {
     this.userResolver = userResolver;
     this.delegate = delegate;
     this.warnLimit = warnLimit;
     this.key = key;
+    this.timeLapse = timeLapse;
   }
 
   @Override
@@ -57,9 +61,10 @@ class WarningHourlyUnlimitedRateLimiter implements RateLimiter {
 
     if (acquirePermit && (usedPermits() == warnLimit)) {
       rateLimitLog.info(
-          "{} reached the warning limit of {} uploadpacks per hour.",
+          "{} reached the warning limit of {} uploadpacks per {} minutes.",
           userResolver.getUserName(key).orElse(key),
-          warnLimit);
+          warnLimit,
+          timeLapse);
       warningWasLogged = true;
     }
     return acquirePermit;

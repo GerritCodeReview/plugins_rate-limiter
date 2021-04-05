@@ -40,7 +40,8 @@ public class WarningHourlyUnlimitedRateLimiterTest {
     CustomRateLimiter limiter =
         new CustomRateLimiter(scheduledExecutorMock, RATE, CustomRateLimiter.DEFAULT_HOUR);
     warningUnlimitedLimiter =
-        new WarningHourlyUnlimitedRateLimiter(userResolver, limiter, "dummy", WARN_RATE);
+        new WarningHourlyUnlimitedRateLimiter(
+            userResolver, limiter, "dummy", WARN_RATE, CustomRateLimiter.DEFAULT_HOUR);
   }
 
   @Test
