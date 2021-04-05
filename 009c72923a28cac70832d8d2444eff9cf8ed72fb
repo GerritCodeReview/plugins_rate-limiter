@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab7ad329_8f94f065",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-04-05T22:31:02Z",
+      "side": 1,
+      "message": "Since its a feature request should not it be in the master branch instead?",
+      "revId": "009c72923a28cac70832d8d2444eff9cf8ed72fb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
