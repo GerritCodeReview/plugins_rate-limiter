@@ -22,6 +22,30 @@
       },
       "revId": "522e41103940d37887936f87e67e0b0997c7fab3",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f246bf4d_4b8bb470",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/ratelimiter/RateLimitUploadPackIT.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-04-05T19:45:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96dff3bc_d07c8fb5",
+      "range": {
+        "startLine": 69,
+        "startChar": 75,
+        "endLine": 69,
+        "endChar": 100
+      },
+      "revId": "522e41103940d37887936f87e67e0b0997c7fab3",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
