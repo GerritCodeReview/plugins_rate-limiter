@@ -28,12 +28,12 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 
-public class WarningHourlyRateLimiterTest {
+public class WarningRateLimiterTest {
 
   private static final int RATE = 1000;
   private static final int WARN_RATE = 900;
-  private WarningHourlyRateLimiter warningLimiter1;
-  private WarningHourlyRateLimiter warningLimiter2;
+  private WarningRateLimiter warningLimiter1;
+  private WarningRateLimiter warningLimiter2;
   private ScheduledExecutorService scheduledExecutorMock1;
   private UserResolver userResolver = mock(UserResolver.class);
 
@@ -51,8 +51,12 @@ public class WarningHourlyRateLimiterTest {
         spy(new CustomRateLimiter(scheduledExecutorMock2, RATE, CustomRateLimiter.DEFAULT_HOUR));
     doReturn(1L).when(limiter2).remainingTime(any(TimeUnit.class));
 
-    warningLimiter1 = new WarningHourlyRateLimiter(userResolver, limiter1, "dummy", WARN_RATE);
-    warningLimiter2 = new WarningHourlyRateLimiter(userResolver, limiter2, "dummy2", WARN_RATE);
+    warningLimiter1 =
+        new WarningRateLimiter(
+            userResolver, limiter1, "dummy", WARN_RATE, CustomRateLimiter.DEFAULT_HOUR);
+    warningLimiter2 =
+        new WarningRateLimiter(
+            userResolver, limiter2, "dummy2", WARN_RATE, CustomRateLimiter.DEFAULT_HOUR);
   }
 
   @Test
