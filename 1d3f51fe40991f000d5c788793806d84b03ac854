@@ -41,6 +41,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c016708_634d7ef1",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/GeneralRateLimiter.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-04-05T14:46:58Z",
+      "side": 1,
+      "message": "Class is deleted as per our conversation. HourlyRateLimiter is renamed to CustomRateLimiter as proposed",
+      "parentUuid": "1b94d6ae_7bf4fd3e",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 49
+      },
+      "revId": "1d3f51fe40991f000d5c788793806d84b03ac854",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "67b96493_29408222",
@@ -64,6 +88,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d66395ad_e6ec2b0a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/GeneralRateLimiter.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-04-05T14:46:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67b96493_29408222",
+      "range": {
+        "startLine": 38,
+        "startChar": 4,
+        "endLine": 45,
+        "endChar": 5
+      },
+      "revId": "1d3f51fe40991f000d5c788793806d84b03ac854",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fb181d2f_352a4577",
@@ -77,6 +125,30 @@
       "writtenOn": "2021-03-31T19:15:27Z",
       "side": 1,
       "message": "add static final int HOUR \u003d 60; on beging of the class and use it instead of magic nr.\n\nhadrcode else \nrateLimiter \u003d customRateLimiterFactory.create(myLimit, HOUR);",
+      "range": {
+        "startLine": 108,
+        "startChar": 4,
+        "endLine": 113,
+        "endChar": 0
+      },
+      "revId": "1d3f51fe40991f000d5c788793806d84b03ac854",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eef0f609_0d63c65b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/Module.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-04-05T14:46:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb181d2f_352a4577",
       "range": {
         "startLine": 108,
         "startChar": 4,
