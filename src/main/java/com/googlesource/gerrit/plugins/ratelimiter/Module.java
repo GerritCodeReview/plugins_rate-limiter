@@ -50,8 +50,8 @@ class Module extends AbstractModule {
         .annotatedWith(UniqueAnnotations.create())
         .to(RateLimiterStatsLog.class);
     install(new FactoryModuleBuilder().build(CustomRateLimiter.Factory.class));
-    install(new FactoryModuleBuilder().build(WarningHourlyRateLimiter.Factory.class));
-    install(new FactoryModuleBuilder().build(WarningHourlyUnlimitedRateLimiter.Factory.class));
+    install(new FactoryModuleBuilder().build(WarningRateLimiter.Factory.class));
+    install(new FactoryModuleBuilder().build(WarningUnlimitedRateLimiter.Factory.class));
   }
 
   @Provides
@@ -69,20 +69,19 @@ class Module extends AbstractModule {
   private static class RateLimiterLoader extends CacheLoader<String, RateLimiter> {
     private final RateLimitFinder finder;
     private final CustomRateLimiter.Factory customRateLimiterFactory;
-    private final WarningHourlyRateLimiter.Factory warningHourlyRateLimiterFactory;
-    private final WarningHourlyUnlimitedRateLimiter.Factory
-        warningHourlyUnlimitedRateLimiterFactory;
+    private final WarningRateLimiter.Factory warningRateLimiterFactory;
+    private final WarningUnlimitedRateLimiter.Factory warningUnlimitedRateLimiterFactory;
 
     @Inject
     RateLimiterLoader(
         RateLimitFinder finder,
         CustomRateLimiter.Factory customRateLimiterFactory,
-        WarningHourlyRateLimiter.Factory warningHourlyRateLimiterFactory,
-        WarningHourlyUnlimitedRateLimiter.Factory warningUnlimitedRateLimiterFactory) {
+        WarningRateLimiter.Factory warningRateLimiterFactory,
+        WarningUnlimitedRateLimiter.Factory warningUnlimitedRateLimiterFactory) {
       this.finder = finder;
       this.customRateLimiterFactory = customRateLimiterFactory;
-      this.warningHourlyRateLimiterFactory = warningHourlyRateLimiterFactory;
-      this.warningHourlyUnlimitedRateLimiterFactory = warningUnlimitedRateLimiterFactory;
+      this.warningRateLimiterFactory = warningRateLimiterFactory;
+      this.warningUnlimitedRateLimiterFactory = warningUnlimitedRateLimiterFactory;
     }
 
     @Override
@@ -108,11 +107,11 @@ class Module extends AbstractModule {
 
       if (warn.isPresent()) {
         if (limit.isPresent()) {
-          return warningHourlyRateLimiterFactory.create(
-              rateLimiter, key, warn.get().getRatePerHour());
+          return warningRateLimiterFactory.create(
+              rateLimiter, key, warn.get().getRatePerHour(), time);
         }
-        return warningHourlyUnlimitedRateLimiterFactory.create(
-            rateLimiter, key, warn.get().getRatePerHour());
+        return warningUnlimitedRateLimiterFactory.create(
+            rateLimiter, key, warn.get().getRatePerHour(), time);
       }
       return rateLimiter;
     }
