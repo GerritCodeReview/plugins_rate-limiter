@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4eb2b18_6cbd9eab",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/CustomRateLimiter.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-04-06T19:19:10Z",
+      "side": 0,
+      "message": "I think this name would still be fine. After all, the hour remains the max, and these configurable minutes shall still fit within the hour.",
+      "range": {
+        "startLine": 25,
+        "startChar": 6,
+        "endLine": 25,
+        "endChar": 12
+      },
+      "revId": "36854b5f0e82268dbf6b6ad204b5ed722d6972cc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
