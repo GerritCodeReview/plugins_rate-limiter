@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a463da22_15bbb697",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-04-06T19:37:50Z",
+      "side": 1,
+      "message": "Once done considering the base change review comments, I think what remains of this change should be squashed into the latter.",
+      "revId": "e152c40bffbf117abd0318f41346ee6e1856b1be",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
