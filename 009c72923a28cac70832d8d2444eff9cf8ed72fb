@@ -128,6 +128,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4215f47_f336e6d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-04-06T19:34:26Z",
+      "side": 1,
+      "message": "\u003e I agree but will we need to make internal forks to include this change. [1] mentions that after April 26th to complete any features on stable-branches. What do you think @Marco?\n\nWhich [1]? I think this above is missing some words or so. Regarding this plugin, we are the only maintainers, so we could consider introducing this change downstream. However, it has to test that it doesn\u0027t break the previous behaviour or related default use of that feature.\n\nThe way I see it, it seems like this change is making the feature usable again, so potentially treatable as a bug (feature) fix. If a fix, then it should only be done from the downstream most non-EOL branch, i.e., stable-3.1. But again, as the sole maintainers, we could decide otherwise -if still passing the default case.",
+      "parentUuid": "ce6a5ba2_8737ff30",
+      "revId": "009c72923a28cac70832d8d2444eff9cf8ed72fb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d7d57f9e_2646ed9b",
