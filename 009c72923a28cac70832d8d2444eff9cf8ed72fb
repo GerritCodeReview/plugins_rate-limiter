@@ -16,6 +16,24 @@
       "message": "Since its a feature request should not it be in the master branch instead?",
       "revId": "009c72923a28cac70832d8d2444eff9cf8ed72fb",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce6a5ba2_8737ff30",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-04-06T12:59:27Z",
+      "side": 1,
+      "message": "I agree but will we need to make internal forks to include this change. [1] mentions that after April 26th to complete any features on stable-branches. What do you think @Marco?",
+      "parentUuid": "ab7ad329_8f94f065",
+      "revId": "009c72923a28cac70832d8d2444eff9cf8ed72fb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
