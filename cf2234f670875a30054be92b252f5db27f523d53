@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ca37713_f4433509",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/PeriodicRateLimiter.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2021-04-07T17:21:13Z",
+      "side": 1,
+      "message": "This will always stays on 60 minutes why not rename it to always see in code.\nDEFAULT_60_MINUTES or ONE_HOUR_IN_MINUTES.",
+      "range": {
+        "startLine": 26,
+        "startChar": 20,
+        "endLine": 26,
+        "endChar": 49
+      },
+      "revId": "cf2234f670875a30054be92b252f5db27f523d53",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
