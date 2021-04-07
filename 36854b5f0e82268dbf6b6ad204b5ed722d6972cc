@@ -22,6 +22,30 @@
       },
       "revId": "36854b5f0e82268dbf6b6ad204b5ed722d6972cc",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed98ef2c_2e53b146",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/CustomRateLimiter.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-04-07T13:23:10Z",
+      "side": 0,
+      "message": "CustomRateLimiter doesn\u0027t give much of information I agree. But in case of configuring the time lapse, the mention of hourly can be misleading. I suggest to rename it to PeriodicRateLimiter as the max hour can change as well.",
+      "parentUuid": "b4eb2b18_6cbd9eab",
+      "range": {
+        "startLine": 25,
+        "startChar": 6,
+        "endLine": 25,
+        "endChar": 12
+      },
+      "revId": "36854b5f0e82268dbf6b6ad204b5ed722d6972cc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
