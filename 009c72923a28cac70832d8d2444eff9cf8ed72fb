@@ -550,6 +550,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "06154879_a4afd31a",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-04-08T16:20:55Z",
+      "side": 1,
+      "message": "Why not keeping the mention of the supported limit, though?",
+      "parentUuid": "8fd18f56_a72b8a23",
+      "range": {
+        "startLine": 6,
+        "startChar": 87,
+        "endLine": 6,
+        "endChar": 110
+      },
+      "revId": "009c72923a28cac70832d8d2444eff9cf8ed72fb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2cba6dd8_2fb9ade8",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 7
