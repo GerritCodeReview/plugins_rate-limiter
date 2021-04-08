@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "853f97b5_33f03a1a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/Module.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-04-08T21:03:58Z",
+      "side": 1,
+      "message": "if (providedTimeLapse \u003e 0 \u0026\u0026 providedTimeLapse \u003c\u003d effectiveTimeLapse) {\n  effectiveTimeLapse \u003d providedTimeLapse;\n} else {\n  logger.warn(\n      \"The time lapse is set to the default {} minutes, as the configured value is invalid.\",\n      effectiveTimeLapse);\n}\n\n-Because:\n1. A value of 0 is not supported; right?\n2. A value of 60 is allowed.\n3. An if statement should be cleaner than a ternary operator in this case.\n4. The warning should not repeat the information that should be in the doc. So if the latter is missing some, then let\u0027s add it in there instead, and just once.",
+      "range": {
+        "startLine": 108,
+        "startChar": 8,
+        "endLine": 118,
+        "endChar": 9
+      },
+      "revId": "001bc26bd2365824b321add2583730088de39120",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
