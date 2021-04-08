@@ -1,0 +1,176 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b251944b_b7e64252",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-04-08T16:20:55Z",
+      "side": 1,
+      "message": "Once stable, I think we could consider moving this to stable-2.16, based on my previous related comment.",
+      "revId": "9407ef363b65acad3c5a4926e536466a37eb4d95",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2439fba_123dd8a4",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/Module.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-04-08T16:20:55Z",
+      "side": 1,
+      "message": "This message is missing why the default gets set in the first place.",
+      "revId": "9407ef363b65acad3c5a4926e536466a37eb4d95",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6c71855_506b1189",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/Module.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-04-08T16:20:55Z",
+      "side": 1,
+      "message": "Typo.",
+      "range": {
+        "startLine": 109,
+        "startChar": 36,
+        "endLine": 109,
+        "endChar": 37
+      },
+      "revId": "9407ef363b65acad3c5a4926e536466a37eb4d95",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8bbd072_e39246e7",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/Module.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-04-08T16:20:55Z",
+      "side": 1,
+      "message": "warn, rather?",
+      "range": {
+        "startLine": 109,
+        "startChar": 15,
+        "endLine": 109,
+        "endChar": 19
+      },
+      "revId": "9407ef363b65acad3c5a4926e536466a37eb4d95",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2feee308_d5abdab2",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/ratelimiter/PeriodicRateLimiterTest.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-04-08T16:20:55Z",
+      "side": 1,
+      "message": "A static import of this could help shorten the added code in this file.",
+      "range": {
+        "startLine": 74,
+        "startChar": 15,
+        "endLine": 74,
+        "endChar": 64
+      },
+      "revId": "9407ef363b65acad3c5a4926e536466a37eb4d95",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc11b513_b7c39942",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/ratelimiter/RateLimitUploadPackIT.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-04-08T16:20:55Z",
+      "side": 1,
+      "message": "Typo. Again, you should copy-paste the proposal instead of retyping it.",
+      "range": {
+        "startLine": 78,
+        "startChar": 74,
+        "endLine": 78,
+        "endChar": 81
+      },
+      "revId": "9407ef363b65acad3c5a4926e536466a37eb4d95",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f8603f6_afa46246",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/ratelimiter/WarningRateLimiterTest.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-04-08T16:20:55Z",
+      "side": 1,
+      "message": "Static import?",
+      "range": {
+        "startLine": 55,
+        "startChar": 46,
+        "endLine": 55,
+        "endChar": 95
+      },
+      "revId": "9407ef363b65acad3c5a4926e536466a37eb4d95",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29f98036_2b16b82a",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/ratelimiter/WarningUnlimitedRateLimiterTest.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-04-08T16:20:55Z",
+      "side": 1,
+      "message": "Static import?",
+      "range": {
+        "startLine": 49,
+        "startChar": 12,
+        "endLine": 49,
+        "endChar": 61
+      },
+      "revId": "9407ef363b65acad3c5a4926e536466a37eb4d95",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
