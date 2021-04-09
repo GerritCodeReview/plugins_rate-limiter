@@ -34,6 +34,24 @@
       "parentUuid": "cce27e18_a2461e52",
       "revId": "fe0462b524ef276c9f62460cc1f5dc1cf57dd643",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3eef0bf1_98b368de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-04-09T15:12:52Z",
+      "side": 1,
+      "message": "The change will be cherry-picked to 2.16 directly instead of changing destination. It is harder to move it back to 2.16. Therefore, this change will be abandoned and another will be open.",
+      "parentUuid": "e6c7320d_0a0ffe49",
+      "revId": "fe0462b524ef276c9f62460cc1f5dc1cf57dd643",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
