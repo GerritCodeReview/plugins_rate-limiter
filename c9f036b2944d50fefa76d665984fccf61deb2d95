@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51a310f2_68745b15",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-04-09T20:02:10Z",
+      "side": 1,
+      "message": "I posted a question about our final target version internally; prior to approving this change then. Other reviews welcome meanwhile, of course.",
+      "revId": "c9f036b2944d50fefa76d665984fccf61deb2d95",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
