@@ -70,6 +70,24 @@
       "parentUuid": "3eef0bf1_98b368de",
       "revId": "fe0462b524ef276c9f62460cc1f5dc1cf57dd643",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc200896_b0a2d264",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-04-09T15:21:54Z",
+      "side": 1,
+      "message": "I began by this approach but it says to resolve merge conflicts which resulted ina lot of conflicts due to reverting every commit made from 2.16 to 3.0",
+      "parentUuid": "930378d6_504d9884",
+      "revId": "fe0462b524ef276c9f62460cc1f5dc1cf57dd643",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
