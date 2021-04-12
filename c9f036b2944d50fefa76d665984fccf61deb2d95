@@ -34,6 +34,24 @@
       "parentUuid": "51a310f2_68745b15",
       "revId": "c9f036b2944d50fefa76d665984fccf61deb2d95",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed7f6cf7_23baf35e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-04-12T14:21:29Z",
+      "side": 1,
+      "message": "I\u0027d foster moving this change downstream, as we\u0027re the only known plugin maintainers, and this is a usability fix. We are already in the realm of EOL versions by now anyway.",
+      "parentUuid": "970240d9_b121904e",
+      "revId": "c9f036b2944d50fefa76d665984fccf61deb2d95",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
