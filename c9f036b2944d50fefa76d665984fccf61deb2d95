@@ -16,6 +16,24 @@
       "message": "I posted a question about our final target version internally; prior to approving this change then. Other reviews welcome meanwhile, of course.",
       "revId": "c9f036b2944d50fefa76d665984fccf61deb2d95",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "970240d9_b121904e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-04-12T11:44:22Z",
+      "side": 1,
+      "message": "According to Attila, it will be good to have it in 2.14 as well. Do we need to move it to stable-2.14 then or to make an internal fork for the stable-2.14 branch including this change?",
+      "parentUuid": "51a310f2_68745b15",
+      "revId": "c9f036b2944d50fefa76d665984fccf61deb2d95",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
