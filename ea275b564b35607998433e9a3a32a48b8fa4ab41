@@ -33,6 +33,23 @@
       "message": "I can verify it as well. Thanks @Khang for you help on this",
       "revId": "ea275b564b35607998433e9a3a32a48b8fa4ab41",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec4784f5_0e984497",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-04-13T12:38:47Z",
+      "side": 1,
+      "message": "I posted a suggestion in the original change\u0027s own review thread; [1] https://gerrit-review.googlesource.com/c/plugins/rate-limiter/+/301482",
+      "revId": "ea275b564b35607998433e9a3a32a48b8fa4ab41",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
