@@ -50,6 +50,23 @@
       "message": "I posted a suggestion in the original change\u0027s own review thread; [1] https://gerrit-review.googlesource.com/c/plugins/rate-limiter/+/301482",
       "revId": "ea275b564b35607998433e9a3a32a48b8fa4ab41",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "157f6359_bf3a8a79",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-04-13T15:39:06Z",
+      "side": 1,
+      "message": "Letting @Khang approve this change or CR it otherwise, at will.",
+      "revId": "ea275b564b35607998433e9a3a32a48b8fa4ab41",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
