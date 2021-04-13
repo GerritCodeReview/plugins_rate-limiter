@@ -69,6 +69,24 @@
       "message": "@Mark, would you be able to move this change instead of having to review [1]? You can do that through the 3-dot top menu on the right (Move change).\n\nWe could then review by comparing only what changed to adapt the change to the new destination branch. -Since we already spent some time reviewing this original change, to not have to review the whole patch again. Thanks.\n\n[1] https://gerrit-review.googlesource.com/c/plugins/rate-limiter/+/303062\n",
       "revId": "c9f036b2944d50fefa76d665984fccf61deb2d95",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fc6da7b_a604cd49",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-04-13T12:44:52Z",
+      "side": 1,
+      "message": "I tried to use the move change option, but it refuses because of the change in [1] having the same change-Id.",
+      "parentUuid": "a5d6451f_e1963cf5",
+      "revId": "c9f036b2944d50fefa76d665984fccf61deb2d95",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
