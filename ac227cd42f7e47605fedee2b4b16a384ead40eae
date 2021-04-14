@@ -33,6 +33,24 @@
       "message": "Blank line above?",
       "revId": "ac227cd42f7e47605fedee2b4b16a384ead40eae",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbc1893c_8a68a805",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-04-14T12:44:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4bba337b_fbdad8b5",
+      "revId": "ac227cd42f7e47605fedee2b4b16a384ead40eae",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
