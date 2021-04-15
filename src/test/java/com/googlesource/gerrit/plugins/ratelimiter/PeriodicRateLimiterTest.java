@@ -15,6 +15,7 @@
 package com.googlesource.gerrit.plugins.ratelimiter;
 
 import static com.google.common.truth.Truth.assertThat;
+import static com.googlesource.gerrit.plugins.ratelimiter.PeriodicRateLimiter.DEFAULT_TIME_LAPSE_IN_MINUTES;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
@@ -26,17 +27,17 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 
-public class HourlyRateLimiterTest {
+public class PeriodicRateLimiterTest {
 
   private static final int RATE = 1000;
 
-  private HourlyRateLimiter limiter;
+  private PeriodicRateLimiter limiter;
   private ScheduledExecutorService scheduledExecutorMock;
 
   @Before
   public void setUp() {
     scheduledExecutorMock = mock(ScheduledExecutorService.class);
-    limiter = new HourlyRateLimiter(scheduledExecutorMock, RATE);
+    limiter = new PeriodicRateLimiter(scheduledExecutorMock, RATE, DEFAULT_TIME_LAPSE_IN_MINUTES);
   }
 
   @Test
@@ -65,14 +66,20 @@ public class HourlyRateLimiterTest {
 
   @Test
   public void testReplenishPermitsIsScheduled() {
-    verify(scheduledExecutorMock).scheduleAtFixedRate(any(), eq(1L), eq(1L), eq(TimeUnit.HOURS));
+    verify(scheduledExecutorMock)
+        .scheduleAtFixedRate(
+            any(), eq(1L), eq(DEFAULT_TIME_LAPSE_IN_MINUTES), eq(TimeUnit.MINUTES));
   }
 
   @Test
   public void testReplenishPermitsScheduledRunnableIsWorking() {
     ArgumentCaptor<Runnable> runnableCaptor = ArgumentCaptor.forClass(Runnable.class);
     verify(scheduledExecutorMock)
-        .scheduleAtFixedRate(runnableCaptor.capture(), eq(1L), eq(1L), eq(TimeUnit.HOURS));
+        .scheduleAtFixedRate(
+            runnableCaptor.capture(),
+            eq(1L),
+            eq(DEFAULT_TIME_LAPSE_IN_MINUTES),
+            eq(TimeUnit.MINUTES));
 
     // Use all permits
     testAcquire();
