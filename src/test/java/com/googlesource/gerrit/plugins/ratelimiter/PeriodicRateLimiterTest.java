@@ -68,7 +68,10 @@ public class PeriodicRateLimiterTest {
   public void testReplenishPermitsIsScheduled() {
     verify(scheduledExecutorMock)
         .scheduleAtFixedRate(
-            any(), eq(1L), eq(DEFAULT_TIME_LAPSE_IN_MINUTES), eq(TimeUnit.MINUTES));
+            any(),
+            eq(DEFAULT_TIME_LAPSE_IN_MINUTES),
+            eq(DEFAULT_TIME_LAPSE_IN_MINUTES),
+            eq(TimeUnit.MINUTES));
   }
 
   @Test
@@ -77,7 +80,7 @@ public class PeriodicRateLimiterTest {
     verify(scheduledExecutorMock)
         .scheduleAtFixedRate(
             runnableCaptor.capture(),
-            eq(1L),
+            eq(DEFAULT_TIME_LAPSE_IN_MINUTES),
             eq(DEFAULT_TIME_LAPSE_IN_MINUTES),
             eq(TimeUnit.MINUTES));
 
