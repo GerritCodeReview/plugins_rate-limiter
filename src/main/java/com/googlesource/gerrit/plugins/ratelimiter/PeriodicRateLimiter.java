@@ -43,7 +43,8 @@ class PeriodicRateLimiter implements RateLimiter {
     this.maxPermits = permits;
     this.usedPermits = new AtomicInteger();
     this.replenishTask =
-        executor.scheduleAtFixedRate(this::replenishPermits, 1, timeLapse, TimeUnit.MINUTES);
+        executor.scheduleAtFixedRate(
+            this::replenishPermits, timeLapse, timeLapse, TimeUnit.MINUTES);
   }
 
   @Override
