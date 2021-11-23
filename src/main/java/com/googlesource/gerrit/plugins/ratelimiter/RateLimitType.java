@@ -15,19 +15,25 @@
 package com.googlesource.gerrit.plugins.ratelimiter;
 
 enum RateLimitType {
-  UPLOAD_PACK_PER_HOUR("uploadpackperhour"),
-  UPLOAD_PACK_PER_HOUR_WARN("uploadpackperhourwarn"),
-  TIME_LAPSE_IN_MINUTES("timelapseinminutes");
+  UPLOAD_PACK_PER_HOUR("uploadpackperhour", "upload pack"),
+  UPLOAD_PACK_PER_HOUR_WARN("uploadpackperhourwarn", "upload pack"),
+  TIME_LAPSE_IN_MINUTES("timelapseinminutes", "upload pack");
 
   private final String type;
+  private final String packType;
 
-  RateLimitType(String type) {
+  RateLimitType(String type, String packType) {
     this.type = type;
+    this.packType = packType;
   }
 
   @Override
   public String toString() {
     return type;
+  }
+
+  public String getPackType() {
+    return packType;
   }
 
   static RateLimitType from(String value) {
