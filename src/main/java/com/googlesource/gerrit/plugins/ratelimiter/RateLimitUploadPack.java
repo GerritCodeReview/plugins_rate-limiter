@@ -75,7 +75,7 @@ class RateLimitUploadPack implements UploadValidationListener {
       RateLimiter limiter = uploadPackPerHour.get(key);
       if (limiter != null && !limiter.acquirePermit()) {
         throw new RateLimitException(
-            MessageFormat.format(limitExceededMsgFormat, limiter.permitsPerHour()));
+            MessageFormat.format(limitExceededMsgFormat, limiter.maxPermits()));
       }
     } catch (ExecutionException e) {
       log.warn("Cannot get rate limits for {}: {}", key, e);

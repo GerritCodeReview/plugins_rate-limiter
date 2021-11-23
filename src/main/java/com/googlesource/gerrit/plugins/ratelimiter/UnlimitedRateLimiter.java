@@ -20,10 +20,12 @@ class UnlimitedRateLimiter implements RateLimiter {
 
   static final UnlimitedRateLimiter INSTANCE = new UnlimitedRateLimiter();
 
+  private String rateLimitType = "";
+
   private UnlimitedRateLimiter() {}
 
   @Override
-  public int permitsPerHour() {
+  public int maxPermits() {
     return Integer.MAX_VALUE;
   }
 
@@ -45,6 +47,15 @@ class UnlimitedRateLimiter implements RateLimiter {
   @Override
   public void replenishPermits() {
     // do nothing
+  }
+  
+  public void setType(String rateLimitType) {
+    this.rateLimitType = rateLimitType;
+  }
+
+  @Override
+  public String getType() {
+    return rateLimitType;
   }
 
   @Override

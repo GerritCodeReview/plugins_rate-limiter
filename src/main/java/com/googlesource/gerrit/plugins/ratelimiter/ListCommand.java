@@ -81,7 +81,7 @@ final class ListCommand extends SshCommand {
         String.format(
             FORMAT,
             getDisplayValue(entry.getKey()),
-            permits(entry.getValue().permitsPerHour()),
+            permits(entry.getValue().maxPermits()),
             permits(entry.getValue().availablePermits()),
             Duration.ofSeconds(entry.getValue().remainingTime(TimeUnit.SECONDS))));
   }
