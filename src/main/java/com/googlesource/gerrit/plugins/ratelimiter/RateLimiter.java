@@ -24,8 +24,8 @@ interface RateLimiter extends Comparable<RateLimiter> {
     return Comparator.comparing(RateLimiter::availablePermits).reversed().compare(this, other);
   }
 
-  /** Returns number of permits allowed per hour. */
-  int permitsPerHour();
+  /** Returns number of max permits allowed per time lapse. */
+  int maxPermits();
 
   /**
    * Acquire an available permit if any left.
@@ -45,6 +45,9 @@ interface RateLimiter extends Comparable<RateLimiter> {
 
   /** Replenish available permits to the number allowed per hour. */
   void replenishPermits();
+
+  /** Return type of rate limiter **/
+  String getType();
 
   /** Closes this RateLimiter, relinquishing any underlying resources. */
   void close();

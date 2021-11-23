@@ -51,7 +51,7 @@ class WarningUnlimitedRateLimiter implements RateLimiter {
   }
 
   @Override
-  public int permitsPerHour() {
+  public int maxPermits() {
     return Integer.MAX_VALUE;
   }
 
@@ -61,9 +61,10 @@ class WarningUnlimitedRateLimiter implements RateLimiter {
 
     if (acquirePermit && (usedPermits() == warnLimit)) {
       rateLimitLog.info(
-          "{} reached the warning limit of {} uploadpacks per {} minutes.",
+          "{} reached the warning limit of {} {} per {} minutes.",
           userResolver.getUserName(key).orElse(key),
           warnLimit,
+          delegate.getType(),
           timeLapse);
       warningWasLogged = true;
     }
@@ -84,6 +85,11 @@ class WarningUnlimitedRateLimiter implements RateLimiter {
   public void replenishPermits() {
     warningWasLogged = false;
     delegate.replenishPermits();
+  }
+
+  @Override
+  public String getType() {
+    return delegate.getType();
   }
 
   @Override

@@ -39,7 +39,7 @@ public class WarningUnlimitedRateLimiterTest {
   public void setUp() {
     scheduledExecutorMock = mock(ScheduledExecutorService.class);
     PeriodicRateLimiter limiter =
-        new PeriodicRateLimiter(scheduledExecutorMock, RATE, DEFAULT_TIME_LAPSE_IN_MINUTES);
+        new PeriodicRateLimiter(scheduledExecutorMock, RATE, DEFAULT_TIME_LAPSE_IN_MINUTES, "Any Type");
     warningUnlimitedLimiter =
         new WarningUnlimitedRateLimiter(
             userResolver, limiter, "dummy", WARN_RATE, DEFAULT_TIME_LAPSE_IN_MINUTES);
@@ -47,7 +47,7 @@ public class WarningUnlimitedRateLimiterTest {
 
   @Test
   public void testGetRatePerHour() {
-    assertThat(warningUnlimitedLimiter.permitsPerHour()).isEqualTo(Integer.MAX_VALUE);
+    assertThat(warningUnlimitedLimiter.maxPermits()).isEqualTo(Integer.MAX_VALUE);
   }
 
   @Test
