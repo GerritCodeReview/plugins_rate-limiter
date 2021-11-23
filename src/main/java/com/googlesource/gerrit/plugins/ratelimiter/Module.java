@@ -36,6 +36,7 @@ import org.slf4j.Logger;
 
 class Module extends AbstractModule {
   static final String UPLOAD_PACK_PER_HOUR = "upload_pack_per_hour";
+  static final String DEFAULT_RATE_LIMIT_TYPE = "upload pack";
 
   @Override
   protected void configure() {
@@ -96,10 +97,13 @@ class Module extends AbstractModule {
         return UnlimitedRateLimiter.INSTANCE;
       }
 
+      String rateLimitType = DEFAULT_RATE_LIMIT_TYPE;
+
       // In the case that there is a warning but no limit
       Integer myLimit = Integer.MAX_VALUE;
       if (limit.isPresent()) {
         myLimit = limit.get().getRatePerHour();
+        rateLimitType = limit.get().getType().getLimitType();
       }
 
       long effectiveTimeLapse = PeriodicRateLimiter.DEFAULT_TIME_LAPSE_IN_MINUTES;
@@ -107,13 +111,15 @@ class Module extends AbstractModule {
         long providedTimeLapse = timeLapse.get().getRatePerHour();
         if (providedTimeLapse > 0 && providedTimeLapse <= effectiveTimeLapse) {
           effectiveTimeLapse = providedTimeLapse;
+          rateLimitType = timeLapse.get().getType().getLimitType();
         } else {
           logger.warn(
               "The time lapse is set to the default {} minutes, as the configured value is invalid.",
               effectiveTimeLapse);
         }
       }
-      RateLimiter rateLimiter = periodicRateLimiterFactory.create(myLimit, effectiveTimeLapse);
+      RateLimiter rateLimiter =
+          periodicRateLimiterFactory.create(myLimit, effectiveTimeLapse, rateLimitType);
 
       if (warn.isPresent()) {
         if (limit.isPresent()) {
