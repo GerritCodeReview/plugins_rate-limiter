@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af069507_27217846",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2021-11-24T19:15:04Z",
+      "side": 1,
+      "message": "Typo: enum/class name is RateLimitType\n\nAdd maybe 1 sentence why we need this /what can give us this change",
+      "range": {
+        "startLine": 9,
+        "startChar": 42,
+        "endLine": 9,
+        "endChar": 57
+      },
+      "revId": "9efcee0e80fd8a613ffafc244c51714b83779667",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c98e14a1_710483b2",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/Module.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2021-11-24T19:15:04Z",
+      "side": 1,
+      "message": "not need to redeclare static final, can be use directly below",
+      "range": {
+        "startLine": 96,
+        "startChar": 1,
+        "endLine": 96,
+        "endChar": 53
+      },
+      "revId": "9efcee0e80fd8a613ffafc244c51714b83779667",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f30005a_580a71f7",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/UnlimitedRateLimiter.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2021-11-24T19:15:04Z",
+      "side": 1,
+      "message": "not needed",
+      "range": {
+        "startLine": 23,
+        "startChar": 2,
+        "endLine": 23,
+        "endChar": 36
+      },
+      "revId": "9efcee0e80fd8a613ffafc244c51714b83779667",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "892810fe_f9cb79bf",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/UnlimitedRateLimiter.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2021-11-24T19:15:04Z",
+      "side": 1,
+      "message": "Not needed.",
+      "range": {
+        "startLine": 52,
+        "startChar": 2,
+        "endLine": 54,
+        "endChar": 3
+      },
+      "revId": "9efcee0e80fd8a613ffafc244c51714b83779667",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d1f1c32_6ebaa681",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/UnlimitedRateLimiter.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2021-11-24T19:15:04Z",
+      "side": 1,
+      "message": "Class is single tone. So each instance always will have 1 type.\nThere is no sense to create field or update it. (egz Unlimited will not exceed limit). Hardcode string or better use from configuration public static final string DEFAULT_RATE_LIMIT_TYPE.",
+      "range": {
+        "startLine": 58,
+        "startChar": 3,
+        "endLine": 58,
+        "endChar": 25
+      },
+      "revId": "9efcee0e80fd8a613ffafc244c51714b83779667",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
