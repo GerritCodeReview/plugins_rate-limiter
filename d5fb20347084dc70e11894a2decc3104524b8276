@@ -85,6 +85,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d22ea0b9_a7179e82",
+        "filename": "src/main/resources/Documentation/cmd-list.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-11-26T17:42:51Z",
+      "side": 1,
+      "message": "I would just add a new column based on the available info and add (admin) and (test_user). That would make fewer changes",
+      "parentUuid": "62ffe675_13a8d9a9",
+      "range": {
+        "startLine": 33,
+        "startChar": 15,
+        "endLine": 33,
+        "endChar": 20
+      },
+      "revId": "d5fb20347084dc70e11894a2decc3104524b8276",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "271c4b26_afa39f55",
         "filename": "src/main/resources/Documentation/cmd-list.md",
         "patchSetId": 3
@@ -120,6 +144,30 @@
       "side": 1,
       "message": "Same as above",
       "parentUuid": "271c4b26_afa39f55",
+      "range": {
+        "startLine": 34,
+        "startChar": 87,
+        "endLine": 34,
+        "endChar": 91
+      },
+      "revId": "d5fb20347084dc70e11894a2decc3104524b8276",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a695f97f_bde78661",
+        "filename": "src/main/resources/Documentation/cmd-list.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-11-26T17:42:51Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a75abdeb_cf4559c5",
       "range": {
         "startLine": 34,
         "startChar": 87,
