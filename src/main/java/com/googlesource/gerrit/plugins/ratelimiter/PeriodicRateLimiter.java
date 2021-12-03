@@ -29,19 +29,22 @@ class PeriodicRateLimiter implements RateLimiter {
   private final int maxPermits;
   private final AtomicInteger usedPermits;
   private final ScheduledFuture<?> replenishTask;
+  private final String rateLimitType;
 
   interface Factory {
-    PeriodicRateLimiter create(int permits, long timeLapse);
+    PeriodicRateLimiter create(int permits, long timeLapse, String rateLimitType);
   }
 
   @Inject
   PeriodicRateLimiter(
       @RateLimitExecutor ScheduledExecutorService executor,
       @Assisted int permits,
-      @Assisted long timeLapse) {
+      @Assisted long timeLapse,
+      @Assisted String rateLimitType) {
     this.semaphore = new Semaphore(permits);
     this.maxPermits = permits;
     this.usedPermits = new AtomicInteger();
+    this.rateLimitType = rateLimitType;
     this.replenishTask =
         executor.scheduleAtFixedRate(
             this::replenishPermits, timeLapse, timeLapse, TimeUnit.MINUTES);
@@ -80,6 +83,11 @@ class PeriodicRateLimiter implements RateLimiter {
   public synchronized void replenishPermits() {
     semaphore.release(usedPermits());
     usedPermits.set(0);
+  }
+
+  @Override
+  public String getType() {
+    return rateLimitType;
   }
 
   @Override
