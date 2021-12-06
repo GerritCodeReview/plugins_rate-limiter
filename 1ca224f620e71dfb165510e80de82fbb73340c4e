@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31e9f3a4_6c969009",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2021-12-06T17:18:54Z",
+      "side": 1,
+      "message": "Merge doesn\u0027t build on 2.15. Please check and fix\n\"plugins/rate-limiter/src/main/java/com/googlesource/gerrit/plugins/ratelimiter/ListCommand.java:9: error: cannot find symbol\nfinal class ListCommand extends SshCommand {\n                                ^\n\"",
+      "revId": "1ca224f620e71dfb165510e80de82fbb73340c4e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
