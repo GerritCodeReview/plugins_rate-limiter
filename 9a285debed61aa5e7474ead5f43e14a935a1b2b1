@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5eca8fcf_439d5730",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1140732
+      },
+      "writtenOn": "2021-12-07T22:42:34Z",
+      "side": 1,
+      "message": "Please note https://gerrit.ericsson.se/#/c/11288882/ for the CI check",
+      "revId": "9a285debed61aa5e7474ead5f43e14a935a1b2b1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
