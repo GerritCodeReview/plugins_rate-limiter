@@ -46,6 +46,9 @@ interface RateLimiter extends Comparable<RateLimiter> {
   /** Replenish available permits to the number allowed per hour. */
   void replenishPermits();
 
+  /** Return type of rate limiter * */
+  String getType();
+
   /** Closes this RateLimiter, relinquishing any underlying resources. */
   void close();
 }
