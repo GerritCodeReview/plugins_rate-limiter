@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0a9f900_79df4b48",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-12-08T14:22:57Z",
+      "side": 1,
+      "message": "fixup: Fix omitted import plugins and libraries",
+      "revId": "9a285debed61aa5e7474ead5f43e14a935a1b2b1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "5eca8fcf_439d5730",
@@ -14,6 +31,24 @@
       "writtenOn": "2021-12-07T22:42:34Z",
       "side": 1,
       "message": "Please note https://gerrit.ericsson.se/#/c/11288882/ for the CI check",
+      "revId": "9a285debed61aa5e7474ead5f43e14a935a1b2b1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5a80558_fb6570d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-12-08T14:22:57Z",
+      "side": 1,
+      "message": "dont share it here",
+      "parentUuid": "5eca8fcf_439d5730",
       "revId": "9a285debed61aa5e7474ead5f43e14a935a1b2b1",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
