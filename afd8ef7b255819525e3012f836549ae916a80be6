@@ -36,6 +36,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f53afa9b_121c140d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/ListCommand.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-12-08T18:19:42Z",
+      "side": 0,
+      "message": "Ack",
+      "parentUuid": "2b65a078_dc3d8fbb",
+      "revId": "afd8ef7b255819525e3012f836549ae916a80be6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "56800c74_5056cf0a",
