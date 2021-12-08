@@ -14,6 +14,8 @@
 
 package com.googlesource.gerrit.plugins.ratelimiter;
 
+import static com.googlesource.gerrit.plugins.ratelimiter.Module.DEFAULT_RATE_LIMIT_TYPE;
+
 import java.util.concurrent.TimeUnit;
 
 class UnlimitedRateLimiter implements RateLimiter {
@@ -45,6 +47,11 @@ class UnlimitedRateLimiter implements RateLimiter {
   @Override
   public void replenishPermits() {
     // do nothing
+  }
+
+  @Override
+  public String getType() {
+    return DEFAULT_RATE_LIMIT_TYPE;
   }
 
   @Override

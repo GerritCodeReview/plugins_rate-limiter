@@ -64,19 +64,21 @@ class WarningRateLimiter implements RateLimiter {
     boolean acquirePermit = delegate.acquirePermit();
     if (usedPermits() == warnLimit) {
       rateLimitLog.info(
-          "{} reached the warning limit of {} uploadpacks per {} minutes.",
+          "{} reached the warning limit of {} {} per {} minutes.",
           userResolver.getUserName(key).orElse(key),
           warnLimit,
+          delegate.getType(),
           timeLapse);
       warningWasLogged = true;
     }
 
     if (!acquirePermit && !wasLogged) {
       rateLimitLog.info(
-          "{} was blocked due to exceeding the limit of {} uploadpacks per {} minutes."
+          "{} was blocked due to exceeding the limit of {} {} per {} minutes."
               + " {} remaining to permits replenishing.",
           userResolver.getUserName(key).orElse(key),
           permitsPerHour(),
+          delegate.getType(),
           timeLapse,
           secondsToMsSs(remainingTime(TimeUnit.SECONDS)));
       wasLogged = true;
@@ -98,6 +100,11 @@ class WarningRateLimiter implements RateLimiter {
   public void replenishPermits() {
     warningWasLogged = false;
     delegate.replenishPermits();
+  }
+
+  @Override
+  public String getType() {
+    return delegate.getType();
   }
 
   @Override
