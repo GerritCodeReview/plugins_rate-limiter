@@ -45,11 +45,15 @@ public class WarningRateLimiterTest {
     ScheduledExecutorService scheduledExecutorMock2 = mock(ScheduledExecutorService.class);
 
     PeriodicRateLimiter limiter1 =
-        spy(new PeriodicRateLimiter(scheduledExecutorMock1, RATE, DEFAULT_TIME_LAPSE_IN_MINUTES));
+        spy(
+            new PeriodicRateLimiter(
+                scheduledExecutorMock1, RATE, DEFAULT_TIME_LAPSE_IN_MINUTES, "Any Type"));
     doReturn(1L).when(limiter1).remainingTime(any(TimeUnit.class));
 
     PeriodicRateLimiter limiter2 =
-        spy(new PeriodicRateLimiter(scheduledExecutorMock2, RATE, DEFAULT_TIME_LAPSE_IN_MINUTES));
+        spy(
+            new PeriodicRateLimiter(
+                scheduledExecutorMock2, RATE, DEFAULT_TIME_LAPSE_IN_MINUTES, "Any Type"));
     doReturn(1L).when(limiter2).remainingTime(any(TimeUnit.class));
 
     warningLimiter1 =
