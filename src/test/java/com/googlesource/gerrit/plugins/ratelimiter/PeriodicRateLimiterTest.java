@@ -37,7 +37,9 @@ public class PeriodicRateLimiterTest {
   @Before
   public void setUp() {
     scheduledExecutorMock = mock(ScheduledExecutorService.class);
-    limiter = new PeriodicRateLimiter(scheduledExecutorMock, RATE, DEFAULT_TIME_LAPSE_IN_MINUTES);
+    limiter =
+        new PeriodicRateLimiter(
+            scheduledExecutorMock, RATE, DEFAULT_TIME_LAPSE_IN_MINUTES, "Any Type");
   }
 
   @Test

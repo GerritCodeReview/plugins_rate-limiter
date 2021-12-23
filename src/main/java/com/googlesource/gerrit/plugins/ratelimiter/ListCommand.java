@@ -11,7 +11,6 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-
 package com.googlesource.gerrit.plugins.ratelimiter;
 
 import static com.google.gerrit.sshd.CommandMetaData.Mode.MASTER_OR_SLAVE;
@@ -38,10 +37,9 @@ import java.util.concurrent.TimeUnit;
     description = "Display rate limits statistics",
     runsAt = MASTER_OR_SLAVE)
 final class ListCommand extends SshCommand {
-  private static final String FORMAT = "%-26s %-17s %-19s %s";
+  private static final String FORMAT = "%-26s %-17s %-19s %-15s %s";
   private static final String DASHED_LINE =
-      "------------------------------------------------------------------------------";
-
+      "---------------------------------------------------------------------------------------------";
   private final LoadingCache<String, RateLimiter> uploadPackPerHour;
   private final UserResolver userResolver;
 
@@ -65,6 +63,7 @@ final class ListCommand extends SshCommand {
               "Account Id/IP (username)",
               "Permits Per Hour",
               "Available Permits",
+              "Used Permits",
               "Replenish in"));
       stdout.println(DASHED_LINE);
       uploadPackPerHour.asMap().entrySet().stream()
@@ -83,6 +82,7 @@ final class ListCommand extends SshCommand {
             getDisplayValue(entry.getKey()),
             permits(entry.getValue().permitsPerHour()),
             permits(entry.getValue().availablePermits()),
+            permits(entry.getValue().usedPermits()),
             Duration.ofSeconds(entry.getValue().remainingTime(TimeUnit.SECONDS))));
   }
 
