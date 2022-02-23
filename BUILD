@@ -14,6 +14,7 @@ gerrit_plugin(
         "Gerrit-PluginName: rate-limiter",
         "Gerrit-Module: com.googlesource.gerrit.plugins.ratelimiter.Module",
         "Gerrit-SshModule: com.googlesource.gerrit.plugins.ratelimiter.SshModule",
+        "Gerrit-HttpModule: com.googlesource.gerrit.plugins.ratelimiter.HttpModule",
     ],
     resources = glob(["src/main/resources/**/*"]),
 )
