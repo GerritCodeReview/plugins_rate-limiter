@@ -50,15 +50,19 @@ final class ReplenishCommand extends SshCommand {
   private List<String> remoteHosts = new ArrayList<>();
 
   private final LoadingCache<String, RateLimiter> uploadPackPerHour;
+  private final RateLimiterProcessing rateLimiterProcessing;
 
   @Inject
   ReplenishCommand(
-      @Named(UPLOAD_PACK_PER_HOUR) LoadingCache<String, RateLimiter> uploadPackPerHour) {
+      @Named(UPLOAD_PACK_PER_HOUR) LoadingCache<String, RateLimiter> uploadPackPerHour,
+      RateLimiterProcessing rateLimiterProcessing) {
     this.uploadPackPerHour = uploadPackPerHour;
+    this.rateLimiterProcessing = rateLimiterProcessing;
   }
 
   @Override
   protected void run() throws UnloggedFailure {
+
     if (all && (!accountIds.isEmpty() || !remoteHosts.isEmpty())) {
       throw die("cannot use --all with --user or --remotehost");
     }
