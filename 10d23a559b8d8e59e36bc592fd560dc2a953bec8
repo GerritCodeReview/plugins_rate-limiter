@@ -48,6 +48,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "66baa59a_9b4f95da",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/ListCommand.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2022-02-25T17:51:34Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "da76da08_bccebff7",
+      "range": {
+        "startLine": 37,
+        "startChar": 2,
+        "endLine": 37,
+        "endChar": 62
+      },
+      "revId": "10d23a559b8d8e59e36bc592fd560dc2a953bec8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "56fc6ff3_b3847c60",
@@ -320,6 +344,30 @@
       "side": 1,
       "message": "Yes, mimic the same behavior as ssh version",
       "parentUuid": "a3d87118_943fac5f",
+      "range": {
+        "startLine": 120,
+        "startChar": 8,
+        "endLine": 120,
+        "endChar": 86
+      },
+      "revId": "10d23a559b8d8e59e36bc592fd560dc2a953bec8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b5c6aed_299c781d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/RateLimiterProcessing.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2022-02-25T17:51:34Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "db71dba7_635a56bf",
       "range": {
         "startLine": 120,
         "startChar": 8,
