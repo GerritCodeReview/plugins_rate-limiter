@@ -70,14 +70,11 @@ public class RateLimiterProcessing {
     return gson.toJson(JsonParser.parseString(permitList.toString()));
   }
 
-  private String getJsonObjectString(Map.Entry<String, RateLimiter> entry)
-  {
+  private String getJsonObjectString(Map.Entry<String, RateLimiter> entry) {
     JsonObject jsonObject = new JsonObject();
     jsonObject.addProperty("AccountId", getDisplayValue(entry.getKey(), userResolver));
-    jsonObject.addProperty(
-        "permits_per_hour", permits(entry.getValue().permitsPerHour()));
-    jsonObject.addProperty(
-        "available_permits", permits(entry.getValue().availablePermits()));
+    jsonObject.addProperty("permits_per_hour", permits(entry.getValue().permitsPerHour()));
+    jsonObject.addProperty("available_permits", permits(entry.getValue().availablePermits()));
     jsonObject.addProperty("used_permit", permits(entry.getValue().usedPermits()));
     jsonObject.addProperty(
         "replenish_in",
@@ -90,8 +87,7 @@ public class RateLimiterProcessing {
   }
 
   private String getDisplayValue(String key, UserResolver userResolver) {
-    Optional<String> currentUser = userResolver.getUserName(key);
-    return currentUser.map(name -> key + " (" + name + ")").orElse(key);
+    return userResolver.getUserName(key).map(name -> key + " (" + name + ")").orElse(key);
   }
 
   public void replenish(boolean all, List<Account.Id> accountIds, List<String> remoteHosts) {
@@ -99,23 +95,16 @@ public class RateLimiterProcessing {
       throw new IllegalArgumentException("cannot use --all with --user or --remotehost");
     }
     if (all) {
-      for (RateLimiter rateLimiter : uploadPackPerHour.asMap().values()) {
-        rateLimiter.replenishPermits();
-      }
+      uploadPackPerHour.asMap().values().forEach(RateLimiter::replenishPermits);
       return;
     }
-    for (Account.Id accountId : accountIds) {
-      replenishIfPresent(Integer.toString(accountId.get()));
-    }
-    for (String remoteHost : remoteHosts) {
-      replenishIfPresent(remoteHost);
-    }
-    return;
+    accountIds.forEach(account -> replenishIfPresent(Integer.toString(account.get())));
+    remoteHosts.forEach(this::replenishIfPresent);
   }
 
   List<Account.Id> convertToAccountId(String[] usernames)
       throws ConfigInvalidException, IOException, ResourceNotFoundException {
-    ArrayList<Account.Id> accountIds = new ArrayList<>();
+    List<Account.Id> accountIds = new ArrayList<>();
     for (String user : usernames) {
       AccountResolver.Result accountId = accountResolver.resolve(user);
       if (accountId.asIdSet().isEmpty())
