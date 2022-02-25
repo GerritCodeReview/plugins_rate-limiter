@@ -166,6 +166,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "79ad9995_a64c24b3",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/RateLimiterProcessing.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2022-02-25T17:52:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "209f0941_26ef43cf",
+      "range": {
+        "startLine": 91,
+        "startChar": 4,
+        "endLine": 91,
+        "endChar": 65
+      },
+      "revId": "10d23a559b8d8e59e36bc592fd560dc2a953bec8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "22b14bf6_f9b26474",
@@ -213,6 +237,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "15c1c0ea_9c549931",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/RateLimiterProcessing.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2022-02-25T17:52:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16cc5c36_94820e10",
+      "range": {
+        "startLine": 100,
+        "startChar": 5,
+        "endLine": 103,
+        "endChar": 13
+      },
+      "revId": "10d23a559b8d8e59e36bc592fd560dc2a953bec8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "545b5dc4_699c56dd",
@@ -250,6 +298,30 @@
       "side": 1,
       "message": "same",
       "parentUuid": "545b5dc4_699c56dd",
+      "range": {
+        "startLine": 105,
+        "startChar": 4,
+        "endLine": 110,
+        "endChar": 5
+      },
+      "revId": "10d23a559b8d8e59e36bc592fd560dc2a953bec8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b14a7814_f87d6fcf",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/RateLimiterProcessing.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2022-02-25T17:52:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ade34507_37aaa5d2",
       "range": {
         "startLine": 105,
         "startChar": 4,
