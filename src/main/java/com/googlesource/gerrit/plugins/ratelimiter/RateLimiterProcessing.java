@@ -87,8 +87,7 @@ public class RateLimiterProcessing {
   }
 
   private String getDisplayValue(String key, UserResolver userResolver) {
-    Optional<String> currentUser = userResolver.getUserName(key);
-    return currentUser.map(name -> key + " (" + name + ")").orElse(key);
+    return userResolver.getUserName(key).map(name -> key + " (" + name + ")").orElse(key);
   }
 
   public void replenish(boolean all, List<Account.Id> accountIds, List<String> remoteHosts) {
@@ -96,18 +95,11 @@ public class RateLimiterProcessing {
       throw new IllegalArgumentException("cannot use --all with --user or --remotehost");
     }
     if (all) {
-      for (RateLimiter rateLimiter : uploadPackPerHour.asMap().values()) {
-        rateLimiter.replenishPermits();
-      }
+      uploadPackPerHour.asMap().values().forEach(RateLimiter::replenishPermits);
       return;
     }
-    for (Account.Id accountId : accountIds) {
-      replenishIfPresent(Integer.toString(accountId.get()));
-    }
-    for (String remoteHost : remoteHosts) {
-      replenishIfPresent(remoteHost);
-    }
-    return;
+    accountIds.forEach(account -> replenishIfPresent(Integer.toString(account.get())));
+    remoteHosts.forEach(this::replenishIfPresent);
   }
 
   List<Account.Id> convertToAccountId(String[] usernames)
