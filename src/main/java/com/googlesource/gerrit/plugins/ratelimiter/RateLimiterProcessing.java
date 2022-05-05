@@ -67,7 +67,7 @@ public class RateLimiterProcessing {
         .sorted(Map.Entry.comparingByValue())
         .map(this::getJsonObjectString)
         .forEach(permitList::add);
-    return gson.toJson(JsonParser.parseString(permitList.toString()));
+    return gson.toJson(new JsonParser().parse(permitList.toString()));
   }
 
   private String getJsonObjectString(Map.Entry<String, RateLimiter> entry) {
