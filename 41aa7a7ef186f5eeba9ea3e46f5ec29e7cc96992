@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df15ea19_5d88e1c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-05-05T18:09:37Z",
+      "side": 1,
+      "message": "Needs pyhton 3.7\ntested locally",
+      "revId": "41aa7a7ef186f5eeba9ea3e46f5ec29e7cc96992",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
