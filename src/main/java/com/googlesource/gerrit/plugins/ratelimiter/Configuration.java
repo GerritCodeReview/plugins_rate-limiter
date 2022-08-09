@@ -15,9 +15,11 @@
 package com.googlesource.gerrit.plugins.ratelimiter;
 
 import com.google.common.collect.ArrayTable;
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Table;
 import com.google.gerrit.entities.AccountGroup;
+import com.google.gerrit.entities.AccountGroup.UUID;
 import com.google.gerrit.entities.GroupDescription.Basic;
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.server.config.PluginConfigFactory;
@@ -27,8 +29,10 @@ import com.google.inject.ProvisionException;
 import com.google.inject.Singleton;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.concurrent.CopyOnWriteArrayList;
 import org.eclipse.jgit.lib.Config;
 
 @Singleton
@@ -36,10 +40,12 @@ class Configuration {
 
   static final String RATE_LIMIT_TOKEN = "${rateLimit}";
   private static final String GROUP_SECTION = "group";
+  private static final String SENDEMAIL_SECTION = "sendemail";
   private static final String DEFAULT_UPLOADPACK_LIMIT_EXCEEDED_MSG =
       "Exceeded rate limit of " + RATE_LIMIT_TOKEN + " fetch requests/hour";
 
   private Table<RateLimitType, AccountGroup.UUID, RateLimit> rateLimits;
+  private Map<RateLimitType, List<UUID>> recipients;
   private final String rateLimitExceededMsg;
 
   @Inject
@@ -49,7 +55,39 @@ class Configuration {
       GroupResolver groupsCollection) {
     Config config = pluginConfigFactory.getGlobalPluginConfig(pluginName);
     parseAllGroupsRateLimits(config, groupsCollection);
+    parseUserGroupsForEmailNotification(config, groupsCollection);
     rateLimitExceededMsg = parseLimitExceededMsg(config);
+  }
+
+  private void parseUserGroupsForEmailNotification(Config config, GroupResolver groupsCollection) {
+    recipients = new LinkedHashMap<>();
+    for (String stringRateLimitType : config.getNames(SENDEMAIL_SECTION, true)) {
+      RateLimitType rateLimitType = RateLimitType.from(stringRateLimitType);
+      if (rateLimitType != null) {
+        recipients.put(
+            rateLimitType,
+            parseSeverityNotificationRecipients(config, rateLimitType, groupsCollection));
+      }
+    }
+  }
+
+  private List<AccountGroup.UUID> parseSeverityNotificationRecipients(
+      Config config, RateLimitType rateLimitType, GroupResolver groupsCollection) {
+    String rowValue = config.getString(SENDEMAIL_SECTION, null, rateLimitType.toString());
+    return resolveGroupsFromParsedValue(rowValue, groupsCollection);
+  }
+
+  private List<AccountGroup.UUID> resolveGroupsFromParsedValue(
+      String configValue, GroupResolver groupsCollection) {
+    List<AccountGroup.UUID> groups = new CopyOnWriteArrayList<>();
+    String[] groupNames = configValue.split("\\s*,\\s*");
+    for (String groupName : groupNames) {
+      Basic basic = groupsCollection.parseId(groupName);
+      if (basic != null) {
+        groups.add(basic.getGroupUUID());
+      }
+    }
+    return groups;
   }
 
   private void parseAllGroupsRateLimits(Config config, GroupResolver groupsCollection) {
@@ -115,5 +153,9 @@ class Configuration {
    */
   Map<AccountGroup.UUID, RateLimit> getRatelimits(RateLimitType rateLimitType) {
     return rateLimits != null ? rateLimits.row(rateLimitType) : ImmutableMap.of();
+  }
+
+  List<AccountGroup.UUID> getRecipients(RateLimitType rateLimitType) {
+    return recipients != null ? recipients.get(rateLimitType) : ImmutableList.of();
   }
 }
