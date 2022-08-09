@@ -17,12 +17,18 @@ package com.googlesource.gerrit.plugins.ratelimiter;
 import static com.google.common.truth.Truth.assertThat;
 import static com.googlesource.gerrit.plugins.ratelimiter.PeriodicRateLimiter.DEFAULT_TIME_LAPSE_IN_MINUTES;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyBoolean;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
+import com.google.gerrit.exceptions.EmailException;
+import com.google.gerrit.server.IdentifiedUser;
+import java.util.Optional;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import org.junit.Before;
@@ -33,75 +39,76 @@ public class WarningRateLimiterTest {
 
   private static final int RATE = 1000;
   private static final int WARN_RATE = 900;
-  private WarningRateLimiter warningLimiter1;
-  private WarningRateLimiter warningLimiter2;
-  private ScheduledExecutorService scheduledExecutorMock1;
+  private IdentifiedUser identifiedUser = mock(IdentifiedUser.class);
+  private WarningRateLimiter warningLimiter;
+  private ScheduledExecutorService scheduledExecutorMock;
   private UserResolver userResolver = mock(UserResolver.class);
+  private RateLimitReachedSender.Factory rateLimitReachedSenderFactory =
+      mock(RateLimitReachedSender.Factory.class);
+  private RateLimitReachedSender sender = mock(RateLimitReachedSender.class);
 
   @Before
   public void setUp() {
-    scheduledExecutorMock1 = mock(ScheduledExecutorService.class);
+    scheduledExecutorMock = mock(ScheduledExecutorService.class);
 
-    ScheduledExecutorService scheduledExecutorMock2 = mock(ScheduledExecutorService.class);
-
-    PeriodicRateLimiter limiter1 =
+    PeriodicRateLimiter limiter =
         spy(
             new PeriodicRateLimiter(
-                scheduledExecutorMock1, RATE, DEFAULT_TIME_LAPSE_IN_MINUTES, "Any Type"));
-    doReturn(1L).when(limiter1).remainingTime(any(TimeUnit.class));
+                scheduledExecutorMock, RATE, DEFAULT_TIME_LAPSE_IN_MINUTES, "Any Type"));
+    doReturn(1L).when(limiter).remainingTime(any(TimeUnit.class));
 
-    PeriodicRateLimiter limiter2 =
-        spy(
-            new PeriodicRateLimiter(
-                scheduledExecutorMock2, RATE, DEFAULT_TIME_LAPSE_IN_MINUTES, "Any Type"));
-    doReturn(1L).when(limiter2).remainingTime(any(TimeUnit.class));
-
-    warningLimiter1 =
+    warningLimiter =
         new WarningRateLimiter(
-            userResolver, limiter1, "dummy", WARN_RATE, DEFAULT_TIME_LAPSE_IN_MINUTES);
-    warningLimiter2 =
-        new WarningRateLimiter(
-            userResolver, limiter2, "dummy2", WARN_RATE, DEFAULT_TIME_LAPSE_IN_MINUTES);
+            userResolver,
+            rateLimitReachedSenderFactory,
+            limiter,
+            "dummy",
+            WARN_RATE,
+            DEFAULT_TIME_LAPSE_IN_MINUTES);
   }
 
   @Test
   public void testGetRatePerHour() {
-    assertThat(warningLimiter1.permitsPerHour()).isEqualTo(RATE);
+    assertThat(warningLimiter.permitsPerHour()).isEqualTo(RATE);
   }
 
   @Test
   public void testAcquireAll() {
-    assertThat(warningLimiter1.availablePermits()).isEqualTo(RATE);
+    assertThat(warningLimiter.availablePermits()).isEqualTo(RATE);
 
     for (int permitNum = 1; permitNum <= RATE; permitNum++) {
-      checkGetPermitPasses(warningLimiter1, permitNum);
+      checkGetPermitPasses(warningLimiter, permitNum);
     }
-    checkGetPermitFails(warningLimiter1);
+    checkGetPermitFails(warningLimiter);
   }
 
   @Test
-  public void testAcquireWarning() {
-    assertThat(warningLimiter2.availablePermits()).isEqualTo(RATE);
+  public void testAcquireWarning() throws EmailException {
+    when(userResolver.getIdentifiedUser(any())).thenReturn(Optional.ofNullable(identifiedUser));
+    when(rateLimitReachedSenderFactory.create(any(), any(), anyBoolean())).thenReturn(sender);
+    assertThat(warningLimiter.availablePermits()).isEqualTo(RATE);
 
     for (int permitNum = 1; permitNum < WARN_RATE; permitNum++) {
-      checkGetPermitPasses(warningLimiter2, permitNum);
+      checkGetPermitPasses(warningLimiter, permitNum);
     }
     // Check that the warning has not yet been triggered
-    assertThat(warningLimiter2.getWarningFlagState()).isFalse();
+    assertThat(warningLimiter.getWarningFlagState()).isFalse();
 
     // Trigger the warning
-    assertThat(warningLimiter2.acquirePermit()).isTrue();
-    assertThat(warningLimiter2.getWarningFlagState()).isTrue();
+    assertThat(warningLimiter.acquirePermit()).isTrue();
+    verify(sender, times(1)).send();
+    assertThat(warningLimiter.getWarningFlagState()).isTrue();
 
     for (int permitNum = WARN_RATE + 1; permitNum <= RATE; permitNum++) {
-      checkGetPermitPasses(warningLimiter2, permitNum);
+      checkGetPermitPasses(warningLimiter, permitNum);
     }
-    checkGetPermitFails(warningLimiter2);
+    checkGetPermitFails(warningLimiter);
+    verify(sender, times(2)).send();
   }
 
   @Test
   public void testReplenishPermitsIsScheduled() {
-    verify(scheduledExecutorMock1)
+    verify(scheduledExecutorMock)
         .scheduleAtFixedRate(
             any(),
             eq(DEFAULT_TIME_LAPSE_IN_MINUTES),
@@ -112,20 +119,20 @@ public class WarningRateLimiterTest {
   @Test
   public void testReplenishPermitsScheduledRunnableIsWorking() {
     ArgumentCaptor<Runnable> runnableCaptor = ArgumentCaptor.forClass(Runnable.class);
-    verify(scheduledExecutorMock1)
+    verify(scheduledExecutorMock)
         .scheduleAtFixedRate(
             runnableCaptor.capture(),
             eq(DEFAULT_TIME_LAPSE_IN_MINUTES),
             eq(DEFAULT_TIME_LAPSE_IN_MINUTES),
             eq(TimeUnit.MINUTES));
 
-    replenishPermits(warningLimiter1, runnableCaptor);
+    replenishPermits(warningLimiter, runnableCaptor);
     testAcquireAll();
 
     // Check the available permits are used up
-    assertThat(warningLimiter1.availablePermits()).isEqualTo(0);
+    assertThat(warningLimiter.availablePermits()).isEqualTo(0);
 
-    replenishPermits(warningLimiter1, runnableCaptor);
+    replenishPermits(warningLimiter, runnableCaptor);
   }
 
   private void checkGetPermitPasses(RateLimiter rateLimiter, int permitNum) {
