@@ -29,6 +29,7 @@ import com.google.inject.Singleton;
 import com.google.inject.assistedinject.FactoryModuleBuilder;
 import com.google.inject.internal.UniqueAnnotations;
 import com.google.inject.name.Named;
+import com.googlesource.gerrit.plugins.ratelimiter.email.RateLimitReachedSender;
 import java.util.Optional;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -54,6 +55,7 @@ class Module extends AbstractModule {
     install(new FactoryModuleBuilder().build(PeriodicRateLimiter.Factory.class));
     install(new FactoryModuleBuilder().build(WarningRateLimiter.Factory.class));
     install(new FactoryModuleBuilder().build(WarningUnlimitedRateLimiter.Factory.class));
+    install(new FactoryModuleBuilder().build(RateLimitReachedSender.Factory.class));
   }
 
   @Provides
