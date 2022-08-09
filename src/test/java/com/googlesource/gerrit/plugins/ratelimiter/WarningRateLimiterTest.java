@@ -17,12 +17,18 @@ package com.googlesource.gerrit.plugins.ratelimiter;
 import static com.google.common.truth.Truth.assertThat;
 import static com.googlesource.gerrit.plugins.ratelimiter.PeriodicRateLimiter.DEFAULT_TIME_LAPSE_IN_MINUTES;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyBoolean;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
+import com.google.gerrit.exceptions.EmailException;
+import com.google.gerrit.server.IdentifiedUser;
+import java.util.Optional;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import org.junit.Before;
@@ -33,10 +39,15 @@ public class WarningRateLimiterTest {
 
   private static final int RATE = 1000;
   private static final int WARN_RATE = 900;
+  private IdentifiedUser identifiedUser = mock(IdentifiedUser.class);
   private WarningRateLimiter warningLimiter1;
   private WarningRateLimiter warningLimiter2;
   private ScheduledExecutorService scheduledExecutorMock1;
   private UserResolver userResolver = mock(UserResolver.class);
+  private RateLimitReachedSender.Factory rateLimitReachedSenderFactory1;
+  private RateLimitReachedSender.Factory rateLimitReachedSenderFactory2 =
+      mock(RateLimitReachedSender.Factory.class);
+  private RateLimitReachedSender sender = mock(RateLimitReachedSender.class);
 
   @Before
   public void setUp() {
@@ -58,10 +69,20 @@ public class WarningRateLimiterTest {
 
     warningLimiter1 =
         new WarningRateLimiter(
-            userResolver, limiter1, "dummy", WARN_RATE, DEFAULT_TIME_LAPSE_IN_MINUTES);
+            userResolver,
+            rateLimitReachedSenderFactory1,
+            limiter1,
+            "dummy",
+            WARN_RATE,
+            DEFAULT_TIME_LAPSE_IN_MINUTES);
     warningLimiter2 =
         new WarningRateLimiter(
-            userResolver, limiter2, "dummy2", WARN_RATE, DEFAULT_TIME_LAPSE_IN_MINUTES);
+            userResolver,
+            rateLimitReachedSenderFactory2,
+            limiter2,
+            "dummy2",
+            WARN_RATE,
+            DEFAULT_TIME_LAPSE_IN_MINUTES);
   }
 
   @Test
@@ -80,7 +101,9 @@ public class WarningRateLimiterTest {
   }
 
   @Test
-  public void testAcquireWarning() {
+  public void testAcquireWarning() throws EmailException {
+    when(userResolver.getIdentifiedUser(any())).thenReturn(Optional.ofNullable(identifiedUser));
+    when(rateLimitReachedSenderFactory2.create(any(), any(), anyBoolean())).thenReturn(sender);
     assertThat(warningLimiter2.availablePermits()).isEqualTo(RATE);
 
     for (int permitNum = 1; permitNum < WARN_RATE; permitNum++) {
@@ -91,12 +114,14 @@ public class WarningRateLimiterTest {
 
     // Trigger the warning
     assertThat(warningLimiter2.acquirePermit()).isTrue();
+    verify(sender, times(1)).send();
     assertThat(warningLimiter2.getWarningFlagState()).isTrue();
 
     for (int permitNum = WARN_RATE + 1; permitNum <= RATE; permitNum++) {
       checkGetPermitPasses(warningLimiter2, permitNum);
     }
     checkGetPermitFails(warningLimiter2);
+    verify(sender, times(2)).send();
   }
 
   @Test

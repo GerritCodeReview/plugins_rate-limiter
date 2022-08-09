@@ -66,12 +66,25 @@ a warn message is logged in the `RateLimiterStatsLog`, located in the
   [2018-06-04 05:40:36,006] user reached the limit of 50
 ```
 
-The upload limitation will be enforced, i.e., the operation will be blocked,
-only when the user reaches 100 uploads.
+When "soft" limit is reached, notification email is sent to user email
+(unless it's not an Anonymous user).
 
-If the warn limit is present in the configuration but no hard limit,
-then no limit will be enforced but a log entry will be written when
-the user reaches the warning limit.
+The upload limitation will be enforced, i.e., the operation will be blocked, only when the user
+reaches 100 uploads.
+
+When "hard" limit is reached, user gets a notification email (unless it's not an Anonymous user).
+
+NOTE: If limit is reached for Anonymous user or user who does not have an email
+(e.g. functional user), the email won't be sent as user will have link to anonymous query only.
+There will be also log message generated in rate-limiter log file while sending email:
+
+```
+  Error with exception while sending email:
+  com.google.gerrit.exceptions.NoSuchAccountException: Not Found: User not found
+```
+
+If the warn limit is present in the configuration but no hard limit, then no limit will be enforced
+but a log entry will be written when the user reaches the warning limit.
 
 Format of the rate limit entries in `rate-limiter.config`:
 
