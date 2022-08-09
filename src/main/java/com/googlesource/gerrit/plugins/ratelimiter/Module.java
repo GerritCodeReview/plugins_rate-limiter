@@ -54,6 +54,7 @@ class Module extends AbstractModule {
     install(new FactoryModuleBuilder().build(PeriodicRateLimiter.Factory.class));
     install(new FactoryModuleBuilder().build(WarningRateLimiter.Factory.class));
     install(new FactoryModuleBuilder().build(WarningUnlimitedRateLimiter.Factory.class));
+    install(new FactoryModuleBuilder().build(RateLimitReachedSender.Factory.class));
   }
 
   @Provides
