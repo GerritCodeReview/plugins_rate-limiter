@@ -15,6 +15,7 @@
 package com.googlesource.gerrit.plugins.ratelimiter;
 
 import com.google.common.collect.ArrayTable;
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Table;
 import com.google.gerrit.entities.AccountGroup;
@@ -27,8 +28,11 @@ import com.google.inject.ProvisionException;
 import com.google.inject.Singleton;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Optional;
+import java.util.concurrent.CopyOnWriteArrayList;
 import org.eclipse.jgit.lib.Config;
 
 @Singleton
@@ -40,6 +44,7 @@ class Configuration {
       "Exceeded rate limit of " + RATE_LIMIT_TOKEN + " fetch requests/hour";
 
   private Table<RateLimitType, AccountGroup.UUID, RateLimit> rateLimits;
+  private List<AccountGroup.UUID> recipients;
   private final String rateLimitExceededMsg;
 
   @Inject
@@ -50,6 +55,31 @@ class Configuration {
     Config config = pluginConfigFactory.getGlobalPluginConfig(pluginName);
     parseAllGroupsRateLimits(config, groupsCollection);
     rateLimitExceededMsg = parseLimitExceededMsg(config);
+    recipients = parseUserGroupsForEmailNotification(config, groupsCollection);
+  }
+
+  private List<AccountGroup.UUID> parseUserGroupsForEmailNotification(
+      Config config, GroupResolver groupsCollection) {
+    String sendEmailSection = "sendemail";
+    String recipients = "recipients";
+    Optional<String> rowValueOptional =
+        Optional.ofNullable(config.getString(sendEmailSection, null, recipients));
+    return rowValueOptional
+        .map(s -> resolveGroupsFromParsedValue(s, groupsCollection))
+        .orElseGet(ImmutableList::of);
+  }
+
+  private List<AccountGroup.UUID> resolveGroupsFromParsedValue(
+      String configValue, GroupResolver groupsCollection) {
+    List<AccountGroup.UUID> groups = new CopyOnWriteArrayList<>();
+    String[] groupNames = configValue.split("\\s*,\\s*");
+    for (String groupName : groupNames) {
+      Basic basic = groupsCollection.parseId(groupName);
+      if (basic != null) {
+        groups.add(basic.getGroupUUID());
+      }
+    }
+    return groups;
   }
 
   private void parseAllGroupsRateLimits(Config config, GroupResolver groupsCollection) {
@@ -115,5 +145,9 @@ class Configuration {
    */
   Map<AccountGroup.UUID, RateLimit> getRatelimits(RateLimitType rateLimitType) {
     return rateLimits != null ? rateLimits.row(rateLimitType) : ImmutableMap.of();
+  }
+
+  List<AccountGroup.UUID> getRecipients() {
+    return !recipients.isEmpty() ? recipients : ImmutableList.of();
   }
 }

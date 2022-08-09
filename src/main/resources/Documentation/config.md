@@ -4,9 +4,11 @@ Configuration
 Rate Limits
 -----------
 
-The defined rate limits are stored in a `rate-limiter.config` file in the
-`{review_site}/etc` directory. Rate limits are defined per user group and
-rate limit type.
+The defined rate limits and user groups for email notification are stored in a
+`rate-limiter.config file in the {review_site}/etc` directory. Rate limits are defined per user
+group and rate limit type.
+Notification user groups are defined by setting 'recipients' in 'sendemail' section. 'recipients'
+setting specifies user groups, which members will receive notification emails.
 
 Example:
 
@@ -24,6 +26,9 @@ Example:
 
   [group "gerrit-user"]
     uploadpackperhourwarn = 10
+
+  [sendemail]
+    recipients = Access_Group_1, Access_Group_2, Registered Users
 ```
 
 In this example, the plugin will apply the uploadpackperhour and
@@ -46,6 +51,10 @@ Use group "Anonymous Users" to define the rate limit for anonymous users.
 Use group "Registered Users" to define the default rate limit for all logged-in
 users.
 
+The recipients property of sendemail section define that emails about reaching soft and hard
+limits will be sent to members of **Access_Group_1, Access_Group_2, Registered Users** access
+groups.
+
 A second, "soft" limit can be defined for every rate limit, to warn
 administrators about the users that can be affected by an upcoming lower limit.
 In this case, the "soft" limit has the same name as the original limit, but
@@ -66,12 +75,23 @@ a warn message is logged in the `RateLimiterStatsLog`, located in the
   [2018-06-04 05:40:36,006] user reached the limit of 50
 ```
 
-The upload limitation will be enforced, i.e., the operation will be blocked,
-only when the user reaches 100 uploads.
+The upload limitation will be enforced, i.e., the operation will be blocked, only when the user
+reaches 100 uploads.
 
-If the warn limit is present in the configuration but no hard limit,
-then no limit will be enforced but a log entry will be written when
-the user reaches the warning limit.
+When "soft" or "hard" limit is reached, user gets a notification email, if user is a member of
+one of the groups, defined in 'rate-limiter.config' (unless it's not an Anonymous user).
+
+NOTE: If limit is reached for Anonymous user or user who does not have an email
+(e.g. functional user), the email won't be sent as user will have link to anonymous query only.
+There will be also log message generated in rate-limiter log file while sending email:
+
+```
+  Error with exception while sending email:
+  com.google.gerrit.exceptions.NoSuchAccountException: Not Found: User not found
+```
+
+If the warn limit is present in the configuration but no hard limit, then no limit will be
+enforced, but a log entry will be written when the user reaches the warning limit.
 
 Format of the rate limit entries in `rate-limiter.config`:
 
