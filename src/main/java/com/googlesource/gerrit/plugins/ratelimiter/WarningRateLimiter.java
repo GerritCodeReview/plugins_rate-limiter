@@ -15,6 +15,7 @@
 package com.googlesource.gerrit.plugins.ratelimiter;
 
 import com.google.common.annotations.VisibleForTesting;
+import com.google.gerrit.exceptions.NoSuchAccountException;
 import com.google.inject.Inject;
 import com.google.inject.assistedinject.Assisted;
 import java.time.LocalTime;
@@ -33,6 +34,7 @@ class WarningRateLimiter implements RateLimiter {
 
   private final UserResolver userResolver;
   private final RateLimiter delegate;
+  private final RateLimitReachedSender.Factory rateLimitReachedSenderFactory;
   private final int warnLimit;
   private final String key;
   private final long timeLapse;
@@ -43,12 +45,14 @@ class WarningRateLimiter implements RateLimiter {
   @Inject
   WarningRateLimiter(
       UserResolver userResolver,
+      RateLimitReachedSender.Factory rateLimitReachedSenderFactory,
       @Assisted RateLimiter delegate,
       @Assisted String key,
       @Assisted int warnLimit,
       @Assisted long timeLapse) {
     this.userResolver = userResolver;
     this.delegate = delegate;
+    this.rateLimitReachedSenderFactory = rateLimitReachedSenderFactory;
     this.warnLimit = warnLimit;
     this.key = key;
     this.timeLapse = timeLapse;
@@ -63,27 +67,44 @@ class WarningRateLimiter implements RateLimiter {
   public synchronized boolean acquirePermit() {
     boolean acquirePermit = delegate.acquirePermit();
     if (usedPermits() == warnLimit) {
-      rateLimitLog.info(
-          "{} reached the warning limit of {} {} per {} minutes.",
-          userResolver.getUserName(key).orElse(key),
-          warnLimit,
-          delegate.getType(),
-          timeLapse);
+      String emailMessage =
+          String.format(
+              "User %s reached the warning limit of %s %s per %s minutes.",
+              userResolver.getUserName(key).orElse(key), warnLimit, delegate.getType(), timeLapse);
+      rateLimitLog.info(emailMessage);
       warningWasLogged = true;
+      sendEmail(key, emailMessage, acquirePermit);
     }
 
     if (!acquirePermit && !wasLogged) {
-      rateLimitLog.info(
-          "{} was blocked due to exceeding the limit of {} {} per {} minutes."
-              + " {} remaining to permits replenishing.",
-          userResolver.getUserName(key).orElse(key),
-          permitsPerHour(),
-          delegate.getType(),
-          timeLapse,
-          secondsToMsSs(remainingTime(TimeUnit.SECONDS)));
+      String emailMessage =
+          String.format(
+              "User %s was blocked due to exceeding the limit of %s %s per %s minutes. %s remaining to permits replenishing.",
+              userResolver.getUserName(key).orElse(key),
+              permitsPerHour(),
+              delegate.getType(),
+              timeLapse,
+              secondsToMsSs(remainingTime(TimeUnit.SECONDS)));
+      rateLimitLog.info(emailMessage);
       wasLogged = true;
+      sendEmail(key, emailMessage, acquirePermit);
     }
     return acquirePermit;
+  }
+
+  protected void sendEmail(String key, String emailMessage, boolean acquirePermit) {
+    try {
+      RateLimitReachedSender sender =
+          rateLimitReachedSenderFactory.create(
+              userResolver
+                  .getIdentifiedUser(key)
+                  .orElseThrow(() -> new NoSuchAccountException("User not found")),
+              emailMessage,
+              acquirePermit);
+      sender.send();
+    } catch (Exception e) {
+      rateLimitLog.error("Error with exception while sending email: " + e);
+    }
   }
 
   @Override
