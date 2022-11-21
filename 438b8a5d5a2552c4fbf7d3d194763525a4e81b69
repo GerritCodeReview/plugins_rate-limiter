@@ -16,6 +16,24 @@
       "message": "So, the email is \"hardcoded\"?",
       "revId": "438b8a5d5a2552c4fbf7d3d194763525a4e81b69",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09f91d4c_a8112d1b",
+        "filename": "src/main/resources/RateLimiterEmailFormat.soy",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2022-11-21T12:57:13Z",
+      "side": 1,
+      "message": "I do not fully understand the question:\nit\u0027s the default notification email, that is sent user by the system. It\u0027s based on template that is placed in class path.\nIt has some structure and format to be sent (based on template).\nIf you mean we\u0027d like to have the template in review-site path to be able to change it, I can change the approach to put template to etc/email for example and add description regarding template update into documentation.",
+      "parentUuid": "9f4a7a80_d3042d91",
+      "revId": "438b8a5d5a2552c4fbf7d3d194763525a4e81b69",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
