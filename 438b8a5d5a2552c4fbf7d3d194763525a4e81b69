@@ -70,6 +70,24 @@
       "parentUuid": "41ff2b0f_05cf7e5b",
       "revId": "438b8a5d5a2552c4fbf7d3d194763525a4e81b69",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "039bab43_8d8f3dd9",
+        "filename": "src/main/resources/RateLimiterEmailFormat.soy",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2022-12-06T15:22:14Z",
+      "side": 1,
+      "message": "clarified",
+      "parentUuid": "1d2e78d0_fd841df8",
+      "revId": "438b8a5d5a2552c4fbf7d3d194763525a4e81b69",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
