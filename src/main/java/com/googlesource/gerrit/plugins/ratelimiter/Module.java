@@ -18,6 +18,7 @@ import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 import com.google.common.cache.RemovalListener;
+import com.google.gerrit.extensions.events.GitReferenceUpdatedListener;
 import com.google.gerrit.extensions.events.LifecycleListener;
 import com.google.gerrit.extensions.registration.DynamicSet;
 import com.google.gerrit.server.git.validators.UploadValidationListener;
@@ -32,15 +33,16 @@ import com.google.inject.name.Named;
 import java.util.Optional;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-import org.slf4j.Logger;
 
 class Module extends AbstractModule {
   static final String UPLOAD_PACK_PER_HOUR = "upload_pack_per_hour";
   static final String DEFAULT_RATE_LIMIT_TYPE = "upload pack";
+  static final Integer DEFAULT_LIMIT = Integer.MAX_VALUE;
 
   @Override
   protected void configure() {
     DynamicSet.bind(binder(), UploadValidationListener.class).to(RateLimitUploadPack.class);
+    DynamicSet.bind(binder(), GitReferenceUpdatedListener.class).to(RateLimiterListener.class);
     bind(Configuration.class).asEagerSingleton();
     bind(ScheduledExecutorService.class)
         .annotatedWith(RateLimitExecutor.class)
@@ -69,12 +71,11 @@ class Module extends AbstractModule {
         .build(loader.get());
   }
 
-  private static class RateLimiterLoader extends CacheLoader<String, RateLimiter> {
+  static class RateLimiterLoader extends CacheLoader<String, RateLimiter> {
     private final RateLimitFinder finder;
     private final PeriodicRateLimiter.Factory periodicRateLimiterFactory;
     private final WarningRateLimiter.Factory warningRateLimiterFactory;
     private final WarningUnlimitedRateLimiter.Factory warningUnlimitedRateLimiterFactory;
-    private final Logger logger;
 
     @Inject
     RateLimiterLoader(
@@ -86,7 +87,6 @@ class Module extends AbstractModule {
       this.periodicRateLimiterFactory = periodicRateLimiterFactory;
       this.warningRateLimiterFactory = warningRateLimiterFactory;
       this.warningUnlimitedRateLimiterFactory = warningUnlimitedRateLimiterFactory;
-      this.logger = RateLimiterStatsLog.getLogger();
     }
 
     @Override
@@ -101,24 +101,18 @@ class Module extends AbstractModule {
       String rateLimitType = DEFAULT_RATE_LIMIT_TYPE;
 
       // In the case that there is a warning but no limit
-      Integer myLimit = Integer.MAX_VALUE;
+      int myLimit = DEFAULT_LIMIT;
       if (limit.isPresent()) {
         myLimit = limit.get().getRatePerHour();
         rateLimitType = limit.get().getType().getLimitType();
       }
 
       int effectiveTimeLapse = PeriodicRateLimiter.DEFAULT_TIME_LAPSE_IN_MINUTES;
-      if (timeLapse.isPresent()) {
-        int providedTimeLapse = timeLapse.get().getRatePerHour();
-        if (providedTimeLapse > 0 && providedTimeLapse <= effectiveTimeLapse) {
-          effectiveTimeLapse = providedTimeLapse;
-          rateLimitType = timeLapse.get().getType().getLimitType();
-        } else {
-          logger.warn(
-              "The time lapse is set to the default {} minutes, as the configured value is invalid.",
-              effectiveTimeLapse);
-        }
+      if (Configuration.validTimeLapse(timeLapse, effectiveTimeLapse)) {
+        effectiveTimeLapse = timeLapse.get().getRatePerHour();
+        rateLimitType = timeLapse.get().getType().getLimitType();
       }
+
       RateLimiter rateLimiter =
           periodicRateLimiterFactory.create(myLimit, effectiveTimeLapse, rateLimitType);
 
@@ -130,6 +124,37 @@ class Module extends AbstractModule {
             rateLimiter, key, warn.get().getRatePerHour());
       }
       return rateLimiter;
+    }
+
+    boolean isValidKey(String key, RateLimiter limiter) {
+      Optional<RateLimit> limit = finder.find(RateLimitType.UPLOAD_PACK_PER_HOUR, key);
+      Optional<RateLimit> warn = finder.find(RateLimitType.UPLOAD_PACK_PER_HOUR_WARN, key);
+      Optional<RateLimit> timeLapse = finder.find(RateLimitType.TIME_LAPSE_IN_MINUTES, key);
+
+      int tableLimit = Module.DEFAULT_LIMIT;
+      int tableTimeLapse = PeriodicRateLimiter.DEFAULT_TIME_LAPSE_IN_MINUTES;
+
+      if (limit.isPresent()) {
+        tableLimit = limit.get().getRatePerHour();
+      }
+      if (Configuration.validTimeLapse(timeLapse, tableTimeLapse)) {
+        tableTimeLapse = timeLapse.get().getRatePerHour();
+      }
+
+      if (!Configuration.isSameRateLimitType(limiter, limit, warn)) {
+        return false;
+      } else if (limiter.permitsPerHour() != tableLimit
+          || (limiter.getTimeLapse().orElse(PeriodicRateLimiter.DEFAULT_TIME_LAPSE_IN_MINUTES)
+              != tableTimeLapse)) {
+        return false;
+      } else if (limiter instanceof WarningRateLimiter
+          || limiter instanceof WarningUnlimitedRateLimiter) {
+        Optional<Integer> warningLimit = limiter.getWarnLimit();
+        if (warningLimit.isPresent() && warningLimit.get() != warn.get().getRatePerHour()) {
+          return false;
+        }
+      }
+      return true;
     }
   }
 }
