@@ -21,6 +21,7 @@ import com.google.common.cache.LoadingCache;
 import com.google.gerrit.entities.Project;
 import com.google.gerrit.server.CurrentUser;
 import com.google.gerrit.server.git.validators.UploadValidationListener;
+import com.google.gerrit.server.project.ProjectConfig;
 import com.google.gerrit.server.validators.ValidationException;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
@@ -29,6 +30,7 @@ import com.google.inject.name.Named;
 import java.text.MessageFormat;
 import java.util.Collection;
 import java.util.concurrent.ExecutionException;
+
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.transport.UploadPack;
@@ -37,21 +39,25 @@ import org.slf4j.LoggerFactory;
 
 @Singleton
 class RateLimitUploadPack implements UploadValidationListener {
-  private static final Logger log = LoggerFactory.getLogger(RateLimitUploadPack.class);
 
+  private static final Logger log = LoggerFactory.getLogger(RateLimitUploadPack.class);
   private final Provider<CurrentUser> user;
   private final LoadingCache<String, RateLimiter> uploadPackPerHour;
   private final String limitExceededMsgFormat;
-
+  private final Module.RateLimiterLoader rateLimiterLoader;
+  private final Configuration configuration;
   @Inject
   RateLimitUploadPack(
       Provider<CurrentUser> user,
       @Named(UPLOAD_PACK_PER_HOUR) LoadingCache<String, RateLimiter> uploadPackPerHour,
-      Configuration configuration) {
+      Configuration configuration,
+      Module.RateLimiterLoader rateLimiterLoader) {
     this.user = user;
     this.uploadPackPerHour = uploadPackPerHour;
     limitExceededMsgFormat =
         configuration.getRateLimitExceededMsg().replace(RATE_LIMIT_TOKEN, "{0,number,##.##}");
+    this.rateLimiterLoader = rateLimiterLoader;
+    this.configuration = configuration;
   }
 
   @Override
@@ -80,6 +86,29 @@ class RateLimitUploadPack implements UploadValidationListener {
     } catch (ExecutionException e) {
       log.warn("Cannot get rate limits for {}: {}", key, e);
     }
+  }
+
+  void refresh(ProjectConfig newCfg, ProjectConfig oldCfg){
+      configuration.refreshTable(newCfg, oldCfg);
+      refreshCache();
+  }
+
+  private void refreshCache(){
+    uploadPackPerHour.asMap().keySet().stream().filter(key -> {
+      try {
+        return !rateLimiterLoader.isValidKey(key, uploadPackPerHour.get(key));
+      } catch (ExecutionException e) {
+        log.warn("Cannot get rate limits for {}: {}", key, e);
+      }
+      return false;
+    }).forEach(key -> {
+      try {
+        uploadPackPerHour.get(key).close();
+        uploadPackPerHour.invalidate(key);
+      } catch (ExecutionException e) {
+        throw new RuntimeException(e);
+      }
+    });
   }
 
   @Override
