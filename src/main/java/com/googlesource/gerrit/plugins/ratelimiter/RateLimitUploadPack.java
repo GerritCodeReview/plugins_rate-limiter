@@ -37,21 +37,24 @@ import org.slf4j.LoggerFactory;
 
 @Singleton
 class RateLimitUploadPack implements UploadValidationListener {
-  private static final Logger log = LoggerFactory.getLogger(RateLimitUploadPack.class);
 
+  private static final Logger log = LoggerFactory.getLogger(RateLimitUploadPack.class);
   private final Provider<CurrentUser> user;
   private final LoadingCache<String, RateLimiter> uploadPackPerHour;
   private final String limitExceededMsgFormat;
+  private final Module.RateLimiterLoader rateLimiterLoader;
 
   @Inject
   RateLimitUploadPack(
       Provider<CurrentUser> user,
       @Named(UPLOAD_PACK_PER_HOUR) LoadingCache<String, RateLimiter> uploadPackPerHour,
-      Configuration configuration) {
+      Configuration configuration,
+      Module.RateLimiterLoader rateLimiterLoader) {
     this.user = user;
     this.uploadPackPerHour = uploadPackPerHour;
     limitExceededMsgFormat =
         configuration.getRateLimitExceededMsg().replace(RATE_LIMIT_TOKEN, "{0,number,##.##}");
+    this.rateLimiterLoader = rateLimiterLoader;
   }
 
   @Override
@@ -72,10 +75,17 @@ class RateLimitUploadPack implements UploadValidationListener {
     }
 
     try {
-      RateLimiter limiter = uploadPackPerHour.get(key);
-      if (limiter != null && !limiter.acquirePermit()) {
+      RateLimiter currentLimiter = uploadPackPerHour.get(key);
+      RateLimiter latestLimiter =
+          rateLimiterLoader.loadLatestConfiguration(key, currentLimiter);
+      if (currentLimiter != latestLimiter) {
+        uploadPackPerHour.put(key, latestLimiter);
+        currentLimiter = latestLimiter;
+      }
+
+      if (currentLimiter != null && !currentLimiter.acquirePermit()) {
         throw new RateLimitException(
-            MessageFormat.format(limitExceededMsgFormat, limiter.permitsPerHour()));
+            MessageFormat.format(limitExceededMsgFormat, currentLimiter.permitsPerHour()));
       }
     } catch (ExecutionException e) {
       log.warn("Cannot get rate limits for {}: {}", key, e);
