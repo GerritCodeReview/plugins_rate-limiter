@@ -18,10 +18,13 @@ import static com.google.common.truth.Truth.assertThat;
 import static com.google.gerrit.testing.GerritJUnit.assertThrows;
 import static org.mockito.Mockito.when;
 
+import com.google.common.collect.ImmutableMap;
 import com.google.gerrit.entities.AccountGroup;
+import com.google.gerrit.entities.CachedProjectConfig;
 import com.google.gerrit.entities.GroupDescription;
 import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.gerrit.server.group.GroupResolver;
+import com.google.gerrit.server.project.ProjectConfig;
 import com.google.inject.ProvisionException;
 import java.util.Map;
 import org.eclipse.jgit.errors.ConfigInvalidException;
@@ -40,10 +43,31 @@ public class ConfigurationTest {
   @Mock private GroupResolver groupsCollectionMock;
   @Mock private GroupDescription.Basic administratorsGroupDescMock;
   @Mock private GroupDescription.Basic someGroupDescMock;
-
+  @Mock private ProjectConfig newProjectConfig;
+  @Mock private CachedProjectConfig cachedProjectConfig;
   private Config globalPluginConfig;
+  ImmutableMap<String, String> cacheableConfig;
   private final int validRate = 123;
+  private final int validWarningRate = 50;
+  private final int newValidRate = 100;
+  private final int newValidWarningRate = 60;
+  private final int validTimeLapse = 10;
+  private final int newValidTimeLapse = 20;
   private final String groupTagName = "group";
+  private final String rateLimiterConfigInAllProject =
+      String.format(
+          "[%s \"someGroup\"]\n "
+              + "uploadpackperhour = %s\n "
+              + "uploadpackperhourwarn = %s\n "
+              + "timelapseinminutes = %s",
+          groupTagName, newValidRate, newValidWarningRate, newValidTimeLapse);
+  private final String badConfiguration =
+      String.format(
+          "[%s \"someGroup\"\n "
+              + "uploadpackperhour = %s\n "
+              + "uploadpackperhourwarn = %s\n "
+              + "timelapseinminutes = %s",
+          groupTagName, newValidRate, newValidWarningRate, newValidTimeLapse);
 
   @Before
   public void setUp() {
@@ -57,6 +81,8 @@ public class ConfigurationTest {
     when(someGroupDescMock.getName()).thenReturn("someGroup");
     when(someGroupDescMock.getGroupUUID()).thenReturn(AccountGroup.uuid("some_uuid"));
     when(groupsCollectionMock.parseId("someGroup")).thenReturn(someGroupDescMock);
+
+    when(newProjectConfig.getCacheable()).thenReturn(cachedProjectConfig);
   }
 
   private Configuration getConfiguration() {
@@ -66,6 +92,97 @@ public class ConfigurationTest {
   @Test
   public void testEmptyConfig() {
     assertThat(getConfiguration().getRateLimits(RateLimitType.UPLOAD_PACK_PER_HOUR)).isEmpty();
+  }
+
+  @Test
+  public void testConfigtFromAllProjectConfig() {
+    // Config in table
+    globalPluginConfig.setInt(
+        groupTagName,
+        someGroupDescMock.getName(),
+        RateLimitType.UPLOAD_PACK_PER_HOUR.toString(),
+        validRate);
+    globalPluginConfig.setInt(
+        groupTagName,
+        someGroupDescMock.getName(),
+        RateLimitType.UPLOAD_PACK_PER_HOUR_WARN.toString(),
+        validWarningRate);
+    globalPluginConfig.setInt(
+        groupTagName,
+        someGroupDescMock.getName(),
+        RateLimitType.TIME_LAPSE_IN_MINUTES.toString(),
+        validTimeLapse);
+
+    cacheableConfig =
+        ImmutableMap.<String, String>builder()
+            .put("rate-limiter.config", rateLimiterConfigInAllProject)
+            .build();
+    when(cachedProjectConfig.getProjectLevelConfigs()).thenReturn(cacheableConfig);
+
+    Configuration configuration = getConfiguration();
+
+    validateConfiginTable(configuration, validRate, validWarningRate, validTimeLapse);
+    configuration.refreshTable(
+        newProjectConfig); // Change config in table base in config in all-projects
+    validateConfiginTable(configuration, newValidRate, newValidWarningRate, newValidTimeLapse);
+  }
+
+  @Test
+  public void testInvalidConfiginAllProjects() {
+    globalPluginConfig.setInt(
+        groupTagName,
+        someGroupDescMock.getName(),
+        RateLimitType.UPLOAD_PACK_PER_HOUR.toString(),
+        validRate);
+    globalPluginConfig.setInt(
+        groupTagName,
+        someGroupDescMock.getName(),
+        RateLimitType.UPLOAD_PACK_PER_HOUR_WARN.toString(),
+        validWarningRate);
+    globalPluginConfig.setInt(
+        groupTagName,
+        someGroupDescMock.getName(),
+        RateLimitType.TIME_LAPSE_IN_MINUTES.toString(),
+        validTimeLapse);
+
+    cacheableConfig =
+        ImmutableMap.<String, String>builder().put("rate-limiter.config", badConfiguration).build();
+    when(cachedProjectConfig.getProjectLevelConfigs()).thenReturn(cacheableConfig);
+
+    Configuration configuration = getConfiguration();
+
+    validateConfiginTable(configuration, validRate, validWarningRate, validTimeLapse);
+    configuration.refreshTable(newProjectConfig);
+    validateConfiginTable(configuration, validRate, validWarningRate, validTimeLapse);
+  }
+
+  @Test
+  public void testNoConfiginAllProjects() {
+    globalPluginConfig.setInt(
+        groupTagName,
+        someGroupDescMock.getName(),
+        RateLimitType.UPLOAD_PACK_PER_HOUR.toString(),
+        validRate);
+    globalPluginConfig.setInt(
+        groupTagName,
+        someGroupDescMock.getName(),
+        RateLimitType.UPLOAD_PACK_PER_HOUR_WARN.toString(),
+        validWarningRate);
+    globalPluginConfig.setInt(
+        groupTagName,
+        someGroupDescMock.getName(),
+        RateLimitType.TIME_LAPSE_IN_MINUTES.toString(),
+        validTimeLapse);
+
+    cacheableConfig = ImmutableMap.<String, String>builder().build();
+    ;
+    when(cachedProjectConfig.getProjectLevelConfigs()).thenReturn(cacheableConfig);
+
+    Configuration configuration = getConfiguration();
+
+    validateConfiginTable(configuration, validRate, validWarningRate, validTimeLapse);
+    configuration.refreshTable(newProjectConfig);
+    validateConfiginTable(configuration, validRate, validWarningRate, validTimeLapse);
   }
 
   @Test
@@ -156,5 +273,24 @@ public class ConfigurationTest {
     String msg = "Some error message.";
     globalPluginConfig.setString("configuration", null, "uploadpackLimitExceededMsg", msg);
     assertThat(getConfiguration().getRateLimitExceededMsg()).isEqualTo(msg);
+  }
+
+  private void validateConfiginTable(
+      Configuration configuration, int rateToCheck, int warningToCheck, int timeLapseToCheck) {
+    Map<AccountGroup.UUID, RateLimit> rateLimit =
+        configuration.getRateLimits(RateLimitType.UPLOAD_PACK_PER_HOUR);
+    assertThat(rateLimit).hasSize(1);
+    assertThat(rateLimit.get(someGroupDescMock.getGroupUUID()).getRatePerHour())
+        .isEqualTo(rateToCheck);
+    Map<AccountGroup.UUID, RateLimit> warningRate =
+        configuration.getRateLimits(RateLimitType.UPLOAD_PACK_PER_HOUR_WARN);
+    assertThat(warningRate).hasSize(1);
+    assertThat(warningRate.get(someGroupDescMock.getGroupUUID()).getRatePerHour())
+        .isEqualTo(warningToCheck);
+    Map<AccountGroup.UUID, RateLimit> timeLapse =
+        configuration.getRateLimits(RateLimitType.TIME_LAPSE_IN_MINUTES);
+    assertThat(timeLapse).hasSize(1);
+    assertThat(timeLapse.get(someGroupDescMock.getGroupUUID()).getRatePerHour())
+        .isEqualTo(timeLapseToCheck);
   }
 }
