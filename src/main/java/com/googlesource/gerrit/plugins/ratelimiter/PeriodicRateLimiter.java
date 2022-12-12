@@ -14,6 +14,7 @@
 
 package com.googlesource.gerrit.plugins.ratelimiter;
 
+import com.google.common.annotations.VisibleForTesting;
 import com.google.inject.Inject;
 import com.google.inject.assistedinject.Assisted;
 import java.util.Optional;
@@ -29,28 +30,36 @@ class PeriodicRateLimiter implements RateLimiter {
   private final Semaphore semaphore;
   private final int maxPermits;
   private final AtomicInteger usedPermits;
-  private final ScheduledFuture<?> replenishTask;
   private final String rateLimitType;
   private final int timeLapse;
+  private ScheduledFuture<?> replenishTask;
 
   interface Factory {
-    PeriodicRateLimiter create(int permits, long timeLapse, String rateLimitType);
+    PeriodicRateLimiter create(
+        @Assisted("permits") Integer permits,
+        @Assisted("timeLapse") Integer timeLapse,
+        String rateLimitType);
   }
 
   @Inject
   PeriodicRateLimiter(
       @RateLimitExecutor ScheduledExecutorService executor,
-      @Assisted int permits,
-      @Assisted long timeLapse,
+      @Assisted("permits") Integer permits,
+      @Assisted("timeLapse") Integer timeLapse,
       @Assisted String rateLimitType) {
     this.semaphore = new Semaphore(permits);
     this.maxPermits = permits;
     this.usedPermits = new AtomicInteger();
     this.rateLimitType = rateLimitType;
-    this.timeLapse = (int)timeLapse;
+    this.timeLapse = timeLapse;
     this.replenishTask =
         executor.scheduleAtFixedRate(
             this::replenishPermits, timeLapse, timeLapse, TimeUnit.MINUTES);
+  }
+
+  @VisibleForTesting
+  void setReplenishTask(ScheduledFuture<?> replenishTask) {
+    this.replenishTask = replenishTask;
   }
 
   @Override
