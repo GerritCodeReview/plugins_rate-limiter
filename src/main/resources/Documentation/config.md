@@ -4,9 +4,13 @@ Configuration
 Rate Limits
 -----------
 
-The defined rate limits and user groups for email notification are stored in a
-`rate-limiter.config` file in the `{review_site}/etc` directory. Rate limits are
-defined per user group and rate limit type.
+The defined rate limits are stored in a `rate-limiter.config` file in the 
+`{review_site}/etc` directory or in a `refs/meta/config` of `All-Projects`. In 
+case `rate-limiter.config` is present in both `{review_site}/etc` and
+`refs/meta/config` of `All-Projects`, the configuration will be applied from
+`refs/meta/config` of `All-Projects`. If `rate-limiter.config` is invalid in 
+`All-Projects` then `rate-limiter.config` will be applied from 
+`{review_site}/etc`. Rate limits are defined per user group and rate limit type.
 
 Notification user groups are defined by setting 'recipients' in 'sendemail'
 section. The 'recipients' property specifies user groups, which members will
@@ -140,3 +144,5 @@ Defaults to `Exceeded rate limit of ${rateLimit} fetch requests/hour`.
 `timelapseinminutes` defines a period of time in which the limit of
 uploadpack takes place. If it is not configured, a default value of 1 hour
 is established.
+
+If `rate-limiter.config` is changed in `All-Projects` then rate limit will reset for users.
