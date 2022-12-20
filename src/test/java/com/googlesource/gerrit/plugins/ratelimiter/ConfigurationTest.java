@@ -65,7 +65,7 @@ public class ConfigurationTest {
 
   @Test
   public void testEmptyConfig() {
-    assertThat(getConfiguration().getRatelimits(RateLimitType.UPLOAD_PACK_PER_HOUR)).isEmpty();
+    assertThat(getConfiguration().getRateLimits(RateLimitType.UPLOAD_PACK_PER_HOUR)).isEmpty();
   }
 
   @Test
@@ -77,7 +77,7 @@ public class ConfigurationTest {
         validRate);
 
     Map<AccountGroup.UUID, RateLimit> rateLimit =
-        getConfiguration().getRatelimits(RateLimitType.UPLOAD_PACK_PER_HOUR);
+        getConfiguration().getRateLimits(RateLimitType.UPLOAD_PACK_PER_HOUR);
     assertThat(rateLimit).hasSize(1);
     assertThat(rateLimit.get(someGroupDescMock.getGroupUUID()).getRatePerHour())
         .isEqualTo(validRate);
@@ -129,7 +129,7 @@ public class ConfigurationTest {
         "badGroup");
 
     Map<AccountGroup.UUID, RateLimit> rateLimit =
-        getConfiguration().getRatelimits(RateLimitType.UPLOAD_PACK_PER_HOUR);
+        getConfiguration().getRateLimits(RateLimitType.UPLOAD_PACK_PER_HOUR);
     assertThat(rateLimit).hasSize(1);
     assertThat(rateLimit.get(someGroupDescMock.getGroupUUID()).getRatePerHour())
         .isEqualTo(validRate);
@@ -140,7 +140,7 @@ public class ConfigurationTest {
     globalPluginConfig.fromText("[group \"Administrators\"]");
 
     Map<AccountGroup.UUID, RateLimit> rateLimit =
-        getConfiguration().getRatelimits(RateLimitType.UPLOAD_PACK_PER_HOUR);
+        getConfiguration().getRateLimits(RateLimitType.UPLOAD_PACK_PER_HOUR);
     assertThat(rateLimit).hasSize(1);
     assertThat(rateLimit.get(administratorsGroupDescMock.getGroupUUID())).isNull();
   }
