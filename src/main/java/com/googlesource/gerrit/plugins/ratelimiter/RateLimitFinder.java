@@ -57,7 +57,7 @@ class RateLimitFinder {
    */
   private Optional<RateLimit> firstMatching(RateLimitType rateLimitType, IdentifiedUser user) {
     Map<AccountGroup.UUID, RateLimit> limitsPerGroupUUID =
-        configuration.getRatelimits(rateLimitType);
+        configuration.getRateLimits(rateLimitType);
     if (!limitsPerGroupUUID.isEmpty()) {
       GroupMembership memberShip = user.getEffectiveGroups();
       for (Entry<AccountGroup.UUID, RateLimit> limitPerGroupUUID : limitsPerGroupUUID.entrySet()) {
@@ -76,7 +76,7 @@ class RateLimitFinder {
    */
   private Optional<RateLimit> getRateLimit(
       RateLimitType rateLimitType, AccountGroup.UUID groupUUID) {
-    Map<AccountGroup.UUID, RateLimit> limits = configuration.getRatelimits(rateLimitType);
+    Map<AccountGroup.UUID, RateLimit> limits = configuration.getRateLimits(rateLimitType);
     return limits.isEmpty() ? Optional.empty() : Optional.ofNullable(limits.get(groupUUID));
   }
 }

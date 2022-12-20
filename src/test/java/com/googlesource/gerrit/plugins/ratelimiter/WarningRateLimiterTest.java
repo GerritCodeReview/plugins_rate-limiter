@@ -63,13 +63,18 @@ public class WarningRateLimiterTest {
             rateLimitReachedSenderFactory,
             limiter,
             "dummy",
-            WARN_RATE,
-            DEFAULT_TIME_LAPSE_IN_MINUTES);
+            WARN_RATE
+            );
   }
 
   @Test
   public void testGetRatePerHour() {
     assertThat(warningLimiter.permitsPerHour()).isEqualTo(RATE);
+  }
+
+  @Test
+  public void testGetWarningLimit() {
+    assertThat(warningLimiter.getWarnLimit().get()).isEqualTo(WARN_RATE);
   }
 
   @Test
@@ -111,8 +116,8 @@ public class WarningRateLimiterTest {
     verify(scheduledExecutorMock)
         .scheduleAtFixedRate(
             any(),
-            eq(DEFAULT_TIME_LAPSE_IN_MINUTES),
-            eq(DEFAULT_TIME_LAPSE_IN_MINUTES),
+            eq((long) DEFAULT_TIME_LAPSE_IN_MINUTES),
+            eq((long) DEFAULT_TIME_LAPSE_IN_MINUTES),
             eq(TimeUnit.MINUTES));
   }
 
@@ -122,8 +127,8 @@ public class WarningRateLimiterTest {
     verify(scheduledExecutorMock)
         .scheduleAtFixedRate(
             runnableCaptor.capture(),
-            eq(DEFAULT_TIME_LAPSE_IN_MINUTES),
-            eq(DEFAULT_TIME_LAPSE_IN_MINUTES),
+            eq((long) DEFAULT_TIME_LAPSE_IN_MINUTES),
+            eq((long) DEFAULT_TIME_LAPSE_IN_MINUTES),
             eq(TimeUnit.MINUTES));
 
     replenishPermits(warningLimiter, runnableCaptor);
