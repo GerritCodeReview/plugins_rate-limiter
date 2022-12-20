@@ -124,11 +124,10 @@ class Module extends AbstractModule {
 
       if (warn.isPresent()) {
         if (limit.isPresent()) {
-          return warningRateLimiterFactory.create(
-              rateLimiter, key, warn.get().getRatePerHour(), effectiveTimeLapse);
+          return warningRateLimiterFactory.create(rateLimiter, key, warn.get().getRatePerHour());
         }
         return warningUnlimitedRateLimiterFactory.create(
-            rateLimiter, key, warn.get().getRatePerHour(), effectiveTimeLapse);
+            rateLimiter, key, warn.get().getRatePerHour());
       }
       return rateLimiter;
     }
