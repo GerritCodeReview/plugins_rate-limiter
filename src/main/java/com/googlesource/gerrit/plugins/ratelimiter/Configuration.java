@@ -113,7 +113,7 @@ class Configuration {
    * @param rateLimitType type of rate limit
    * @return map of rate limits per group uuid
    */
-  Map<AccountGroup.UUID, RateLimit> getRatelimits(RateLimitType rateLimitType) {
+  Map<AccountGroup.UUID, RateLimit> getRateLimits(RateLimitType rateLimitType) {
     return rateLimits != null ? rateLimits.row(rateLimitType) : ImmutableMap.of();
   }
 }

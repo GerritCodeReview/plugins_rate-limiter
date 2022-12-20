@@ -17,14 +17,14 @@ package com.googlesource.gerrit.plugins.ratelimiter;
 import com.google.common.annotations.VisibleForTesting;
 import com.google.inject.Inject;
 import com.google.inject.assistedinject.Assisted;
+import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 import org.slf4j.Logger;
 
 class WarningUnlimitedRateLimiter implements RateLimiter {
   @FunctionalInterface
   interface Factory {
-    WarningUnlimitedRateLimiter create(
-        RateLimiter delegate, String key, int warnLimit, long timeLapse);
+    WarningUnlimitedRateLimiter create(RateLimiter delegate, String key, int warnLimit);
   }
 
   private static final Logger rateLimitLog = RateLimiterStatsLog.getLogger();
@@ -33,7 +33,6 @@ class WarningUnlimitedRateLimiter implements RateLimiter {
   private final RateLimiter delegate;
   private final int warnLimit;
   private final String key;
-  private final long timeLapse;
   private volatile boolean warningWasLogged = false;
 
   @Inject
@@ -41,13 +40,11 @@ class WarningUnlimitedRateLimiter implements RateLimiter {
       UserResolver userResolver,
       @Assisted RateLimiter delegate,
       @Assisted String key,
-      @Assisted int warnLimit,
-      @Assisted long timeLapse) {
+      @Assisted int warnLimit) {
     this.userResolver = userResolver;
     this.delegate = delegate;
     this.warnLimit = warnLimit;
     this.key = key;
-    this.timeLapse = timeLapse;
   }
 
   @Override
@@ -65,7 +62,7 @@ class WarningUnlimitedRateLimiter implements RateLimiter {
           userResolver.getUserName(key).orElse(key),
           warnLimit,
           delegate.getType(),
-          timeLapse);
+          delegate.getTimeLapse());
       warningWasLogged = true;
     }
     return acquirePermit;
@@ -93,6 +90,11 @@ class WarningUnlimitedRateLimiter implements RateLimiter {
   }
 
   @Override
+  public Optional<Integer> getTimeLapse() {
+    return delegate.getTimeLapse();
+  }
+
+  @Override
   public int usedPermits() {
     return delegate.usedPermits();
   }
@@ -100,6 +102,11 @@ class WarningUnlimitedRateLimiter implements RateLimiter {
   @Override
   public void close() {
     delegate.close();
+  }
+
+  @Override
+  public Optional<Integer> getWarnLimit() {
+    return Optional.of(warnLimit);
   }
 
   @VisibleForTesting
