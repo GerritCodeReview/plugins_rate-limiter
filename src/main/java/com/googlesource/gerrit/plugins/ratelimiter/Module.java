@@ -107,9 +107,9 @@ class Module extends AbstractModule {
         rateLimitType = limit.get().getType().getLimitType();
       }
 
-      long effectiveTimeLapse = PeriodicRateLimiter.DEFAULT_TIME_LAPSE_IN_MINUTES;
+      int effectiveTimeLapse = PeriodicRateLimiter.DEFAULT_TIME_LAPSE_IN_MINUTES;
       if (timeLapse.isPresent()) {
-        long providedTimeLapse = timeLapse.get().getRatePerHour();
+        int providedTimeLapse = timeLapse.get().getRatePerHour();
         if (providedTimeLapse > 0 && providedTimeLapse <= effectiveTimeLapse) {
           effectiveTimeLapse = providedTimeLapse;
           rateLimitType = timeLapse.get().getType().getLimitType();
@@ -124,11 +124,10 @@ class Module extends AbstractModule {
 
       if (warn.isPresent()) {
         if (limit.isPresent()) {
-          return warningRateLimiterFactory.create(
-              rateLimiter, key, warn.get().getRatePerHour(), effectiveTimeLapse);
+          return warningRateLimiterFactory.create(rateLimiter, key, warn.get().getRatePerHour());
         }
         return warningUnlimitedRateLimiterFactory.create(
-            rateLimiter, key, warn.get().getRatePerHour(), effectiveTimeLapse);
+            rateLimiter, key, warn.get().getRatePerHour());
       }
       return rateLimiter;
     }

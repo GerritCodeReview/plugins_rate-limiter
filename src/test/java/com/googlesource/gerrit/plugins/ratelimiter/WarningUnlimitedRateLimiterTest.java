@@ -42,8 +42,7 @@ public class WarningUnlimitedRateLimiterTest {
         new PeriodicRateLimiter(
             scheduledExecutorMock, RATE, DEFAULT_TIME_LAPSE_IN_MINUTES, "Any Type");
     warningUnlimitedLimiter =
-        new WarningUnlimitedRateLimiter(
-            userResolver, limiter, "dummy", WARN_RATE, DEFAULT_TIME_LAPSE_IN_MINUTES);
+        new WarningUnlimitedRateLimiter(userResolver, limiter, "dummy", WARN_RATE);
   }
 
   @Test
@@ -75,8 +74,8 @@ public class WarningUnlimitedRateLimiterTest {
     verify(scheduledExecutorMock)
         .scheduleAtFixedRate(
             any(),
-            eq(DEFAULT_TIME_LAPSE_IN_MINUTES),
-            eq(DEFAULT_TIME_LAPSE_IN_MINUTES),
+            eq((long) DEFAULT_TIME_LAPSE_IN_MINUTES),
+            eq((long) DEFAULT_TIME_LAPSE_IN_MINUTES),
             eq(TimeUnit.MINUTES));
   }
 
@@ -86,8 +85,8 @@ public class WarningUnlimitedRateLimiterTest {
     verify(scheduledExecutorMock)
         .scheduleAtFixedRate(
             runnableCaptor.capture(),
-            eq(DEFAULT_TIME_LAPSE_IN_MINUTES),
-            eq(DEFAULT_TIME_LAPSE_IN_MINUTES),
+            eq((long) DEFAULT_TIME_LAPSE_IN_MINUTES),
+            eq((long) DEFAULT_TIME_LAPSE_IN_MINUTES),
             eq(TimeUnit.MINUTES));
 
     testTriggerWarning();
