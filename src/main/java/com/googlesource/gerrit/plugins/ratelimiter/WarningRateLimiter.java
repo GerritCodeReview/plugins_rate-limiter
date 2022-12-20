@@ -19,13 +19,14 @@ import com.google.inject.Inject;
 import com.google.inject.assistedinject.Assisted;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 import org.slf4j.Logger;
 
 class WarningRateLimiter implements RateLimiter {
   @FunctionalInterface
   interface Factory {
-    WarningRateLimiter create(RateLimiter delegate, String key, int warnLimit, long timeLapse);
+    WarningRateLimiter create(RateLimiter delegate, String key, int warnLimit);
   }
 
   private static final Logger rateLimitLog = RateLimiterStatsLog.getLogger();
@@ -35,7 +36,6 @@ class WarningRateLimiter implements RateLimiter {
   private final RateLimiter delegate;
   private final int warnLimit;
   private final String key;
-  private final long timeLapse;
 
   private volatile boolean wasLogged;
   private volatile boolean warningWasLogged = false;
@@ -45,13 +45,11 @@ class WarningRateLimiter implements RateLimiter {
       UserResolver userResolver,
       @Assisted RateLimiter delegate,
       @Assisted String key,
-      @Assisted int warnLimit,
-      @Assisted long timeLapse) {
+      @Assisted int warnLimit) {
     this.userResolver = userResolver;
     this.delegate = delegate;
     this.warnLimit = warnLimit;
     this.key = key;
-    this.timeLapse = timeLapse;
   }
 
   @Override
@@ -68,7 +66,7 @@ class WarningRateLimiter implements RateLimiter {
           userResolver.getUserName(key).orElse(key),
           warnLimit,
           delegate.getType(),
-          timeLapse);
+          delegate.getTimeLapse());
       warningWasLogged = true;
     }
 
@@ -79,7 +77,7 @@ class WarningRateLimiter implements RateLimiter {
           userResolver.getUserName(key).orElse(key),
           permitsPerHour(),
           delegate.getType(),
-          timeLapse,
+          delegate.getTimeLapse(),
           secondsToMsSs(remainingTime(TimeUnit.SECONDS)));
       wasLogged = true;
     }
@@ -103,6 +101,11 @@ class WarningRateLimiter implements RateLimiter {
   }
 
   @Override
+  public Optional<Integer> getTimeLapse() {
+    return delegate.getTimeLapse();
+  }
+
+  @Override
   public String getType() {
     return delegate.getType();
   }
@@ -119,6 +122,11 @@ class WarningRateLimiter implements RateLimiter {
 
   private String secondsToMsSs(long seconds) {
     return LocalTime.MIN.plusSeconds(seconds).format(format);
+  }
+
+  @Override
+  public Optional<Integer> getWarnLimit() {
+    return Optional.of(warnLimit);
   }
 
   @VisibleForTesting

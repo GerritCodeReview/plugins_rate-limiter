@@ -16,6 +16,7 @@ package com.googlesource.gerrit.plugins.ratelimiter;
 
 import com.google.inject.Inject;
 import com.google.inject.assistedinject.Assisted;
+import java.util.Optional;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.Semaphore;
@@ -23,13 +24,14 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 class PeriodicRateLimiter implements RateLimiter {
-  static final long DEFAULT_TIME_LAPSE_IN_MINUTES = 60L;
+  static final int DEFAULT_TIME_LAPSE_IN_MINUTES = 60;
 
   private final Semaphore semaphore;
   private final int maxPermits;
   private final AtomicInteger usedPermits;
   private final ScheduledFuture<?> replenishTask;
   private final String rateLimitType;
+  private final int timeLapse;
 
   interface Factory {
     PeriodicRateLimiter create(int permits, long timeLapse, String rateLimitType);
@@ -45,6 +47,7 @@ class PeriodicRateLimiter implements RateLimiter {
     this.maxPermits = permits;
     this.usedPermits = new AtomicInteger();
     this.rateLimitType = rateLimitType;
+    this.timeLapse = timeLapse.intValue();
     this.replenishTask =
         executor.scheduleAtFixedRate(
             this::replenishPermits, timeLapse, timeLapse, TimeUnit.MINUTES);
@@ -88,6 +91,16 @@ class PeriodicRateLimiter implements RateLimiter {
   @Override
   public String getType() {
     return rateLimitType;
+  }
+
+  @Override
+  public Optional<Integer> getTimeLapse() {
+    return Optional.of(timeLapse);
+  }
+
+  @Override
+  public Optional<Integer> getWarnLimit() {
+    return Optional.empty();
   }
 
   @Override
