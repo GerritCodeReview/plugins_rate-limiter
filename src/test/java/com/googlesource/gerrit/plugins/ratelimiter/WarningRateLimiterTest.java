@@ -56,17 +56,18 @@ public class WarningRateLimiterTest {
                 scheduledExecutorMock2, RATE, DEFAULT_TIME_LAPSE_IN_MINUTES, "Any Type"));
     doReturn(1L).when(limiter2).remainingTime(any(TimeUnit.class));
 
-    warningLimiter1 =
-        new WarningRateLimiter(
-            userResolver, limiter1, "dummy", WARN_RATE, DEFAULT_TIME_LAPSE_IN_MINUTES);
-    warningLimiter2 =
-        new WarningRateLimiter(
-            userResolver, limiter2, "dummy2", WARN_RATE, DEFAULT_TIME_LAPSE_IN_MINUTES);
+    warningLimiter1 = new WarningRateLimiter(userResolver, limiter1, "dummy", WARN_RATE);
+    warningLimiter2 = new WarningRateLimiter(userResolver, limiter2, "dummy2", WARN_RATE);
   }
 
   @Test
   public void testGetRatePerHour() {
     assertThat(warningLimiter1.permitsPerHour()).isEqualTo(RATE);
+  }
+
+  @Test
+  public void testGetWarningLimit() {
+    assertThat(warningLimiter1.getWarnLimit().get()).isEqualTo(WARN_RATE);
   }
 
   @Test
@@ -104,8 +105,8 @@ public class WarningRateLimiterTest {
     verify(scheduledExecutorMock1)
         .scheduleAtFixedRate(
             any(),
-            eq(DEFAULT_TIME_LAPSE_IN_MINUTES),
-            eq(DEFAULT_TIME_LAPSE_IN_MINUTES),
+            eq((long) DEFAULT_TIME_LAPSE_IN_MINUTES),
+            eq((long) DEFAULT_TIME_LAPSE_IN_MINUTES),
             eq(TimeUnit.MINUTES));
   }
 
@@ -115,8 +116,8 @@ public class WarningRateLimiterTest {
     verify(scheduledExecutorMock1)
         .scheduleAtFixedRate(
             runnableCaptor.capture(),
-            eq(DEFAULT_TIME_LAPSE_IN_MINUTES),
-            eq(DEFAULT_TIME_LAPSE_IN_MINUTES),
+            eq((long) DEFAULT_TIME_LAPSE_IN_MINUTES),
+            eq((long) DEFAULT_TIME_LAPSE_IN_MINUTES),
             eq(TimeUnit.MINUTES));
 
     replenishPermits(warningLimiter1, runnableCaptor);
