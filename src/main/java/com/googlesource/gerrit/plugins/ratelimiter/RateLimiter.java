@@ -15,6 +15,7 @@
 package com.googlesource.gerrit.plugins.ratelimiter;
 
 import java.util.Comparator;
+import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 
 interface RateLimiter extends Comparable<RateLimiter> {
@@ -48,6 +49,12 @@ interface RateLimiter extends Comparable<RateLimiter> {
 
   /** Return type of rate limiter * */
   String getType();
+
+  /** Return time lapse of rate limiter. */
+  Optional<Integer> getTimeLapse();
+
+  /** Return warning limit of rate limiter. */
+  Optional<Integer> getWarnLimit();
 
   /** Closes this RateLimiter, relinquishing any underlying resources. */
   void close();
