@@ -48,6 +48,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a91e0fba_7486b400",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/WarningRateLimiter.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2023-01-10T14:26:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4287e971_dbc1dbab",
+      "range": {
+        "startLine": 104,
+        "startChar": 6,
+        "endLine": 104,
+        "endChar": 20
+      },
+      "revId": "438b8a5d5a2552c4fbf7d3d194763525a4e81b69",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ece62237_6f62e6f2",
@@ -61,6 +85,30 @@
       "writtenOn": "2022-12-08T11:44:11Z",
       "side": 1,
       "message": "Should be configurable by admin in config and preferable also by a users in settings.",
+      "range": {
+        "startLine": 67,
+        "startChar": 1,
+        "endLine": 71,
+        "endChar": 0
+      },
+      "revId": "438b8a5d5a2552c4fbf7d3d194763525a4e81b69",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a4978cc_62a4fc32",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/email/RateLimitReachedSender.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2023-01-10T14:26:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ece62237_6f62e6f2",
       "range": {
         "startLine": 67,
         "startChar": 1,
