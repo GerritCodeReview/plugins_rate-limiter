@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cf59a391_1ee12359",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2023-01-25T13:39:38Z",
+      "side": 1,
+      "message": "These are two different sentences. First tells that functionality is added to component. Second tells, what does the functionality give user.",
+      "parentUuid": "7163f68d_7001a8c9",
+      "revId": "2719a23a0485e93ed8669800ca4241a8a7e6daa5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e5060a9a_978096f8",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/RateLimitSeverity.java",
         "patchSetId": 3
@@ -37,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f4e05919_5bdac276",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/RateLimitSeverity.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2023-01-25T13:39:38Z",
+      "side": 1,
+      "message": "I have updated it to rateLimitType.\nNow we show \nuploadpackperhour \u003d 2\n\nThen we show (in different section):\nuploadpackperhour \u003d group1, group2.\n\nif it does not confuse, we can use it like this.",
+      "parentUuid": "e5060a9a_978096f8",
+      "revId": "2719a23a0485e93ed8669800ca4241a8a7e6daa5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "65a26dc7_9c241d1f",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 3
@@ -48,6 +84,30 @@
       "writtenOn": "2023-01-19T19:05:05Z",
       "side": 1,
       "message": "space",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 2
+      },
+      "revId": "2719a23a0485e93ed8669800ca4241a8a7e6daa5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "708f4401_9f42771a",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2023-01-25T13:39:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65a26dc7_9c241d1f",
       "range": {
         "startLine": 28,
         "startChar": 0,
@@ -83,6 +143,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cf6eac54_31302da6",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2023-01-25T13:39:38Z",
+      "side": 1,
+      "message": "I was thinking what did you mean. Apologize, I do not understand.\n\nCould you please specify, generic name of what?",
+      "parentUuid": "edf1e9c8_e3edbe84",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 84
+      },
+      "revId": "2719a23a0485e93ed8669800ca4241a8a7e6daa5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "837fad4a_17175b6b",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 3
@@ -94,6 +178,30 @@
       "writtenOn": "2023-01-19T19:05:05Z",
       "side": 1,
       "message": "3 things:\n\nFirst, why dont you default one email (admin email) so that even if the user doesnt have email, admin can be notified.\n\nSecondly, the solution implies some kind of double entry, so the user needs to be in the specific group to recieve the email, wont it defeats the purpose of having this feature?\n\nLastly, please align the text so that it doesnt go beyond 100 chars",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 3
+      },
+      "revId": "2719a23a0485e93ed8669800ca4241a8a7e6daa5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a1ca938_42c83954",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2023-01-25T13:39:38Z",
+      "side": 1,
+      "message": "When I developed iteration 1, it got -2 from team. I implemented iteration 2 according to what we agreed on a daily call - requirements clarification.\nIt\u0027s outcome of requirements misunderstanding.\nLet\u0027s discuss requirements again, I will confirm them by email. Once confirmed, I will implement them.\n\nThe longest line contains 100 chars. Is it ok?",
+      "parentUuid": "837fad4a_17175b6b",
       "range": {
         "startLine": 73,
         "startChar": 0,
@@ -127,6 +235,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d325906_ca2de137",
+        "filename": "src/main/resources/RateLimiterEmailFormatHTML.soy",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2023-01-25T13:39:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac0fa044_97966c92",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "2719a23a0485e93ed8669800ca4241a8a7e6daa5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "78a2b698_85be2399",
@@ -140,6 +272,30 @@
       "writtenOn": "2023-01-19T19:05:05Z",
       "side": 1,
       "message": "why you cannot reuse?",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 43
+      },
+      "revId": "2719a23a0485e93ed8669800ca4241a8a7e6daa5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ecd290ce_07b134aa",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/ratelimiter/WarningRateLimiterTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2023-01-25T13:39:38Z",
+      "side": 1,
+      "message": "I believe it should be done as separate task as it\u0027s more like refactoring.\n\nBut I have tried doing it now.",
+      "parentUuid": "78a2b698_85be2399",
       "range": {
         "startLine": 70,
         "startChar": 0,
