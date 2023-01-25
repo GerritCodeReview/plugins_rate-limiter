@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "338cfa8d_70a290a2",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/Module.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-01-25T19:09:07Z",
+      "side": 1,
+      "message": "maybe rateLimiter here. Or keep effective timelapse",
+      "range": {
+        "startLine": 126,
+        "startChar": 68,
+        "endLine": 126,
+        "endChar": 72
+      },
+      "revId": "274256fad1d0483c570d5fcd59747695b55c1094",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3bcff3ed_9769dce4",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/ratelimiter/WarningRateLimiterTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-01-25T19:09:07Z",
+      "side": 1,
+      "message": "should be period in time lapse",
+      "range": {
+        "startLine": 59,
+        "startChar": 78,
+        "endLine": 59,
+        "endChar": 87
+      },
+      "revId": "274256fad1d0483c570d5fcd59747695b55c1094",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
