@@ -71,6 +71,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8093d5e7_39667644",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/RateLimitSeverity.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2023-01-27T14:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4e05919_5bdac276",
+      "revId": "2719a23a0485e93ed8669800ca4241a8a7e6daa5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "65a26dc7_9c241d1f",
