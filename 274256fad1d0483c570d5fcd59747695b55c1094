@@ -1,6 +1,46 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "769d0395_c1531f29",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2023-02-01T15:23:22Z",
+      "side": 1,
+      "message": "I am little bit confuse why passing whole ratelimiter object is better than 1 value. We dont use additional get from it.\nAnd why in some places we change to it and in other stays long so we need type casting int test.\nCan we you elaborate more why in this way code is more clean ?",
+      "revId": "274256fad1d0483c570d5fcd59747695b55c1094",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15dc55ab_f81291ef",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/Module.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2023-02-01T15:23:22Z",
+      "side": 1,
+      "message": "doesnt make sanse to have 2 if. If you refactor use \u0026\u0026 instead",
+      "range": {
+        "startLine": 124,
+        "startChar": 6,
+        "endLine": 125,
+        "endChar": 32
+      },
+      "revId": "274256fad1d0483c570d5fcd59747695b55c1094",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "338cfa8d_70a290a2",
@@ -67,6 +107,98 @@
         "startChar": 68,
         "endLine": 126,
         "endChar": 72
+      },
+      "revId": "274256fad1d0483c570d5fcd59747695b55c1094",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20aa986b_5bc4eca0",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/PeriodicRateLimiter.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2023-02-01T15:23:22Z",
+      "side": 1,
+      "message": "wats is the point to not replace with int?",
+      "range": {
+        "startLine": 44,
+        "startChar": 5,
+        "endLine": 44,
+        "endChar": 31
+      },
+      "revId": "274256fad1d0483c570d5fcd59747695b55c1094",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5c978e1_8a3cd730",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/PeriodicRateLimiter.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2023-02-01T15:23:22Z",
+      "side": 1,
+      "message": "timeLapse.intValue(); if conversion is needed",
+      "range": {
+        "startLine": 50,
+        "startChar": 21,
+        "endLine": 50,
+        "endChar": 36
+      },
+      "revId": "274256fad1d0483c570d5fcd59747695b55c1094",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8220612c_515138fb",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/WarningRateLimiter.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2023-02-01T15:23:22Z",
+      "side": 1,
+      "message": "why not use rateLimiter name?",
+      "range": {
+        "startLine": 36,
+        "startChar": 28,
+        "endLine": 36,
+        "endChar": 36
+      },
+      "revId": "274256fad1d0483c570d5fcd59747695b55c1094",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fce3ebe_587f6c9c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/WarningRateLimiter.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2023-02-01T15:23:22Z",
+      "side": 1,
+      "message": "same as above",
+      "range": {
+        "startLine": 46,
+        "startChar": 28,
+        "endLine": 46,
+        "endChar": 36
       },
       "revId": "274256fad1d0483c570d5fcd59747695b55c1094",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
