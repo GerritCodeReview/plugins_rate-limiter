@@ -41,6 +41,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dff46a90_f937f5fe",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/Module.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-02-01T22:11:36Z",
+      "side": 1,
+      "message": "I think you misunderstood how this works. Since there are two classes for warning: WarningRateLimiter and UnlimitedWarningRateLimiter, it was made to differentiate them",
+      "parentUuid": "15dc55ab_f81291ef",
+      "range": {
+        "startLine": 124,
+        "startChar": 6,
+        "endLine": 125,
+        "endChar": 32
+      },
+      "revId": "274256fad1d0483c570d5fcd59747695b55c1094",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "338cfa8d_70a290a2",
@@ -135,6 +159,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "501f78cc_9f00c060",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/PeriodicRateLimiter.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-02-01T22:11:36Z",
+      "side": 1,
+      "message": "I wanted to make it int as well but assited inject works by type. If I make it int then it will see timelapse and permits as same variable. Should I convert everything to long? or left it like this? what do you sugest?",
+      "parentUuid": "20aa986b_5bc4eca0",
+      "range": {
+        "startLine": 44,
+        "startChar": 5,
+        "endLine": 44,
+        "endChar": 31
+      },
+      "revId": "274256fad1d0483c570d5fcd59747695b55c1094",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a5c978e1_8a3cd730",
@@ -148,6 +196,30 @@
       "writtenOn": "2023-02-01T15:23:22Z",
       "side": 1,
       "message": "timeLapse.intValue(); if conversion is needed",
+      "range": {
+        "startLine": 50,
+        "startChar": 21,
+        "endLine": 50,
+        "endChar": 36
+      },
+      "revId": "274256fad1d0483c570d5fcd59747695b55c1094",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74428178_28e2022f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/PeriodicRateLimiter.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-02-01T22:11:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5c978e1_8a3cd730",
       "range": {
         "startLine": 50,
         "startChar": 21,
@@ -181,6 +253,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "23451b05_96b2fc3a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/WarningRateLimiter.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-02-01T22:11:36Z",
+      "side": 1,
+      "message": "I did not want to change it, since it does not cause confusion",
+      "parentUuid": "8220612c_515138fb",
+      "range": {
+        "startLine": 36,
+        "startChar": 28,
+        "endLine": 36,
+        "endChar": 36
+      },
+      "revId": "274256fad1d0483c570d5fcd59747695b55c1094",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9fce3ebe_587f6c9c",
@@ -194,6 +290,30 @@
       "writtenOn": "2023-02-01T15:23:22Z",
       "side": 1,
       "message": "same as above",
+      "range": {
+        "startLine": 46,
+        "startChar": 28,
+        "endLine": 46,
+        "endChar": 36
+      },
+      "revId": "274256fad1d0483c570d5fcd59747695b55c1094",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51212e69_b0f9c7f4",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/WarningRateLimiter.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-02-01T22:11:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9fce3ebe_587f6c9c",
       "range": {
         "startLine": 46,
         "startChar": 28,
