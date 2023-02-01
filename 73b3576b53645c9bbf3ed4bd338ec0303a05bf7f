@@ -1,0 +1,147 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8b194a8_48afe010",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-02-01T23:04:36Z",
+      "side": 1,
+      "message": "All good, but can you make so that the lines fit within the purple line here? For consistency.",
+      "revId": "73b3576b53645c9bbf3ed4bd338ec0303a05bf7f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec7910fa_f29f084e",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 9
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-02-01T23:04:36Z",
+      "side": 1,
+      "message": "warn",
+      "range": {
+        "startLine": 10,
+        "startChar": 62,
+        "endLine": 10,
+        "endChar": 66
+      },
+      "revId": "73b3576b53645c9bbf3ed4bd338ec0303a05bf7f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52f7cd03_95fb9465",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 9
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-02-01T23:04:36Z",
+      "side": 1,
+      "message": "g`",
+      "range": {
+        "startLine": 8,
+        "startChar": 19,
+        "endLine": 8,
+        "endChar": 20
+      },
+      "revId": "73b3576b53645c9bbf3ed4bd338ec0303a05bf7f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7a3a55c_f28fdaa6",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 9
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-02-01T23:04:36Z",
+      "side": 1,
+      "message": "missing `",
+      "range": {
+        "startLine": 8,
+        "startChar": 31,
+        "endLine": 8,
+        "endChar": 36
+      },
+      "revId": "73b3576b53645c9bbf3ed4bd338ec0303a05bf7f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71ab3eb0_45023ace",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 9
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-02-01T23:04:36Z",
+      "side": 1,
+      "message": "Insert empty line above",
+      "revId": "73b3576b53645c9bbf3ed4bd338ec0303a05bf7f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d03a288b_f6111352",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 9
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-02-01T23:04:36Z",
+      "side": 1,
+      "message": "Registered Users are all users already, so either keep registered or remove them",
+      "revId": "73b3576b53645c9bbf3ed4bd338ec0303a05bf7f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d8d6d50_3cab53db",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 9
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-02-01T23:04:36Z",
+      "side": 1,
+      "message": "what is this? I think you need `",
+      "range": {
+        "startLine": 55,
+        "startChar": 34,
+        "endLine": 55,
+        "endChar": 36
+      },
+      "revId": "73b3576b53645c9bbf3ed4bd338ec0303a05bf7f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
