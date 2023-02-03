@@ -230,6 +230,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "92571132_3f4a0db8",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/PeriodicRateLimiter.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-02-03T18:52:11Z",
+      "side": 1,
+      "message": "Could not use that method, since intValue is the method og the object of class Long",
+      "parentUuid": "74428178_28e2022f",
+      "range": {
+        "startLine": 50,
+        "startChar": 21,
+        "endLine": 50,
+        "endChar": 36
+      },
+      "revId": "274256fad1d0483c570d5fcd59747695b55c1094",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8220612c_515138fb",
