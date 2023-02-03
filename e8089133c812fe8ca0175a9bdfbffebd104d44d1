@@ -16,6 +16,23 @@
       "message": "Fixed notification-email.md file",
       "revId": "e8089133c812fe8ca0175a9bdfbffebd104d44d1",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5aa65126_99ee964a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-02-03T20:54:54Z",
+      "side": 1,
+      "message": "@pwaliszewski@gmail.com, you can +2 now since I am the last uploader I am unable to do so.",
+      "revId": "e8089133c812fe8ca0175a9bdfbffebd104d44d1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
