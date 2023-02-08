@@ -1,0 +1,182 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aaa0965e_b4f5fda3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2023-02-08T15:57:27Z",
+      "side": 1,
+      "message": "Main concern is that it does not include all changes, reviewed internally",
+      "revId": "337516029a0f2752ca71ffc0a22ddecbb9e51daf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa2afd28_6917b276",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/Module.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2023-02-08T15:57:27Z",
+      "side": 1,
+      "message": "I think it can be default access level (package private)",
+      "range": {
+        "startLine": 73,
+        "startChar": 2,
+        "endLine": 73,
+        "endChar": 8
+      },
+      "revId": "337516029a0f2752ca71ffc0a22ddecbb9e51daf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b80d8e39_7a526194",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/RateLimitUploadPack.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2023-02-08T15:57:27Z",
+      "side": 1,
+      "message": "It is confusing as it differs from internal review, that is:\nRateLimiter latestLimiter \u003d rateLimiterLoader.loadLatestConfiguration(key, currentLimiter);",
+      "range": {
+        "startLine": 80,
+        "startChar": 57,
+        "endLine": 80,
+        "endChar": 85
+      },
+      "revId": "337516029a0f2752ca71ffc0a22ddecbb9e51daf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6d7bff0_baced3bc",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/RateLimitUploadPack.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2023-02-08T15:57:27Z",
+      "side": 1,
+      "message": "same here. The re is different code in internal review.Is that code included in another change?",
+      "range": {
+        "startLine": 82,
+        "startChar": 8,
+        "endLine": 82,
+        "endChar": 51
+      },
+      "revId": "337516029a0f2752ca71ffc0a22ddecbb9e51daf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8032d0fd_51cce992",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/RateLimiterListener.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2023-02-08T15:57:27Z",
+      "side": 1,
+      "message": "Should be 2023",
+      "range": {
+        "startLine": 1,
+        "startChar": 17,
+        "endLine": 1,
+        "endChar": 22
+      },
+      "revId": "337516029a0f2752ca71ffc0a22ddecbb9e51daf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a537ecce_98cd7a74",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2023-02-08T15:57:27Z",
+      "side": 1,
+      "message": "The length of the line should be less than 100 chars, but it should not be wrapped because of limiter in this page, so here the first line should be:\nThe defined rate limits are stored in a `rate-limiter.config` file in the",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 59
+      },
+      "revId": "337516029a0f2752ca71ffc0a22ddecbb9e51daf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9252391e_7599d4a9",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/ratelimiter/RateLimiterListenerTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2023-02-08T15:57:27Z",
+      "side": 1,
+      "message": "2023",
+      "range": {
+        "startLine": 1,
+        "startChar": 17,
+        "endLine": 1,
+        "endChar": 21
+      },
+      "revId": "337516029a0f2752ca71ffc0a22ddecbb9e51daf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e662803_1d87cd95",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/ratelimiter/RateLimiterLoaderTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2023-02-08T15:57:27Z",
+      "side": 1,
+      "message": "2023",
+      "range": {
+        "startLine": 1,
+        "startChar": 17,
+        "endLine": 1,
+        "endChar": 21
+      },
+      "revId": "337516029a0f2752ca71ffc0a22ddecbb9e51daf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
