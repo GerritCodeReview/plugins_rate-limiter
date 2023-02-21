@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a6459bc_2f20d1ab",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-02-21T17:21:56Z",
+      "side": 1,
+      "message": "Maybe to long? so all int values now needs to be long, it would help with assited injections as well",
+      "range": {
+        "startLine": 9,
+        "startChar": 27,
+        "endLine": 9,
+        "endChar": 34
+      },
+      "revId": "932c2306a987ea02bfac2c10c4e43535a59c96e2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcb65d26_ad0329e1",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/Module.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-02-21T17:21:56Z",
+      "side": 1,
+      "message": "timelapse still long here",
+      "revId": "932c2306a987ea02bfac2c10c4e43535a59c96e2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
