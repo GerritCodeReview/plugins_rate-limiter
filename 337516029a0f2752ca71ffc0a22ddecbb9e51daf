@@ -41,6 +41,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e8458cc_1f5e467d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/Module.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-02-28T23:35:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa2afd28_6917b276",
+      "range": {
+        "startLine": 73,
+        "startChar": 2,
+        "endLine": 73,
+        "endChar": 8
+      },
+      "revId": "337516029a0f2752ca71ffc0a22ddecbb9e51daf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b80d8e39_7a526194",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-02-08T15:57:27Z",
       "side": 1,
       "message": "It is confusing as it differs from internal review, that is:\nRateLimiter latestLimiter \u003d rateLimiterLoader.loadLatestConfiguration(key, currentLimiter);",
+      "range": {
+        "startLine": 80,
+        "startChar": 57,
+        "endLine": 80,
+        "endChar": 85
+      },
+      "revId": "337516029a0f2752ca71ffc0a22ddecbb9e51daf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b18ccc83_79ca3869",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/RateLimitUploadPack.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-02-28T23:35:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b80d8e39_7a526194",
       "range": {
         "startLine": 80,
         "startChar": 57,
@@ -87,6 +135,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "10862ac7_3009f2ad",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/RateLimitUploadPack.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-02-28T23:35:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6d7bff0_baced3bc",
+      "range": {
+        "startLine": 82,
+        "startChar": 8,
+        "endLine": 82,
+        "endChar": 51
+      },
+      "revId": "337516029a0f2752ca71ffc0a22ddecbb9e51daf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8032d0fd_51cce992",
@@ -100,6 +172,30 @@
       "writtenOn": "2023-02-08T15:57:27Z",
       "side": 1,
       "message": "Should be 2023",
+      "range": {
+        "startLine": 1,
+        "startChar": 17,
+        "endLine": 1,
+        "endChar": 22
+      },
+      "revId": "337516029a0f2752ca71ffc0a22ddecbb9e51daf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4697e9b6_bab6ffcf",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/RateLimiterListener.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-02-28T23:35:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8032d0fd_51cce992",
       "range": {
         "startLine": 1,
         "startChar": 17,
@@ -133,6 +229,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "336fc82a_efeb733f",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-02-28T23:35:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a537ecce_98cd7a74",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 59
+      },
+      "revId": "337516029a0f2752ca71ffc0a22ddecbb9e51daf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9252391e_7599d4a9",
@@ -156,6 +276,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd587f0f_d79dddc9",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/ratelimiter/RateLimiterListenerTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-02-28T23:35:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9252391e_7599d4a9",
+      "range": {
+        "startLine": 1,
+        "startChar": 17,
+        "endLine": 1,
+        "endChar": 21
+      },
+      "revId": "337516029a0f2752ca71ffc0a22ddecbb9e51daf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0e662803_1d87cd95",
@@ -169,6 +313,30 @@
       "writtenOn": "2023-02-08T15:57:27Z",
       "side": 1,
       "message": "2023",
+      "range": {
+        "startLine": 1,
+        "startChar": 17,
+        "endLine": 1,
+        "endChar": 21
+      },
+      "revId": "337516029a0f2752ca71ffc0a22ddecbb9e51daf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cabab533_e8071002",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/ratelimiter/RateLimiterLoaderTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-02-28T23:35:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e662803_1d87cd95",
       "range": {
         "startLine": 1,
         "startChar": 17,
