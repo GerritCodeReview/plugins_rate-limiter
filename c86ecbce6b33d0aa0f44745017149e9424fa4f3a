@@ -24,6 +24,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eef3b5aa_8680a257",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-03-03T23:09:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c55e2325_372eb96a",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 6
+      },
+      "revId": "c86ecbce6b33d0aa0f44745017149e9424fa4f3a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "74a15423_90040a52",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-03-03T16:38:42Z",
       "side": 1,
       "message": "General comment for the change (not to loose it):\nAs we discussed in chat, there should be an option to enable/disable sourcing config from All-Projects.\nThis should be added into gerrit.config.\nFrom my POV etc/config might be main, All-Projects secondary (if main is not available).\n\nIt\u0027s required to be able to disable using All-Projects config as main",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 27
+      },
+      "revId": "c86ecbce6b33d0aa0f44745017149e9424fa4f3a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "376a0f53_7bec8f37",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-03-03T23:09:32Z",
+      "side": 1,
+      "message": "All-project is more flexible, since it does not required to restart gerrit to manage rate-limiter config.",
+      "parentUuid": "74a15423_90040a52",
       "range": {
         "startLine": 9,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b97b39e_d322dbfd",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/Module.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-03-03T23:09:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5ece1bf_bb3bc2f9",
+      "range": {
+        "startLine": 148,
+        "startChar": 44,
+        "endLine": 148,
+        "endChar": 46
+      },
+      "revId": "c86ecbce6b33d0aa0f44745017149e9424fa4f3a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5fc5206e_b9b77ec7",
@@ -100,6 +172,30 @@
       "writtenOn": "2023-03-03T16:38:42Z",
       "side": 1,
       "message": "these tests fail. Is it expected?",
+      "range": {
+        "startLine": 98,
+        "startChar": 2,
+        "endLine": 188,
+        "endChar": 3
+      },
+      "revId": "c86ecbce6b33d0aa0f44745017149e9424fa4f3a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34fd67a9_a37b91f0",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/ratelimiter/ConfigurationTest.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-03-03T23:09:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5fc5206e_b9b77ec7",
       "range": {
         "startLine": 98,
         "startChar": 2,
@@ -133,6 +229,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2613f549_a64612e7",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/ratelimiter/RateLimiterListenerTest.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-03-03T23:09:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16bf6d9b_3b1fad48",
+      "range": {
+        "startLine": 107,
+        "startChar": 2,
+        "endLine": 111,
+        "endChar": 3
+      },
+      "revId": "c86ecbce6b33d0aa0f44745017149e9424fa4f3a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "60072880_d01ab786",
@@ -146,6 +266,30 @@
       "writtenOn": "2023-03-03T16:38:42Z",
       "side": 1,
       "message": "not clear what to do with these tests.",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 56
+      },
+      "revId": "c86ecbce6b33d0aa0f44745017149e9424fa4f3a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39a7b5ef_b0b22c39",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/ratelimiter/RateLimiterLoaderTest.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-03-03T23:09:32Z",
+      "side": 1,
+      "message": "I deleted RateLimiterLoaderTest since my logic change regardingg changing configuration for rate-limiter plugin. Before, I only change the rate-limiter for a user, when they fetch something. This method seems faster since I evenly spread the load for changing configuration. However, The list command does not work correctly because of that, since it will display outdated information.\nIn the new patch, when the configuration change, rate-limiter plugin will instantly change rate-limit for all users, it will be slower than previous method, but the list command will work correctly",
+      "parentUuid": "60072880_d01ab786",
       "range": {
         "startLine": 74,
         "startChar": 0,

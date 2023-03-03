@@ -24,6 +24,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f96c20aa_62350bee",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/Configuration.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-03-03T23:09:32Z",
+      "side": 1,
+      "message": "I don\u0027t think it is possible",
+      "parentUuid": "63247337_b4edb8c3",
+      "range": {
+        "startLine": 93,
+        "startChar": 6,
+        "endLine": 96,
+        "endChar": 5
+      },
+      "revId": "15f005e3b1224f99314952b030573c2eaae85c68",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c18bf74c_9fbc6a6d",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-03-03T16:38:42Z",
       "side": 1,
       "message": "Is it OK that we\u0027re catching exception in this case when proper config is crucial to run the plugin?",
+      "range": {
+        "startLine": 132,
+        "startChar": 0,
+        "endLine": 134,
+        "endChar": 7
+      },
+      "revId": "15f005e3b1224f99314952b030573c2eaae85c68",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af61ed17_435b0ff1",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/Configuration.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-03-03T23:09:32Z",
+      "side": 1,
+      "message": "If the config is invalid, then it will load default configuration. Meaning it can still run without it.",
+      "parentUuid": "c18bf74c_9fbc6a6d",
       "range": {
         "startLine": 132,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "93202576_80168105",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/PeriodicRateLimiter.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-03-03T23:09:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b8df92c_3b97c273",
+      "range": {
+        "startLine": 58,
+        "startChar": 2,
+        "endLine": 58,
+        "endChar": 9
+      },
+      "revId": "15f005e3b1224f99314952b030573c2eaae85c68",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3c58e219_4e5b5777",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-03-03T16:38:42Z",
       "side": 1,
       "message": "Just to double check: if it\u0027s a space, we have to remove it in the end of each line (like it\u0027s done in line 9).",
+      "range": {
+        "startLine": 7,
+        "startChar": 73,
+        "endLine": 7,
+        "endChar": 74
+      },
+      "revId": "15f005e3b1224f99314952b030573c2eaae85c68",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74939f77_e8e4689b",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-03-03T23:09:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c58e219_4e5b5777",
       "range": {
         "startLine": 7,
         "startChar": 73,
