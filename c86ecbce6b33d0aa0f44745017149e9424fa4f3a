@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c55e2325_372eb96a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2023-03-03T16:38:42Z",
+      "side": 1,
+      "message": "replace with \"Add\"",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 6
+      },
+      "revId": "c86ecbce6b33d0aa0f44745017149e9424fa4f3a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74a15423_90040a52",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2023-03-03T16:38:42Z",
+      "side": 1,
+      "message": "General comment for the change (not to loose it):\nAs we discussed in chat, there should be an option to enable/disable sourcing config from All-Projects.\nThis should be added into gerrit.config.\nFrom my POV etc/config might be main, All-Projects secondary (if main is not available).\n\nIt\u0027s required to be able to disable using All-Projects config as main",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 27
+      },
+      "revId": "c86ecbce6b33d0aa0f44745017149e9424fa4f3a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13a6cba2_1e57847f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2023-03-03T16:38:42Z",
+      "side": 1,
+      "message": "The change is quite interesting.\n\nPlease check comments to make some improvements.",
+      "revId": "c86ecbce6b33d0aa0f44745017149e9424fa4f3a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5ece1bf_bb3bc2f9",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/Module.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2023-03-03T16:38:42Z",
+      "side": 1,
+      "message": "maybe take PeriodicRateLimiter.DEFAULT_TIME_LAPSE_IN_MINUTES (not sure if it\u0027s best idea);\nor create CONSTANT.",
+      "range": {
+        "startLine": 148,
+        "startChar": 44,
+        "endLine": 148,
+        "endChar": 46
+      },
+      "revId": "c86ecbce6b33d0aa0f44745017149e9424fa4f3a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fc5206e_b9b77ec7",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/ratelimiter/ConfigurationTest.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2023-03-03T16:38:42Z",
+      "side": 1,
+      "message": "these tests fail. Is it expected?",
+      "range": {
+        "startLine": 98,
+        "startChar": 2,
+        "endLine": 188,
+        "endChar": 3
+      },
+      "revId": "c86ecbce6b33d0aa0f44745017149e9424fa4f3a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16bf6d9b_3b1fad48",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/ratelimiter/RateLimiterListenerTest.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2023-03-03T16:38:42Z",
+      "side": 1,
+      "message": "test fails",
+      "range": {
+        "startLine": 107,
+        "startChar": 2,
+        "endLine": 111,
+        "endChar": 3
+      },
+      "revId": "c86ecbce6b33d0aa0f44745017149e9424fa4f3a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60072880_d01ab786",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/ratelimiter/RateLimiterLoaderTest.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2023-03-03T16:38:42Z",
+      "side": 1,
+      "message": "not clear what to do with these tests.",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 56
+      },
+      "revId": "c86ecbce6b33d0aa0f44745017149e9424fa4f3a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
