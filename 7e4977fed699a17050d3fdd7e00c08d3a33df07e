@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d109ad1d_c5afb92c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2023-03-06T10:58:28Z",
+      "side": 1,
+      "message": "it\u0027s not obvious, consistency with what do we want to achieve.\nwe have int limit (number of operations) and long timeLapse (time).\nIf looking at tests, after change we should apply (long) to be compatible with ScheduledExecutorService, that uses long.\nLet\u0027s clarify why do we have to change timelapse from long to int.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 50
+      },
+      "revId": "7e4977fed699a17050d3fdd7e00c08d3a33df07e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "061e53a2_aa2f7c4f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/PeriodicRateLimiter.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2023-03-06T10:58:28Z",
+      "side": 1,
+      "message": "(in case if we still have to change timeLapse from long to int)\nif we replace\n@Assisted int permits,\n@Assisted long timeLapse\nwith\n@Assisted(\"permits\") int permits,\n@Assisted(\"timeLaps\") int timeLapse,\n\nwe can then replace\nthis.timeLapse \u003d (int)timeLapse;\nwith\nthis.timeLapse \u003d timeLapse;\n\nI think that would be a reasonable change (but let me know if not).",
+      "range": {
+        "startLine": 43,
+        "startChar": 6,
+        "endLine": 50,
+        "endChar": 36
+      },
+      "revId": "7e4977fed699a17050d3fdd7e00c08d3a33df07e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
