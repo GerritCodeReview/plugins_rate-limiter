@@ -24,6 +24,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec9f12c2_f4553e5f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-03-06T21:10:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac8624e6_e5c57671",
+      "range": {
+        "startLine": 17,
+        "startChar": 47,
+        "endLine": 17,
+        "endChar": 51
+      },
+      "revId": "4d0f44136c7206a7bb5c0d7b341afbcbddcdfc44",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f81aa1a7_ebcd69ae",
@@ -65,6 +89,54 @@
         "startChar": 61,
         "endLine": 18,
         "endChar": 68
+      },
+      "revId": "4d0f44136c7206a7bb5c0d7b341afbcbddcdfc44",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61de9938_1c1c1134",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-03-06T21:10:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d82cb2a7_45c7c0a5",
+      "range": {
+        "startLine": 18,
+        "startChar": 61,
+        "endLine": 18,
+        "endChar": 68
+      },
+      "revId": "4d0f44136c7206a7bb5c0d7b341afbcbddcdfc44",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7f2c9ae_a8f04a0a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-03-06T21:10:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f81aa1a7_ebcd69ae",
+      "range": {
+        "startLine": 18,
+        "startChar": 14,
+        "endLine": 18,
+        "endChar": 17
       },
       "revId": "4d0f44136c7206a7bb5c0d7b341afbcbddcdfc44",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
@@ -116,6 +188,54 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f5b22b4_9e957ab2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-03-06T21:10:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "59f6a7fc_fc186e84",
+      "range": {
+        "startLine": 19,
+        "startChar": 16,
+        "endLine": 19,
+        "endChar": 20
+      },
+      "revId": "4d0f44136c7206a7bb5c0d7b341afbcbddcdfc44",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d34bf42_a8c3a2d0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-03-06T21:10:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c85b8763_37613a80",
+      "range": {
+        "startLine": 19,
+        "startChar": 68,
+        "endLine": 19,
+        "endChar": 70
+      },
+      "revId": "4d0f44136c7206a7bb5c0d7b341afbcbddcdfc44",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "438ef976_1d2d438f",
@@ -162,6 +282,54 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b40d3a76_fde942e3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-03-06T21:10:51Z",
+      "side": 1,
+      "message": "No, The rate limit will be deleted and a new one will be created again when a user initiate fetch. Meaning I am only resetting rate limit for people whose configuration has changed.",
+      "parentUuid": "438ef976_1d2d438f",
+      "range": {
+        "startLine": 20,
+        "startChar": 17,
+        "endLine": 20,
+        "endChar": 25
+      },
+      "revId": "4d0f44136c7206a7bb5c0d7b341afbcbddcdfc44",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd6d93b5_6daa3e22",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-03-06T21:10:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22100d3c_1daa4f6a",
+      "range": {
+        "startLine": 20,
+        "startChar": 9,
+        "endLine": 20,
+        "endChar": 13
+      },
+      "revId": "4d0f44136c7206a7bb5c0d7b341afbcbddcdfc44",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "610700b5_95525008",
@@ -185,6 +353,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "def42c76_089b8333",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/Configuration.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-03-06T21:10:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "610700b5_95525008",
+      "range": {
+        "startLine": 125,
+        "startChar": 8,
+        "endLine": 125,
+        "endChar": 39
+      },
+      "revId": "4d0f44136c7206a7bb5c0d7b341afbcbddcdfc44",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cc53f376_3302d327",
@@ -198,6 +390,30 @@
       "writtenOn": "2023-03-06T14:38:11Z",
       "side": 1,
       "message": "Two things:\n1. I think it will be good to add description of what happens in case is both configs are not available or are corrupted.\n2. According to what I checked: in case if both configs are not available or corrupted, no limits are applied. So rate-limiter does nothing. I think in this case there is no need to install rate-limiter. In case somebody installs rate-limiter, he/she wants it to apply some configuration, so if configuration is absent or corrupted, it\u0027s an issue and should be flagged. I think there should be no option when rate-limiter is installed and there is no config for it.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 80
+      },
+      "revId": "4d0f44136c7206a7bb5c0d7b341afbcbddcdfc44",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b646414_fc7f6247",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 11
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-03-06T21:10:51Z",
+      "side": 1,
+      "message": "The behavior is the same is source code",
+      "parentUuid": "cc53f376_3302d327",
       "range": {
         "startLine": 7,
         "startChar": 0,
