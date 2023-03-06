@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d480176a_ffa2e881",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/Configuration.java",
+        "patchSetId": 17
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-03-06T23:57:45Z",
+      "side": 1,
+      "message": "wildcard import",
+      "revId": "39c71a1e28eb2498b8453dd199aa062d01d1c656",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b90522de_98076310",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/Configuration.java",
+        "patchSetId": 17
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-03-06T23:57:45Z",
+      "side": 1,
+      "message": "Maybe already exists. Use AllProjectsName class, so inject AllProjectsName class and use get() method.",
+      "revId": "39c71a1e28eb2498b8453dd199aa062d01d1c656",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd6adf43_64baaf34",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/RateLimiterListener.java",
+        "patchSetId": 17
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-03-06T23:57:45Z",
+      "side": 1,
+      "message": "check for which project, now it reacts to \"all\" projects not only All-Projects",
+      "revId": "39c71a1e28eb2498b8453dd199aa062d01d1c656",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6acb073e_09e3a519",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 17
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-03-06T23:57:45Z",
+      "side": 1,
+      "message": "space",
+      "range": {
+        "startLine": 15,
+        "startChar": 62,
+        "endLine": 15,
+        "endChar": 63
+      },
+      "revId": "39c71a1e28eb2498b8453dd199aa062d01d1c656",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
