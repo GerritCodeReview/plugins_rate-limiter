@@ -141,6 +141,30 @@
       },
       "revId": "7e4977fed699a17050d3fdd7e00c08d3a33df07e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "445fb195_15ede6a6",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/PeriodicRateLimiter.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-03-06T20:36:20Z",
+      "side": 1,
+      "message": "I managed to make it works, it only works with classes but not primitive types",
+      "parentUuid": "1c692bc7_cfd65193",
+      "range": {
+        "startLine": 43,
+        "startChar": 6,
+        "endLine": 50,
+        "endChar": 36
+      },
+      "revId": "7e4977fed699a17050d3fdd7e00c08d3a33df07e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
