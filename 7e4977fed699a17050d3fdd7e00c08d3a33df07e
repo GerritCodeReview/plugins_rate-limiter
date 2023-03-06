@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a6f916cb_ed44d788",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2023-03-06T11:27:29Z",
+      "side": 1,
+      "message": "not related to ScheduledExecutorService, but the item should be still clarified",
+      "parentUuid": "d109ad1d_c5afb92c",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 50
+      },
+      "revId": "7e4977fed699a17050d3fdd7e00c08d3a33df07e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "061e53a2_aa2f7c4f",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/PeriodicRateLimiter.java",
         "patchSetId": 6
