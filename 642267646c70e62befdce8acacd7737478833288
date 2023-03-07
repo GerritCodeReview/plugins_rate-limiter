@@ -106,6 +106,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a28ea4d9_aa2953c3",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/ratelimiter/ConfigurationTest.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-03-07T14:41:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8c2cde3_f8cd4bbe",
+      "range": {
+        "startLine": 112,
+        "startChar": 11,
+        "endLine": 112,
+        "endChar": 30
+      },
+      "revId": "642267646c70e62befdce8acacd7737478833288",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9f29a242_267c681e",
