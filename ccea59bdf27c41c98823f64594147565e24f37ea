@@ -24,6 +24,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0395b1cd_9057d25d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/Configuration.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-03-07T21:40:32Z",
+      "side": 1,
+      "message": "Wrong logic",
+      "parentUuid": "929a32f7_a549cd99",
+      "range": {
+        "startLine": 221,
+        "startChar": 0,
+        "endLine": 234,
+        "endChar": 3
+      },
+      "revId": "ccea59bdf27c41c98823f64594147565e24f37ea",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cc7637aa_553aca0e",
@@ -41,6 +65,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1afb07e_86921d42",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/Module.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-03-07T21:40:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc7637aa_553aca0e",
+      "revId": "ccea59bdf27c41c98823f64594147565e24f37ea",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2aad9454_c467d5ac",
@@ -54,6 +96,30 @@
       "writtenOn": "2023-03-07T20:32:53Z",
       "side": 1,
       "message": "can be removed",
+      "range": {
+        "startLine": 134,
+        "startChar": 23,
+        "endLine": 134,
+        "endChar": 29
+      },
+      "revId": "ccea59bdf27c41c98823f64594147565e24f37ea",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4411f7aa_fc30adf2",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/Module.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-03-07T21:40:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2aad9454_c467d5ac",
       "range": {
         "startLine": 134,
         "startChar": 23,
@@ -87,6 +153,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae129d71_c5808987",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/Module.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-03-07T21:40:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67dcf59f_42de49c9",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 5
+      },
+      "revId": "ccea59bdf27c41c98823f64594147565e24f37ea",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1462e413_ed6a46ba",
@@ -100,6 +190,30 @@
       "writtenOn": "2023-03-07T20:32:53Z",
       "side": 1,
       "message": "maybe parallelStream for optmization of cpu usage",
+      "range": {
+        "startLine": 97,
+        "startChar": 39,
+        "endLine": 97,
+        "endChar": 45
+      },
+      "revId": "ccea59bdf27c41c98823f64594147565e24f37ea",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9faf061f_22c31fe3",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/RateLimitUploadPack.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-03-07T21:40:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1462e413_ed6a46ba",
       "range": {
         "startLine": 97,
         "startChar": 39,
@@ -133,6 +247,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a584a71d_0f7387a2",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/RateLimiterListener.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-03-07T21:40:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae000bd9_1dbced05",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 48
+      },
+      "revId": "ccea59bdf27c41c98823f64594147565e24f37ea",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ebd752a4_e0469a7b",
@@ -146,6 +284,30 @@
       "writtenOn": "2023-03-07T20:32:53Z",
       "side": 1,
       "message": "@Inject\n  public RateLimiterListener(\n      AllProjectsName allProjectsName,\n      @GerritIsReplica Boolean isReplica,\n      MetaDataUpdate.Server metaDataUpdateFactory,\n      ProjectConfig.Factory projectConfigFactory,\n      RateLimitUploadPack rateLimitUploadPack) {\n    this.allProjectsName \u003d allProjectsName;\n    this.isReplica \u003d isReplica;\n    this.metaDataUpdateFactory \u003d metaDataUpdateFactory;\n    this.projectConfigFactory \u003d projectConfigFactory;\n    this.rateLimitUploadPack \u003d rateLimitUploadPack;\n  }",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 3
+      },
+      "revId": "ccea59bdf27c41c98823f64594147565e24f37ea",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2566262_496b5429",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/RateLimiterListener.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-03-07T21:40:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ebd752a4_e0469a7b",
       "range": {
         "startLine": 38,
         "startChar": 0,
