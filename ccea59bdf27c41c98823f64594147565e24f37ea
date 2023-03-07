@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "929a32f7_a549cd99",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/Configuration.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-03-07T20:32:53Z",
+      "side": 1,
+      "message": "static boolean isSameRateLimitType(RateLimiter limiter, Optional\u003cRateLimit\u003e limit, Optional\u003cRateLimit\u003e warn) {\n  if (limit.isPresent()) {\n    return limiter instanceof PeriodicRateLimiter;\n  } else if (warn.isPresent()) {\n    if (limit.isEmpty()) {\n      return limiter instanceof WarningUnlimitedRateLimiter;\n    } else {\n      return limiter instanceof WarningRateLimiter;\n    }\n  } else {\n    return limiter instanceof UnlimitedRateLimiter;\n  }\n}\n\n\nlimit.isPresent can be pulled out",
+      "range": {
+        "startLine": 221,
+        "startChar": 0,
+        "endLine": 234,
+        "endChar": 3
+      },
+      "revId": "ccea59bdf27c41c98823f64594147565e24f37ea",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc7637aa_553aca0e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/Module.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-03-07T20:32:53Z",
+      "side": 1,
+      "message": "move up for alphabetic order",
+      "revId": "ccea59bdf27c41c98823f64594147565e24f37ea",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2aad9454_c467d5ac",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/Module.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-03-07T20:32:53Z",
+      "side": 1,
+      "message": "can be removed",
+      "range": {
+        "startLine": 134,
+        "startChar": 23,
+        "endLine": 134,
+        "endChar": 29
+      },
+      "revId": "ccea59bdf27c41c98823f64594147565e24f37ea",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67dcf59f_42de49c9",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/Module.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-03-07T20:32:53Z",
+      "side": 1,
+      "message": "boolean isValidKey(String key, RateLimiter limiter) {\n  Optional\u003cRateLimit\u003e limit \u003d finder.find(RateLimitType.UPLOAD_PACK_PER_HOUR, key);\n  Optional\u003cRateLimit\u003e warn \u003d finder.find(RateLimitType.UPLOAD_PACK_PER_HOUR_WARN, key);\n  Optional\u003cRateLimit\u003e timeLapse \u003d finder.find(RateLimitType.TIME_LAPSE_IN_MINUTES, key);\n\n  int tableLimit \u003d limit.map(RateLimit::getRatePerHour).orElse(Module.DEFAULT_LIMIT);\n  int tableTimeLapse \u003d timeLapse.map(RateLimit::getRatePerHour).orElse(PeriodicRateLimiter.DEFAULT_TIME_LAPSE_IN_MINUTES);\n\n  if (!Configuration.isSameRateLimitType(limiter, limit, warn)\n      || limiter.permitsPerHour() !\u003d tableLimit\n      || limiter.getTimeLapse().orElse(PeriodicRateLimiter.DEFAULT_TIME_LAPSE_IN_MINUTES) !\u003d tableTimeLapse\n      || (limiter instanceof WarningRateLimiter || limiter instanceof WarningUnlimitedRateLimiter) \u0026\u0026 limiter.getWarnLimit().map(w -\u003e w !\u003d warn.map(RateLimit::getRatePerHour).orElse(null)).orElse(false)) {\n    return false;\n  }\n  return true;\n}\n\na bit more modernized code",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 5
+      },
+      "revId": "ccea59bdf27c41c98823f64594147565e24f37ea",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1462e413_ed6a46ba",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/RateLimitUploadPack.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-03-07T20:32:53Z",
+      "side": 1,
+      "message": "maybe parallelStream for optmization of cpu usage",
+      "range": {
+        "startLine": 97,
+        "startChar": 39,
+        "endLine": 97,
+        "endChar": 45
+      },
+      "revId": "ccea59bdf27c41c98823f64594147565e24f37ea",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae000bd9_1dbced05",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/RateLimiterListener.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-03-07T20:32:53Z",
+      "side": 1,
+      "message": "private final AllProjectsName allProjectsName;\n  private final boolean isReplica;\n  private final MetaDataUpdate.Server metaDataUpdateFactory;\n  private final ProjectConfig.Factory projectConfigFactory;\n  private final RateLimitUploadPack rateLimitUploadPack;",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 48
+      },
+      "revId": "ccea59bdf27c41c98823f64594147565e24f37ea",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebd752a4_e0469a7b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/RateLimiterListener.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-03-07T20:32:53Z",
+      "side": 1,
+      "message": "@Inject\n  public RateLimiterListener(\n      AllProjectsName allProjectsName,\n      @GerritIsReplica Boolean isReplica,\n      MetaDataUpdate.Server metaDataUpdateFactory,\n      ProjectConfig.Factory projectConfigFactory,\n      RateLimitUploadPack rateLimitUploadPack) {\n    this.allProjectsName \u003d allProjectsName;\n    this.isReplica \u003d isReplica;\n    this.metaDataUpdateFactory \u003d metaDataUpdateFactory;\n    this.projectConfigFactory \u003d projectConfigFactory;\n    this.rateLimitUploadPack \u003d rateLimitUploadPack;\n  }",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 3
+      },
+      "revId": "ccea59bdf27c41c98823f64594147565e24f37ea",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
