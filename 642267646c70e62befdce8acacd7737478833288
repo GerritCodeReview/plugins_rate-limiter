@@ -1,0 +1,228 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1d87ad8_c2ada0d3",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/Configuration.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-03-07T00:33:55Z",
+      "side": 1,
+      "message": "group with finals below",
+      "revId": "642267646c70e62befdce8acacd7737478833288",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e9dd1ca_94eee395",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/ratelimiter/ConfigurationTest.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-03-07T00:33:55Z",
+      "side": 1,
+      "message": "not private?",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 50
+      },
+      "revId": "642267646c70e62befdce8acacd7737478833288",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8c2cde3_f8cd4bbe",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/ratelimiter/ConfigurationTest.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-03-07T00:33:55Z",
+      "side": 1,
+      "message": "configInAllProjects",
+      "range": {
+        "startLine": 112,
+        "startChar": 11,
+        "endLine": 112,
+        "endChar": 30
+      },
+      "revId": "642267646c70e62befdce8acacd7737478833288",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f29a242_267c681e",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/ratelimiter/ConfigurationTest.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-03-07T00:33:55Z",
+      "side": 1,
+      "message": "split the test, one for replica mode one for non replica mode",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 144,
+        "endChar": 51
+      },
+      "revId": "642267646c70e62befdce8acacd7737478833288",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b2298aa_fab94666",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/ratelimiter/ConfigurationTest.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-03-07T00:33:55Z",
+      "side": 1,
+      "message": "verifyConfigInTable",
+      "range": {
+        "startLine": 190,
+        "startChar": 4,
+        "endLine": 190,
+        "endChar": 25
+      },
+      "revId": "642267646c70e62befdce8acacd7737478833288",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2bc118a_b6616f61",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/ratelimiter/ConfigurationTest.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-03-07T00:33:55Z",
+      "side": 1,
+      "message": "testInvalidConfigInAllProjects",
+      "range": {
+        "startLine": 194,
+        "startChar": 14,
+        "endLine": 194,
+        "endChar": 44
+      },
+      "revId": "642267646c70e62befdce8acacd7737478833288",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abe6b856_2dba9b05",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/ratelimiter/ConfigurationTest.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-03-07T00:33:55Z",
+      "side": 1,
+      "message": "testNoConfigInAllProjects",
+      "range": {
+        "startLine": 229,
+        "startChar": 14,
+        "endLine": 229,
+        "endChar": 39
+      },
+      "revId": "642267646c70e62befdce8acacd7737478833288",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6b46ed5_07d3ebb9",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/ratelimiter/ConfigurationTest.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-03-07T00:33:55Z",
+      "side": 1,
+      "message": "verifyConfigInTable",
+      "range": {
+        "startLine": 354,
+        "startChar": 15,
+        "endLine": 354,
+        "endChar": 36
+      },
+      "revId": "642267646c70e62befdce8acacd7737478833288",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3813f2f2_fa74e0e9",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/ratelimiter/RateLimiterListenerTest.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-03-07T00:33:55Z",
+      "side": 1,
+      "message": "ALL_PROJECTS",
+      "range": {
+        "startLine": 49,
+        "startChar": 43,
+        "endLine": 49,
+        "endChar": 57
+      },
+      "revId": "642267646c70e62befdce8acacd7737478833288",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c6497b7_3f1768d7",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/ratelimiter/RateLimiterListenerTest.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-03-07T00:33:55Z",
+      "side": 1,
+      "message": "testThat only trigger refresh on All-Project not any projects (i.e. All-Users)",
+      "range": {
+        "startLine": 109,
+        "startChar": 14,
+        "endLine": 109,
+        "endChar": 34
+      },
+      "revId": "642267646c70e62befdce8acacd7737478833288",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
