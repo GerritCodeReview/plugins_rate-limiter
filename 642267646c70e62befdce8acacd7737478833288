@@ -18,6 +18,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "544937f6_57e0df79",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/Configuration.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-03-07T03:56:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f1d87ad8_c2ada0d3",
+      "revId": "642267646c70e62befdce8acacd7737478833288",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6e9dd1ca_94eee395",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-03-07T00:33:55Z",
       "side": 1,
       "message": "not private?",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 50
+      },
+      "revId": "642267646c70e62befdce8acacd7737478833288",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7adb7a29_8d7e33ae",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/ratelimiter/ConfigurationTest.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-03-07T03:56:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e9dd1ca_94eee395",
       "range": {
         "startLine": 56,
         "startChar": 0,
@@ -77,6 +119,30 @@
       "writtenOn": "2023-03-07T00:33:55Z",
       "side": 1,
       "message": "split the test, one for replica mode one for non replica mode",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 144,
+        "endChar": 51
+      },
+      "revId": "642267646c70e62befdce8acacd7737478833288",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "213023b4_79e09f10",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/ratelimiter/ConfigurationTest.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-03-07T03:56:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f29a242_267c681e",
       "range": {
         "startLine": 110,
         "startChar": 0,
@@ -312,6 +378,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "3813f2f2_fa74e0e9",
+      "range": {
+        "startLine": 49,
+        "startChar": 43,
+        "endLine": 49,
+        "endChar": 57
+      },
+      "revId": "642267646c70e62befdce8acacd7737478833288",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "099658b8_e3cc79ca",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/ratelimiter/RateLimiterListenerTest.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-03-07T03:56:19Z",
+      "side": 1,
+      "message": "Not done```suggestion\n    when(allProjectsName.get()).thenReturn(\"All-Projects\");\n``````suggestion\n    when(allProjectsName.get()).thenReturn(ALL_PROJECTS);\n```",
+      "parentUuid": "d42c409f_8eaaa5cc",
       "range": {
         "startLine": 49,
         "startChar": 43,
