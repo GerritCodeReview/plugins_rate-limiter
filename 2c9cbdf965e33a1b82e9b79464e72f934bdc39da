@@ -65,6 +65,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fe8ec29_e86cf2a7",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/ratelimiter/Module.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-03-08T15:16:32Z",
+      "side": 1,
+      "message": "I believed (\u0026\u0026) has higher precedence than the logical-OR operator (||)",
+      "parentUuid": "e90a7af9_3b8ab3ff",
+      "range": {
+        "startLine": 144,
+        "startChar": 13,
+        "endLine": 149,
+        "endChar": 32
+      },
+      "revId": "2c9cbdf965e33a1b82e9b79464e72f934bdc39da",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b5b51cd8_82181f43",
