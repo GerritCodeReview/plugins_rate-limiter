@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcb3dc5d_aeacb48b",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/ratelimiter/ConfigurationTest.java",
+        "patchSetId": 26
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-03-09T19:58:42Z",
+      "side": 1,
+      "message": "getUploadPackLimits",
+      "range": {
+        "startLine": 356,
+        "startChar": 23,
+        "endLine": 356,
+        "endChar": 44
+      },
+      "revId": "413f4129960d656b16afa74460341395ef672e1a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
