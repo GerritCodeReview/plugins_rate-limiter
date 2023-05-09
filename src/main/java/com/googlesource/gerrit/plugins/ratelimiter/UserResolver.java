@@ -38,10 +38,7 @@ class UserResolver {
   }
 
   Optional<String> getUserName(String key) {
-    Optional<IdentifiedUser> user = getIdentifiedUser(key);
-    return user.isPresent()
-        ? Optional.ofNullable(user.get().getUserName().get())
-        : Optional.empty();
+    return getIdentifiedUser(key).flatMap(IdentifiedUser::getUserName);
   }
 
   private static boolean isNumeric(String key) {
