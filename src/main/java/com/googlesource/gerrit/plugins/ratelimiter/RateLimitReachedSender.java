@@ -67,7 +67,7 @@ public class RateLimitReachedSender extends OutgoingEmail {
     setMessageId(
         messageIdGenerator.fromReasonAccountIdAndTimestamp(
             "rate_limit_reached", user.getAccountId(), TimeUtil.now()));
-    add(RecipientType.TO, user.getAccountId());
+    addByAccountId(RecipientType.TO, user.getAccountId());
   }
 
   @Override
