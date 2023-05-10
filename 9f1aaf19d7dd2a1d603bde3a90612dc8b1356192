@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9a060d1_8b4f6ea3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1025452
+      },
+      "writtenOn": "2023-05-10T15:17:50Z",
+      "side": 1,
+      "message": "I have verified it locally with the following call in `stable-3.7` Gerrit\u0027s tree\n```\nbazel test --cache_test_results\u003dNO plugins/rate-limiter/...\n```",
+      "revId": "9f1aaf19d7dd2a1d603bde3a90612dc8b1356192",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
